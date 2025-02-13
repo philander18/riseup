@@ -1,0 +1,157 @@
+:root {
+    --primary : #2980B9;
+    --bg : #EAEDED;
+    --sekunder : #1F618D;
+    --light : #D35400;
+    --text : #2C3E50;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'poppins', serif;
+    background-color: var(--bg);
+    color: var(--text);
+    /* min-height: 2000px; */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background-color: var(--sekunder);
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar-logo img{
+    width: 140px;
+    border-radius: 1.5rem;
+}
+
+.navbar .navbar-nav a{
+    display: inline-block;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0.6rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--light);
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--light);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+    color: white;
+    margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--light);
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+.section-awal {
+    min-height: 100vh;
+    display: flex;
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 83px 1rem 1rem 1rem;
+}
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 90%;
+    }
+}
+/* Tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: var(--primary);
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    } 
+
+    .navbar .navbar-nav a {
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.3);
+    }
+    
+}
+/* Mobile phone */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+    .section-awal {
+        background-image: url('../images/background_mobile.png');
+    }
+}
+
+
+
+
+
+
+
