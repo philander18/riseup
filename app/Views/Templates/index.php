@@ -30,6 +30,7 @@
         feather.replace();
     </script>
     <?= $this->include('Templates/script'); ?>
+    <?= $this->include('Registrasi/script'); ?>
 </body>
 
 </html>
