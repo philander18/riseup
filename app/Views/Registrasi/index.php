@@ -4,7 +4,7 @@
 <section class="section-awal" id="registrasi">
     <div class="registrasi-form">
         <h1>Form Registrasi</h1>
-        <div class="flash-update"></div>
+        <div class="flash"></div>
         <div class="form-group">
             <label for="nama">Nama</label>
             <input type="text" id="nama" placeholder="Nama Lengkap" required>
@@ -14,22 +14,29 @@
             <input type="text" id="hp" placeholder="Nomor Handphone" required>
         </div>
         <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="">Pilih Gender</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="umur">Umur</label>
             <select id="umur">
                 <option value="">Pilih Umur</option>
-                <script>
-                    for (let i = 10; i <= 100; i++) {
-                        document.write(`<option value="${i}">${i}</option>`);
-                    }
-                </script>
+                <option value="12-18">12-18 tahun</option>
+                <option value="19-30">19-30 tahun</option>
+                <option value="31+">31+ tahun</option>
             </select>
         </div>
         <div class="form-group">
             <label for="gereja">Gereja</label>
             <select id="gereja">
                 <option value="">Pilih Gereja</option>
-                <option value="Gereja A">Gereja A</option>
-                <option value="Gereja B">Gereja B</option>
+                <?php foreach ($list_gereja as $gereja) : ?>
+                    <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
+                <?php endforeach ?>
                 <option value="lainnya">Lainnya...</option>
             </select>
         </div>

@@ -15,7 +15,7 @@
     <link href="<?= base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- Logo Icon -->
-    <link rel="shortcut icon" href="<?= base_url(); ?>public/images/logo.png">
+    <link rel="shortcut icon" href="<?= base_url(); ?>public/images/logo1.png">
 
     <!-- Feather icon -->
     <script src="https://unpkg.com/feather-icons"></script>
