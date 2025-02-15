@@ -284,7 +284,7 @@ body {
     }
 
     .section-awal .registrasi-form{
-        font-size: 2rem !important ;
+        font-size: 1.5rem !important ;
         width: 100%;
     }
 
@@ -293,7 +293,7 @@ body {
     }
 
     .section-awal .registrasi-form h1 {
-        font-size: 3rem !important;
+        font-size: 2.6rem !important;
     }
 
     .section-awal .registrasi-form button {
@@ -301,7 +301,7 @@ body {
     }
 
     .alert {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
 }
