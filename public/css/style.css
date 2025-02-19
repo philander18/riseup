@@ -275,157 +275,20 @@ body {
     text-align: center;
 }
 
-
-
-
-
-/* Usaha Dana */
-.container-fluid.shop {
-    background-image: url('../images/shop/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    padding-top: 8rem; 
-}
-
-.container.shop-awal {
-    margin: 1rem auto;
-}
-
-.shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 400px));
-    gap: 0.5rem;
-    justify-content: center;
-}
-
-.shop-icon {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.shop-icon a {
-    width: 4rem;
-    height: 4rem;
-    margin: 0.3rem;
-    border: 1px solid var(--sekunder);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.shop-icon a:hover {
-    background-color: var(--light);
-    border: 1px solid var(--light);
-}
-
-.shop-image {
-    padding: 1rem 0;
-    text-align: center;
-}
-
-.shop-image img {
-    height: 20rem;
-}
-
-
-/* Registrasi */
-.section-awal#registrasi {
-    background-image: url('../images/registrasi.jpg');
-    justify-content: center;
-}
-
-.section-awal .registrasi-form {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 90%;
-    font-size: 1.2rem;
-    max-width: 500px;
-    padding: 2rem;
-    margin-top: 3rem;
-    border: 2px solid var(--sekunder);
-    border-radius: 0.6rem;
-    background-color: var(--primary);
-    box-shadow: 0 0 0.6rem rgba(0, 0, 0, .1);
-    background-image: url('../images/registrasi-background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.section-awal .registrasi-form h1 {
-    margin: 2rem auto 1rem;
-    font-size: 2rem;
-    text-shadow: 1px 1px white, -1px -1px white;
-}
-.section-awal .registrasi-form .form-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.2rem;
-    text-shadow: 1px 1px white, -1px -1px white;
-}
-
-.section-awal .registrasi-form .form-group label {
-    font-weight: bold;
-    width: 20%;
-    text-align: left;
-}
-
-.form-group input, .form-group select, .form-group textarea {
-    width: 75%;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.section-awal .registrasi-form button {
-    background-color: var(--primary);
-    color: white;
-    padding: 0.5rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: 2px solid var(--bg);
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 1.2rem;
-}
-
-.section-awal .registrasi-form button:disabled {
-    background-color: #98c0da;
-    color: #666;
-    cursor: not-allowed;
-}
-
-.section-awal .registrasi-form button:hover {
-    background-color: var(--light);
-}
-#gerejaLain {
-    display: none;
-}
-
-.active#gerejaLain {
-    display: flex;
-}
-
 /* Media Queries */
 
 /* Laptop */
-@media (max-width: 1366px) {
+@media (max-width: 1399.98px) {
     html {
-        font-size: 90%;
+        font-size: 95%;
     }
 }
-/* Tablet */
-@media (max-width: 768px) {
-    html {
-        font-size: 62.5%;
-    }
 
+/* Tablet */
+@media (max-width: 991.98px) {
+    html {
+        font-size: 80%;
+    }
     #hamburger-menu {
         display: inline-block;
         cursor: pointer;
@@ -459,74 +322,56 @@ body {
     .navbar-phil .navbar-nav-phil a:hover::after {
         transform: scaleX(0.3);
     }
+}
 
-    .section-awal .registrasi-form {
-        font-size: 1.7rem !important ;
-    }
-
-    .section-awal .registrasi-form .form-group {
-        margin-bottom: 1.8rem;
-    }
-
-    .section-awal .registrasi-form h1 {
-        font-size: 3rem !important;
-    }
-
-    .section-awal .registrasi-form button {
-        font-size: 2rem;
-    }
-
-    .alert {
-        font-size: 1.5rem;
-    }
-
-    .container-fluid.shop {
-        padding-top: 10rem;
-    }
-
-    .shop-image img {
-        height: 30rem;
+/* Mobile Phone Landscape */
+@media (max-width: 767.98px) {
+    html {
+        font-size: 70%;
     }
 }
 /* Mobile phone */
 @media (max-width: 450px) {
     html {
-        font-size: 55%;
+        font-size: 62.5%;
     }
 
-    .section-awal {
-        background-image: url('../images/background_mobile.png');
+    .dua-page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        min-height: 85vh;
+        gap: 1rem;
+        margin: 6rem 0 0;
+    }
+    
+    .tiga-page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        min-height: 85vh;
+        gap: 1rem;
+        margin: 6rem 0 0;
+    }
+    
+    .empat-page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        min-height: 85vh;
+        gap: 1rem;
+        margin: 6rem 0 0;
     }
 
-    .section-awal .registrasi-form{
-        font-size: 1.5rem !important ;
-        width: 100%;
-        margin-bottom: 8rem;
+    .layout-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 2fr 2fr;
+        grid-template-areas: 'judul'
+        'waktu' 
+        'pembicara'
+        'tema';
     }
 
-    .section-awal .registrasi-form .form-group {
-        margin-bottom: 2rem;
-    }
-
-    .section-awal .registrasi-form h1 {
-        font-size: 2.6rem !important;
-    }
-
-    .section-awal .registrasi-form button {
-        font-size: 2.2rem;
-    }
-
-    .alert {
-        font-size: 1.3rem;
-    }
-
-    .container-fluid.shop {
-        padding-top: 12rem;
-    }
-
-    .shop-image img {
-        height: 35rem;
-    }
 }
 
 

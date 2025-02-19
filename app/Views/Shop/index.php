@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
-<section class="container-fluid shop">
+<!-- <section class="container-fluid shop">
     <div class="shop-awal">
         <h2 class="text-center mb-2 fw-bold">Daftar Produk</h2>
         <div class="shop-grid">
@@ -49,5 +49,12 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<div class="page-phil">
+    <section class="satu-page">
+        <div class="layout-contents">
+            <h5>Area Produk</h5>
+        </div>
+    </section>
+</div>
 <?= $this->endSection(); ?>

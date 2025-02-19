@@ -6,7 +6,7 @@
             <a href="<?= base_url(); ?>shop">Usaha Dana</a>
             <a href="<?= base_url(); ?>sponsor">Sponsorship</a>
             <a href="<?= base_url(); ?>registrasi">Registrasi</a>
-            <a href="<?= base_url(); ?>contact">Kontak</a>
+            <a href="<?= base_url(); ?>kontak">Kontak</a>
         </div>
         <div class="navbar-extra-phil">
             <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
