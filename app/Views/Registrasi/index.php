@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
-<section class="section-awal" id="registrasi">
+<!-- <section class="section-awal" id="registrasi">
     <div class="registrasi-form">
         <h1>Form Registrasi</h1>
         <div class="flash"></div>
@@ -50,5 +50,28 @@
         </div>
         <button type="button" class="submit-registrasi" id="submit-registrasi" disabled>Daftar</button>
     </div>
-</section>
+</section> -->
+<div class="page-phil">
+    <section class="satu-page">
+        <div class="layout-contents">
+            <h5>Area Registrasi</h5>
+        </div>
+    </section>
+    <section class="tiga-page">
+        <div class="layout-contents">
+            <h6>Tabel Peserta Terverifikasi</h6>
+        </div>
+        <div class="layout-contents">
+            <h6>Tabel Peserta Belum Terverifikasi</h6>
+        </div>
+        <div class="layout-contents">
+            <h6>Summary Registrasi</h6>
+        </div>
+    </section>
+</div>
+<div class="satu-page footer-page">
+    <div class="layout-contents">
+        <h5>Footer</h5>
+    </div>
+</div>
 <?= $this->endSection(); ?>

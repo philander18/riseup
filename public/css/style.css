@@ -2,7 +2,7 @@
     --primary : #2980B9;
     --bg : #EAEDED;
     --sekunder : #1F618D;
-    --light : #D35400;
+    --light : #EEBA2B;
     --text : #2C3E50;
 
 }
@@ -20,6 +20,8 @@ body {
     font-family: 'poppins', serif;
     background-color: var(--bg);
     color: var(--text);
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
     /* min-height: 2000px; */
 }
 
@@ -42,7 +44,7 @@ body {
 }
 
 .navbar-logo-phil img{
-    width: 140px;
+    height: 3.5rem;
 }
 
 .navbar-phil .navbar-nav-phil a{
@@ -88,14 +90,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2rem;
+    height: 1.5rem;
     background-color: var(--primary);
     border-bottom: 1px solid var(--sekunder);
     z-index: 9999;
 }
 
 .countdown-nav-phil #countdown {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--text);
 }
@@ -113,6 +115,68 @@ body {
     font-size: 1rem;
 }
 
+.page-phil {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fill, minmax(85vh, auto));
+    justify-content: center;
+}
+
+.satu-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 85vh;
+    gap: 1rem;
+    margin: 6rem 0 0;
+}
+
+.dua-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 85vh;
+    gap: 1rem;
+    margin: 6rem 0 0;
+}
+
+.tiga-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 85vh;
+    gap: 1rem;
+    margin: 6rem 0 0;
+}
+
+.empat-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 85vh;
+    gap: 1rem;
+    margin: 6rem 0 0;
+}
+
+.footer-page {
+    min-height: 100px;
+    height: max-content;
+    margin-top: 0.5rem;
+}
+
+.layout-contents {
+    display: grid;
+    margin: 1rem;
+    background-color: var(--light);
+    justify-content: center;
+    align-items: center;
+}
+
+.layout-subcontents {
+    display: grid;
+    margin: 0.5rem;
+    background-color: var(--bg);
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
     margin: 1rem;
     padding: 1rem;
@@ -120,17 +184,100 @@ body {
     border-radius: 10px;
 }
 /* Home */
-.section-awal {
-    min-height: 100vh;
-    display: flex;
-    /* background-image: url('../images/background.png'); */
+.layout-hero {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 'judul judul'
+    'waktu pembicara'
+    'tema tema';
+}
+.judul-hero {
+    grid-area: judul;
+    height: 92%;
+}
+.waktu-hero {
+    grid-area: waktu;
+    height: 92%;
+}
+.pembicara-hero {
+    grid-area: pembicara;
+    height: 92%;
+}
+.tema-hero {
+    grid-area: tema;
+    height: 92%;
+}
+
+
+
+
+.container-fluid.hero {
+    background-image: url('../images/background.png');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 83px 1rem 1rem 1rem;
+    min-height: 100vh;
+    padding: 8rem 2rem 1rem ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content auto;
+    grid-template-areas: 'judul judul'
+    'waktu tema';
+    gap: 1rem;
+    justify-content: center; 
 }
-.section-awal#hero {
-    background-image: url('../images/background.png');
+
+.hero .judul-hero {
+    grid-area: judul;
+    text-align: center;
+    padding-top: 1.5rem;
+    font-family: "Ga Maamli", serif;
+    text-shadow: 1px 1px var(--light);
+    height: max-content;
 }
+.hero .waktu-hero {
+    grid-area: waktu;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.hero .waktu-hero .card {
+    max-width: 500px;
+    min-width: 360px;
+    width: 100%;
+    height: max-content;
+    justify-self: center;
+    text-align: left;
+    background-color: rgba(234, 237, 237, .6);
+}
+
+.waktu-hero .card .isi-waktu-hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.waktu-hero .card .isi-waktu-hero .isi {
+    display: flex;
+    width: 100%;
+}
+
+.waktu-hero .card .isi-waktu-hero .isi h4:first-child {
+    flex: 1;
+}
+
+.waktu-hero .card .isi-waktu-hero .isi h4:last-child {
+    flex: 2;
+}
+
+.hero .tema-hero {
+    grid-area: tema;
+    text-align: center;
+}
+
+
+
+
 
 /* Usaha Dana */
 .container-fluid.shop {

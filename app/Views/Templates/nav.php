@@ -4,7 +4,7 @@
         <div class="navbar-nav-phil">
             <a href="<?= base_url(); ?>">Home</a>
             <a href="<?= base_url(); ?>shop">Usaha Dana</a>
-            <a href="<?= base_url(); ?>sponsors">Sponsorship</a>
+            <a href="<?= base_url(); ?>sponsor">Sponsorship</a>
             <a href="<?= base_url(); ?>registrasi">Registrasi</a>
             <a href="<?= base_url(); ?>contact">Kontak</a>
         </div>
