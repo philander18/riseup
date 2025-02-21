@@ -183,6 +183,7 @@ body {
     background-color: var(--bg);
     border-radius: 10px;
 }
+
 /* Home */
 .layout-hero {
     grid-template-columns: 1fr 1fr;
@@ -214,6 +215,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    background-color: transparent;
 }
 
 .form-registrasi {
@@ -298,6 +300,31 @@ body {
     background-size: cover;
     margin: 0;
     align-items: start;
+    background-color: transparent;
+}
+
+.layout-contents.area-tabel-unverifikasi {
+    background-image: url('../images/shop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    align-items: start;
+    background-color: transparent;
+}
+
+.layout-contents.area-tabel-summary {
+    background-image: url('../images/shop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    align-items: start;
+    background-color: transparent;
+}
+
+/* area footer */
+.layout-contents.area-footer {
+    margin: 2rem 0 0;
+    background-color: var(--primary);
 }
 
 /* default tabel dari philander */
@@ -455,6 +482,27 @@ body {
     .navbar-phil .navbar-nav-phil a:hover::after {
         transform: scaleX(0.3);
     }
+
+    .tiga-page {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'verifikasi unverifikasi'
+        'summary summary';
+    }
+
+    .layout-contents.area-tabel-verifikasi {
+        grid-area: verifikasi;
+        height: 85vh;
+    }
+
+    .layout-contents.area-tabel-unverifikasi {
+        grid-area: unverifikasi;
+        height: 85vh;
+    }
+
+    .layout-contents.area-tabel-summary {
+        grid-area: summary;
+        height: 85vh;
+    }
 }
 
 /* Mobile Phone Landscape */
@@ -462,6 +510,7 @@ body {
     html {
         font-size: 70%;
     }
+
 }
 /* Mobile phone */
 @media (max-width: 575.98px) {
@@ -481,10 +530,9 @@ body {
     .tiga-page {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        min-height: 85vh;
-        gap: 1rem;
-        margin: 6rem 0 0;
+        grid-template-areas: 'verifikasi'
+        'unverifikasi'
+        'summary';
     }
     
     .empat-page {
@@ -506,6 +554,14 @@ body {
     }
 
     .layout-contents.area-tabel-verifikasi {
+        height: 85vh;
+    }
+
+    .layout-contents.area-tabel-unverifikasi {
+        height: 85vh;
+    }
+
+    .layout-contents.area-tabel-summary {
         height: 85vh;
     }
 

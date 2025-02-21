@@ -1,18 +1,18 @@
 <table class="table table-striped" style="width:100%">
     <thead>
         <tr class="table-dark header-peserta_verifikasi" style="vertical-align:middle">
-            <th class="text-center sort-order" data-kolom="nama" data-sort="<?= $sort; ?>">Nama
-                <?php if ($kolom == 'nama') : ?>
-                    <?php if ($sort == 'ASC') : ?>
+            <th class="text-center sort-order-verifikasi" data-kolom="nama" data-sort="<?= $sort_peserta_verifikasi; ?>">Nama
+                <?php if ($kolom_peserta_verifikasi == 'nama') : ?>
+                    <?php if ($sort_peserta_verifikasi == 'ASC') : ?>
                         <span class="ms-2"><i data-feather="arrow-down"></i></span>
                     <?php else : ?>
                         <span class="ms-2"><i data-feather="arrow-up"></i></span>
                     <?php endif ?>
                 <?php endif ?>
             </th>
-            <th class="text-center sort-order" data-kolom="gereja" data-sort="<?= $sort; ?>">Gereja
-                <?php if ($kolom == 'gereja') : ?>
-                    <?php if ($sort == 'ASC') : ?>
+            <th class="text-center sort-order-verifikasi" data-kolom="gereja" data-sort="<?= $sort_peserta_verifikasi; ?>">Gereja
+                <?php if ($kolom_peserta_verifikasi == 'gereja') : ?>
+                    <?php if ($sort_peserta_verifikasi == 'ASC') : ?>
                         <span class="ms-2"><i data-feather="arrow-down"></i></span>
                     <?php else : ?>
                         <span class="ms-2"><i data-feather="arrow-up"></i></span>
@@ -75,14 +75,15 @@
         </ul>
     </div>
 <?php endif; ?>
-<input type="hidden" id="kolom-peserta_verifikasi" value="<?= $kolom; ?>">
-<input type="hidden" id="sort-peserta_verifikasi" value="<?= $sort; ?>">
+<input type="hidden" id="kolom-peserta_verifikasi" value="<?= $kolom_peserta_verifikasi; ?>">
+<input type="hidden" id="sort-peserta_verifikasi" value="<?= $sort_peserta_verifikasi; ?>">
 <script>
     $(document).ready(function() {
+        feather.replace();
         $(".link-peserta_verifikasi").on('click', function() {
             refresh_peserta_verifikasi($('#keyword-peserta_verifikasi').val(), $(this).data('page'), $('#list_gereja-peserta_verifikasi').val(), $('#kolom-peserta_verifikasi').val(), $('#sort-peserta_verifikasi').val());
         });
-        $(".sort-order").on('click', function() {
+        $(".sort-order-verifikasi").on('click', function() {
             var sort = "ASC";
             if ($(this).data('kolom') == $('#kolom-peserta_verifikasi').val()) {
                 if ($(this).data('sort') == 'ASC') {

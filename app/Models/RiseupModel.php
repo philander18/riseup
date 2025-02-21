@@ -21,11 +21,30 @@ class RiseupModel extends Model
         return $this->db->table('peserta')->insert($data);
     }
 
-    public function search_peserta_verifikasi($keyword, $jumlahlist, $index, $order, $gereja)
+    public function search_peserta($keyword, $jumlahlist, $index, $order, $gereja, $verified)
     {
-        $where = "nama like '%" . $keyword . "%' and gereja = '" . $gereja . "' and verified = 1";
+        if ($gereja == 'All') {
+            $where = "nama like '%" . $keyword . "%' and verified = " . $verified;
+        } else {
+            $where = "nama like '%" . $keyword . "%' and gereja = '" . $gereja . "' and verified = " . $verified;
+        }
         $select = "nama, gereja";
         $all = $this->db->table('peserta')->select($select)->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+
+    public function search_summary($keyword, $jumlahlist, $index, $order)
+    {
+        $where = "gereja like '%" . $keyword . "%' and verified = 1";
+        $select = "gereja, count(gereja) as jumlah";
+        $all = $this->db->table('peserta')->select($select)->where($where)->orderBy($order)->groupBy('gereja')->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
         $tabel = array_splice($all, $index);

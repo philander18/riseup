@@ -14,3 +14,5 @@ $routes->get('kontak', 'Kontak::index');
 $routes->post('Home/flash', 'Home::flash');
 $routes->post('Registrasi/input_peserta', 'Registrasi::input_peserta');
 $routes->post('Registrasi/refresh_tabel_peserta_verifikasi', 'Registrasi::refresh_tabel_peserta_verifikasi');
+$routes->post('Registrasi/refresh_tabel_peserta_unverifikasi', 'Registrasi::refresh_tabel_peserta_unverifikasi');
+$routes->post('Registrasi/refresh_tabel_peserta_summary', 'Registrasi::refresh_tabel_peserta_summary');
