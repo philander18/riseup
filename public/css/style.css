@@ -321,6 +321,95 @@ body {
     background-color: transparent;
 }
 
+/* Usaha dana */
+.produk-preorder {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    height: max-content;
+    padding-top: 1rem;
+}
+
+.produk-preorder .produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    justify-content: space-evenly;
+    row-gap: 1rem;
+}
+
+.produk-preorder .produk-grid .produk {
+    display: grid;
+    grid-template-columns: 360px;
+    justify-content: center;
+    height: 400px;
+}
+
+.produk-preorder .produk-grid .produk .wadah-produk {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 280px auto;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    position: relative;
+}
+.produk-preorder .produk-grid .produk .wadah-produk:hover {
+    border: 2px solid var(--primary);
+}
+
+.wadah-produk .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 1.3rem;
+}
+
+.wadah-produk .icon a {
+    color: var(--text);
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid var(--text);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wadah-produk .icon a:hover {
+    background-color: var(--light);
+    border: 1px solid var(--light);
+}
+
+.wadah-produk .gambar {
+    display: flex;
+    width: 280px;
+    height: 280px;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.wadah-produk .deskripsi {
+    width: 280px;
+    padding-top: 0.5rem;
+    justify-self: center;
+    color: var(--light);
+}
+.wadah-produk .deskripsi .harga {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.3rem;
+    color: var(--text);
+}
+
+.wadah-produk .deskripsi .button-beli {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem;
+}
+
 /* area footer */
 .layout-contents.area-footer {
     margin: 2rem 0 0;
