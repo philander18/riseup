@@ -1,6 +1,6 @@
-<?= $this->extend('Templates/index'); ?>
+<?= $this->extend('Kerangka/index'); ?>
 <?= $this->section('page-content'); ?>
-<?= $this->include('Templates/nav'); ?>
+<?= $this->include('Kerangka/nav'); ?>
 <div class="page-phil">
     <section class="satu-page">
         <div class="layout-contents">
