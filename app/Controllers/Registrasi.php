@@ -140,7 +140,12 @@ class Registrasi extends BaseController
     {
         $data = [
             'nama' => $_POST['nama'],
+            'gender' => $_POST['gender'],
             'gereja' => $_POST['gereja'],
+            'tahun_lahir' => $_POST['tahun_lahir'],
+            'whatsapp' => $_POST['whatsapp'],
+            'group_wa' => $_POST['group_wa'],
+            'instagram' => $_POST['instagram'],
             'harapan' => $_POST['harapan'],
             'verified' => 0
         ];

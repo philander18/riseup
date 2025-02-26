@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class RiseupModel extends Model
 {
     protected $table = 'peserta';
-    protected $allowedFields = ['nama', 'gereja', 'harapan', 'verified', 'pic'];
+    protected $allowedFields = ['nama', 'gender', 'gereja', 'tahun_lahir', 'whatsapp', 'group_wa', 'instagram', 'harapan', 'verified', 'pic'];
     public function list_gereja()
     {
         $list_gereja = $this->db->table('list_gereja')->select('nama')->distinct('nama')->orderBy('nama', 'asc')->get()->getResultArray();
