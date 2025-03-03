@@ -79,7 +79,6 @@
 <input type="hidden" id="sort-peserta_unverifikasi" value="<?= $sort_peserta_unverifikasi; ?>">
 <script>
     $(document).ready(function() {
-        feather.replace();
         $(".link-peserta_unverifikasi").on('click', function() {
             refresh_peserta_unverifikasi($('#keyword-peserta_unverifikasi').val(), $(this).data('page'), $('#list_gereja-peserta_unverifikasi').val(), $('#kolom-peserta_unverifikasi').val(), $('#sort-peserta_unverifikasi').val());
         });

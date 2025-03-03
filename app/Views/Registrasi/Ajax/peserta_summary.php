@@ -79,7 +79,6 @@
 <input type="hidden" id="sort-peserta_summary" value="<?= $sort_peserta_summary; ?>">
 <script>
     $(document).ready(function() {
-        feather.replace();
         $(".link-peserta_summary").on('click', function() {
             refresh_peserta_summary($('#keyword-peserta_summary').val(), $(this).data('page'), $('#kolom-peserta_summary').val(), $('#sort-peserta_summary').val());
         });
