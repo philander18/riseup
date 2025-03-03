@@ -127,7 +127,7 @@ body {
 .satu-page {
     display: grid;
     grid-template-columns: 1fr;
-    min-height: 88vh;
+    min-height: 87vh;
     gap: 1em;
     margin: 6em 0 0;
 }
@@ -478,27 +478,28 @@ input:hover, textarea:hover, select:hover {
     justify-content: center;
     grid-template-columns: 1fr;
     height: max-content;
-    padding-top: 1rem;
+    padding-top: 1em;
 }
 
 .produk-preorder .produk-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     justify-content: space-evenly;
-    row-gap: 1rem;
+    row-gap: 1em;
 }
 
 .produk-preorder .produk-grid .produk {
     display: grid;
-    grid-template-columns: 360px;
+    grid-template-columns: 340px;
+    margin: 0 0.5em;
     justify-content: center;
-    height: 400px;
+    height: 420px;
 }
 
 .produk-preorder .produk-grid .produk .wadah-produk {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 280px auto;
+    grid-template-rows: 55px 280px auto;
     justify-content: center;
     background-color: white;
     border: 1px solid var(--primary);
@@ -513,8 +514,8 @@ input:hover, textarea:hover, select:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    gap: 1.3rem;
+    font-size: 1.2em;
+    gap: 1.3em;
 }
 
 .wadah-produk .icon a {
@@ -545,6 +546,9 @@ input:hover, textarea:hover, select:hover {
     padding-top: 0.5rem;
     justify-self: center;
     color: var(--light);
+}
+.wadah-produk .deskripsi h5 {
+    text-shadow: 1px 1px var(--text);
 }
 .wadah-produk .deskripsi .harga {
     position: absolute;
