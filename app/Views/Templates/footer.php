@@ -1,6 +1,6 @@
 <div class="satu-page footer-page">
     <footer class="text-light py-4 layout-contents area-footer">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <h5>Tentang Kami</h5>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Kontak Kami</h5>
-                    <p>Email : philander.totalis@gmail.com <br>No. HP : 0856 5928 2506 <br>Alamat : Perumahan Batujajar Regency II Blok AI.1</p>
+                    <p>Email : philander.totalis@gmail.com <br>No. HP : 0856 5928 2506</p>
                 </div>
             </div>
             <hr class="bg-light">

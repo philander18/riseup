@@ -358,7 +358,7 @@
             </div>
         </div>
     </section>
-    <section class="satu-page">
+    <!-- <section class="satu-page">
         <div class="layout-contents">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -382,7 +382,7 @@
                 </button>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>
