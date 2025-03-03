@@ -127,7 +127,7 @@ body {
 .satu-page {
     display: grid;
     grid-template-columns: 1fr;
-    min-height: 85vh;
+    min-height: 87vh;
     gap: 1em;
     margin: 6em 0 0;
 }
@@ -187,9 +187,18 @@ body {
 }
 
 /* Home */
+.satu-page.area-hero {
+    background-image: url(../images/logo_transparan.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
 .layout-hero {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    justify-content: center;
     grid-template-areas: 'judul judul'
     'waktu pembicara'
     'tema tema';
@@ -198,17 +207,87 @@ body {
     grid-area: judul;
     height: 92%;
 }
+
+.judul-hero h3 {
+    text-align: center;
+    font-family: "Rowdies", sans-serif;
+    padding-top: 1em;
+    font-size: 1.45em;
+}
+
+.waktu-hero, .pembicara-hero {
+    height: 92%;
+    width: 100%;
+    max-width: 450px;
+    min-width: 360px;
+    height: max-content;
+    padding: 0.5em;
+    font-family: "EB Garamond", serif;
+    color: var(--sekunder);
+}
+
 .waktu-hero {
     grid-area: waktu;
-    height: 92%;
+    justify-self: right;
+    padding-left: 2em;
 }
+
+.waktu-hero h3, .pembicara-hero h3, .tema-hero h3 {
+    color: var(--text);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+.waktu-hero h3 {
+    text-align: left;
+}
+
+.waktu-hero .isi-waktu h4 {
+    font-size: 1.5em;
+}
+.waktu-hero .isi-waktu span {
+    display: inline-block;
+    width: 6em;
+}
+
 .pembicara-hero {
     grid-area: pembicara;
-    height: 92%;
 }
+
+.pembicara-hero h4 {
+    text-align: center;
+    font-size: 1.5em;
+}
+.pembicara-hero div {
+    height: 11em;
+    width: auto;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.pembicara-hero div img {
+    height: 100%;
+}
+
 .tema-hero {
     grid-area: tema;
     height: 92%;
+    width: 90%;
+    justify-self: center;
+    min-width: 360px;
+    height: max-content;
+    padding: 0.5em;
+    font-family: "EB Garamond", serif;
+    color: var(--sekunder);
+}
+
+.tema-hero h4 {
+    text-align: center;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
 }
 
 /* Registrasi */
@@ -399,27 +478,28 @@ input:hover, textarea:hover, select:hover {
     justify-content: center;
     grid-template-columns: 1fr;
     height: max-content;
-    padding-top: 1rem;
+    padding-top: 1em;
 }
 
 .produk-preorder .produk-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     justify-content: space-evenly;
-    row-gap: 1rem;
+    row-gap: 1em;
 }
 
 .produk-preorder .produk-grid .produk {
     display: grid;
-    grid-template-columns: 360px;
+    grid-template-columns: 340px;
+    margin: 0 0.5em;
     justify-content: center;
-    height: 400px;
+    height: 420px;
 }
 
 .produk-preorder .produk-grid .produk .wadah-produk {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 280px auto;
+    grid-template-rows: 55px 280px auto;
     justify-content: center;
     background-color: white;
     border: 1px solid var(--primary);
@@ -434,8 +514,8 @@ input:hover, textarea:hover, select:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    gap: 1.3rem;
+    font-size: 1.2em;
+    gap: 1.3em;
 }
 
 .wadah-produk .icon a {
@@ -467,6 +547,9 @@ input:hover, textarea:hover, select:hover {
     justify-self: center;
     color: var(--light);
 }
+.wadah-produk .deskripsi h5 {
+    text-shadow: 1px 1px var(--text);
+}
 .wadah-produk .deskripsi .harga {
     position: absolute;
     bottom: 0;
@@ -484,8 +567,9 @@ input:hover, textarea:hover, select:hover {
 
 /* area footer */
 .layout-contents.area-footer {
-    margin: 2rem 0 0;
+    margin: 2em 0 0;
     background-color: var(--primary);
+    font-size: 1.4em;
 }
 
 /* default tabel dari philander */
@@ -531,85 +615,21 @@ input:hover, textarea:hover, select:hover {
     box-sizing: border-box;
 }
 
-
-.container-fluid.hero {
-    background-image: url('../images/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    padding: 8rem 2rem 1rem ;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content auto;
-    grid-template-areas: 'judul judul'
-    'waktu tema';
-    gap: 1rem;
-    justify-content: center; 
-}
-
-.hero .judul-hero {
-    grid-area: judul;
-    text-align: center;
-    padding-top: 1.5rem;
-    font-family: "Ga Maamli", serif;
-    text-shadow: 1px 1px var(--light);
-    height: max-content;
-}
-.hero .waktu-hero {
-    grid-area: waktu;
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-}
-
-.hero .waktu-hero .card {
-    max-width: 500px;
-    min-width: 360px;
-    width: 100%;
-    height: max-content;
-    justify-self: center;
-    text-align: left;
-    background-color: rgba(234, 237, 237, .6);
-}
-
-.waktu-hero .card .isi-waktu-hero {
-    display: flex;
-    flex-direction: column;
-}
-
-.waktu-hero .card .isi-waktu-hero .isi {
-    display: flex;
-    width: 100%;
-}
-
-.waktu-hero .card .isi-waktu-hero .isi h4:first-child {
-    flex: 1;
-}
-
-.waktu-hero .card .isi-waktu-hero .isi h4:last-child {
-    flex: 2;
-}
-
-.hero .tema-hero {
-    grid-area: tema;
-    text-align: center;
-}
-
 /* Media Queries */
 
 /* Laptop */
 @media (max-width: 1399.98px) {
-    .header-nav-phil, .page-phil{
+    .header-nav-phil, .page-phil, .footer-page{
         font-size: 95%;
     }
 }
 
 /* Tablet */
 @media (max-width: 991.98px) {
-    .header-nav-phil, .page-phil {
-        font-size: 80%;
+    .header-nav-phil, .page-phil, .footer-page{
+        font-size: 85%;
     }
+
     #hamburger-menu {
         display: inline-block;
         cursor: pointer;
@@ -668,17 +688,33 @@ input:hover, textarea:hover, select:hover {
 
 /* Mobile Phone Landscape */
 @media (max-width: 767.98px) {
-    .header-nav-phil, .page-phil {
-        font-size: 70%;
+    .header-nav-phil, .page-phil, .footer-page{
+        font-size: 80%;
     }
 
+    .layout-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        justify-content: center;
+        grid-template-areas: 'judul'
+            'waktu'
+            'pembicara'
+            'tema';
+    }
+
+    .waktu-hero, .pembicara-hero {
+        justify-self: center;
+    }
+
+    .waktu-hero h3 {
+        text-align: center;
+    }
 }
 /* Mobile phone */
 @media (max-width: 575.98px) {
-    .header-nav-phil, .page-phil {
-        font-size: 62.5%;
+    .header-nav-phil, .page-phil, .footer-page {
+        font-size: 70%;
     }
-
     .dua-page {
         display: grid;
         grid-template-columns: 1fr;
@@ -703,15 +739,6 @@ input:hover, textarea:hover, select:hover {
         min-height: 85vh;
         gap: 1em;
         margin: 6em 0 0;
-    }
-
-    .layout-hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 2fr 2fr;
-        grid-template-areas: 'judul'
-        'waktu' 
-        'pembicara'
-        'tema';
     }
 
     .layout-contents.area-tabel-verifikasi {
