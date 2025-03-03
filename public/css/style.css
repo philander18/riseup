@@ -111,9 +111,10 @@ body {
     border: 0.7px solid white;
     border-radius: 5px;
     width: 100%;
-    max-width: 450px;
-    color: white;
-    font-size: 1rem;
+    max-width: 576px;
+    color: var(--text);
+    font-size: 1em;
+    text-shadow: none;
 }
 
 .page-phil {
@@ -316,25 +317,78 @@ body {
     background-image: url('../images/registrasi-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
+    text-shadow: 1px 1px var(--primary), -1px -1px var(--primary);
 }
 
 .form-registrasi h1 {
     font-size: 2em;
     margin-bottom: 1em;
-    text-shadow: 1px 1px white, -1px -1px white;
 }
 .form-registrasi .form-group {
     display: flex;
-    color: black;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;
-    text-shadow: 1px 1px white;
+}
+
+.form-group.with-checkbox {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-areas: 'label input'
+    'label checkbox';
+    margin-bottom: 2.3em;
+}
+
+.form-group.with-textarea {
+    position: relative;
+}
+
+.form-group.with-textarea span {
+    position: absolute;
+    right: 0.4em;
+    bottom: 0.4em;
+    color: black;
+    font-size: 0.8em;
+    text-shadow: none;
+}
+
+.form-group.with-checkbox label {
+    grid-area: label;
+}
+
+.form-group.with-checkbox input[type="text"], .form-group.with-checkbox textarea {
+    grid-area: input;
+    width: 100%;
+}
+
+.form-group.with-checkbox .checkbox {
+    grid-area: checkbox;
+    position: relative;
+}
+
+.form-group.with-checkbox .checkbox input[type="checkbox"] {
+    position: absolute;
+    width: 1.5em;
+    left: 0;
+    top: 0.7em;
+    cursor: pointer;
+}
+
+.form-group.with-checkbox .checkbox label {
+    position: absolute;
+    left: 2.6em;
+    top: 2px;
+    width: 92%;
+    cursor: pointer;
+    text-shadow: none;
+    font-size: 0.7em;
 }
 
 .form-registrasi .form-group label {
     width: 20%;
     text-align: left;
+    mix-blend-mode:hard-light;
 }
 
 .form-group input, .form-group select, .form-group textarea {
@@ -383,6 +437,8 @@ input:hover, textarea:hover, select:hover {
     background-color: rgba(234, 237, 237, 0.5);
     border-radius: 5px;
     padding: 0.5em 1em;
+    color: var(--text);
+    text-shadow: none;
 }
 
 .note-registrasi p {

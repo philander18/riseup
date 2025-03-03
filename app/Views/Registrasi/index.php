@@ -4,23 +4,24 @@
 <div class="page-phil">
     <section class="satu-page">
         <div class="layout-contents area-registrasi">
-            <div class="form-registrasi">
+            <div class="form-registrasi" x-data="{ pilihan: '', lainnya: '' }">
                 <h1>Registrasi KKR</h1>
                 <div class="flash"></div>
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                    <input type="text" id="nama" maxlength="100" placeholder="Nama Lengkap" @change="tombol_registrasi()" required>
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select id="gender">
+                    <select id="gender" @change="tombol_registrasi()">
+                        <option value="">Pilih Gender</option>
                         <option value="laki-laki">Laki-laki</option>
                         <option value="perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="gereja">Gereja</label>
-                    <select id="gereja">
+                    <select id="gereja" x-model="pilihan" @change="tombol_registrasi()">
                         <option value="">Pilih Gereja</option>
                         <?php foreach ($list_gereja as $gereja) : ?>
                             <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
@@ -28,32 +29,40 @@
                         <option value="lainnya">Lainnya...</option>
                     </select>
                 </div>
-                <div class="form-group" id="gerejaLain">
+                <div class="form-group" id="gerejaLain" x-bind:class="pilihan === 'lainnya' ? 'active' : ''">
                     <label for="gerejaLainInput"></label>
-                    <input type="text" id="gerejaLainInput" placeholder="Nama Gereja">
+                    <input type="text" id="gerejaLainInput" maxlength="100" x-model="lainnya" placeholder="Nama Gereja" @change="tombol_registrasi()">
                 </div>
                 <div class="form-group">
                     <label for="tahun">Tahun Lahir<br>(Optional)</label>
-                    <input type="text" id="tahun" placeholder="Tahun Lahir">
+                    <input type="text" id="tahun" maxlength="4" placeholder="Tahun Lahir">
                 </div>
-                <div class="form-group">
+                <div class="form-group with-checkbox">
                     <label for="whatsapp">Whatsapp<br>(Optional)</label>
-                    <input type="text" id="whatsapp" placeholder="No. Whatsapp">
+                    <input type="text" id="whatsapp" maxlength="15" placeholder="No. Whatsapp">
+                    <div class="checkbox" x-data="{ bersedia: false }">
+                        <input type="checkbox" id="group_wa" :value="bersedia ? 1 : 0" x-model="bersedia">
+                        <label for="group_wa">Bersedia masuk grup whatsapp pelprap wilayah 1
+                            <br>(khusus anggota pelprap gereja di wilayah 1)
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="ig">Instagram<br>(Optional)</label>
-                    <input type="text" id="ig" placeholder="Akun Instagram">
+                    <label for="instagram">Instagram<br>(Optional)</label>
+                    <input type="text" id="instagram" maxlength="100" placeholder="Akun Instagram">
                 </div>
-                <div class="form-group">
+                <div class="form-group with-textarea mb-2" x-data="{ text: '', maxChars: 200 }">
                     <label for="harapan">Harapan</label>
-                    <textarea id="harapan" rows="3" placeholder="Tulis harapanmu untuk acara ini"></textarea>
+                    <textarea x-model="text" maxlength="200" id="harapan" rows="3" placeholder="Tulis harapanmu untuk acara ini" @change="tombol_registrasi()"></textarea>
+                    <span x-text="maxChars - text.length"></span>
+
                 </div>
                 <button type="button" class="submit-registrasi" id="submit-registrasi" disabled>Daftar</button>
                 <div class="note-registrasi">
                     <p>Note :
-                        <br>Informasi data yang masuk dari registrasi hanya akan dipergunakan untuk keperluan kegiatan-kegiatan pelprap wilayah 1 Bandung.
-                        <br>Jika teman-teman bersedia masuk ke grup whatsapp anggota Pelprap GPdI Wilayah 1, Silahkan isi kolom No. Whatsapp diatas.
-                        <br>jangan lupa juga follow instagram <i class="fa-brands fa-instagram"></i> Pelprap GPdI Wilayah 1 di <span class="ms-1"><a href="https://www.instagram.com/pelprapgpdiwilayah1bandung?igsh=MTV4emJibXd1bDkzOA==" target="_blank">@pelprapgpdiwilayah1bandung</a></span>
+                        <br>Informasi data yang masuk dari registrasi hanya akan dipergunakan untuk keperluan kegiatan-kegiatan pelprap GPdI wilayah 1 Jawa Barat.
+                        <br>Jika teman-teman bersedia masuk ke grup whatsapp anggota Pelprap GPdI Wilayah 1, Silahkan isi kolom No. Whatsapp diatas dan centang checkboxnya.
+                        <br>Jangan lupa juga follow instagram <i class="fa-brands fa-instagram"></i> Pelprap GPdI Wilayah 1 di <span class="ms-1"><a href="https://www.instagram.com/pelprapgpdiwilayah1bandung?igsh=MTV4emJibXd1bDkzOA==" target="_blank">@pelprapgpdiwilayah1bandung</a></span>
                     </p>
                 </div>
             </div>

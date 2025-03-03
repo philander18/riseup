@@ -1,10 +1,23 @@
 <script>
     function tombol_registrasi() {
-        if ($('#nama').val() != '' && ((($('#gereja').val() != '' && $('#gereja').val() != 'lainnya')) || (($('#gereja').val() == 'lainnya' && $('#gerejaLainInput').val() != ''))) && $('#harapan').val() != '') {
+        if ($('#nama').val() != '' && $('#gender').val() != '' && ((($('#gereja').val() != '' && $('#gereja').val() != 'lainnya')) || (($('#gereja').val() == 'lainnya' && $('#gerejaLainInput').val() != ''))) && $('#harapan').val() != '') {
             $('.submit-registrasi').prop('disabled', false);
         } else {
             $('.submit-registrasi').prop('disabled', true);
         }
+    }
+
+    function kosong_form_registrasi() {
+        $('#nama').val('');
+        $('#gender').val('');
+        $('#gereja').val('');
+        $('#tahun').val('');
+        $('#whatsapp').val('');
+        $('#group_wa').prop('checked', false);
+        $('#instagram').val('');
+        $('#harapan').val('');
+        $("#gerejaLain").removeClass('active');
+        $('#gerejaLainInput').val('');
     }
 
     function tampil_flash() {
@@ -72,20 +85,13 @@
         });
     }
     $(document).ready(function() {
-        $('#gereja').change(function() {
-            if ($(this).val() === 'lainnya') {
-                $("#gerejaLain").addClass('active');
-            } else {
-                $("#gerejaLain").removeClass('active');
-            }
-        });
-
-        $('#nama, #gereja, #harapan, #gerejaLainInput').on('change', function() {
-            tombol_registrasi();
-        });
-
         $('#submit-registrasi').on('click', function() {
             const nama = $('#nama').val(),
+                gender = $('#gender').val(),
+                tahun_lahir = $('#tahun').val(),
+                whatsapp = $('#whatsapp').val(),
+                group_wa = $('#group_wa').val(),
+                instagram = $('#instagram').val(),
                 harapan = $('#harapan').val();
             if ($('#gereja').val() == 'lainnya') {
                 var gereja = $('#gerejaLainInput').val();
@@ -96,18 +102,19 @@
                 url: method_url('Registrasi', 'input_peserta'),
                 data: {
                     nama: nama,
+                    gender: gender,
                     gereja: gereja,
+                    tahun_lahir: tahun_lahir,
+                    whatsapp: whatsapp,
+                    group_wa: group_wa,
+                    instagram: instagram,
                     harapan: harapan,
                 },
                 method: 'post',
                 dataType: 'html',
                 success: function(data) {
                     $('.flash').html(data);
-                    $('#nama').val('');
-                    $('#gereja').val('');
-                    $("#gerejaLain").removeClass('active');
-                    $('#gerejaLainInput').val('');
-                    $('#harapan').val('');
+                    kosong_form_registrasi();
                     tombol_registrasi();
                     refresh_peserta_verifikasi($('#keyword-peserta_verifikasi').val(), 1, $('#list_gereja-peserta_verifikasi').val(), $('#kolom-peserta_verifikasi').val(), $('#sort-peserta_verifikasi').val());
                     refresh_peserta_unverifikasi($('#keyword-peserta_unverifikasi').val(), 1, $('#list_gereja-peserta_unverifikasi').val(), $('#kolom-peserta_unverifikasi').val(), $('#sort-peserta_unverifikasi').val());
