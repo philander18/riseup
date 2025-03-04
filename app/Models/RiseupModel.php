@@ -14,6 +14,11 @@ class RiseupModel extends Model
         return $this->db->table('akses')->select('posisi, akses, kode')->where($where)->get()->getResultArray();
     }
 
+    public function list_produk()
+    {
+        return $this->db->table('produk')->select('id, nama, gambar, harga')->get()->getResultArray();
+    }
+
     public function list_gereja()
     {
         $list_gereja = $this->db->table('list_gereja')->select('nama')->distinct('nama')->orderBy('nama', 'asc')->get()->getResultArray();
