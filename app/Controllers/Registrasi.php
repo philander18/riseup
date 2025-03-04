@@ -15,6 +15,7 @@ class Registrasi extends BaseController
     }
     public function index(): string
     {
+        $session = session();
         $page = 1;
         $kolom_peserta_verifikasi = 'nama';
         $sort_peserta_verifikasi = 'ASC';
@@ -46,7 +47,8 @@ class Registrasi extends BaseController
             'last_peserta_summary' => $this->RiseupModel->search_summary("", $this->jumlahlist, 0, $order_peserta_summary)['lastpage'],
             'jumlah_peserta_summary' => $this->RiseupModel->search_summary("", $this->jumlahlist, 0, $order_peserta_summary)['jumlah'],
             'kolom_peserta_summary' => $kolom_peserta_summary,
-            'sort_peserta_summary' => $sort_peserta_summary
+            'sort_peserta_summary' => $sort_peserta_summary,
+            'akses' => $session->akses
         ];
         return view('Registrasi/index', $data);
     }

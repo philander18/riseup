@@ -1,6 +1,6 @@
-<?= $this->extend('Kerangka/index'); ?>
+<?= $this->extend('Templates/index'); ?>
 <?= $this->section('page-content'); ?>
-<?= $this->include('Kerangka/nav'); ?>
+<?= $this->include('Templates/nav'); ?>
 <div class="page-phil">
     <section class="satu-page">
         <div class="layout-contents">
@@ -8,4 +8,5 @@
         </div>
     </section>
 </div>
+<?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

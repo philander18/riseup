@@ -119,4 +119,5 @@
         </div>
     </div>
 </div> -->
+<?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

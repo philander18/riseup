@@ -46,9 +46,5 @@
         </div>
     </section>
 </div>
-<div class="satu-page footer-page">
-    <div class="layout-contents">
-        <h5>Footer</h5>
-    </div>
-</div>
+<?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

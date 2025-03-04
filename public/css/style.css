@@ -79,6 +79,12 @@ body {
     font-size: 1.4em;
 }
 
+.navbar-phil .navbar-extra-phil span {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
 .navbar-phil .navbar-extra-phil a:hover {
     color: var(--light);
 }
@@ -346,6 +352,7 @@ body {
     background-image: url('../images/registrasi.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 1em 0;
     background-color: transparent;
@@ -368,6 +375,7 @@ body {
     background-image: url('../images/registrasi-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     color: white;
     text-shadow: 1px 1px var(--primary), -1px -1px var(--primary);
 }
@@ -620,8 +628,25 @@ input:hover, textarea:hover, select:hover {
 /* area footer */
 .layout-contents.area-footer {
     margin: 2em 0 0;
+    padding: 1em 3em;
     background-color: var(--primary);
     font-size: 1.2em;
+    grid-template-columns: 2.5fr 1fr 2.1fr;
+    grid-template-areas: 'tentang link kontak'
+        'copyright copyright copyright';
+}
+
+.tentang-footer {
+    grid-area: tentang;
+}
+.link-footer {
+    grid-area: link;
+}
+.kontak-footer {
+    grid-area: kontak;
+}
+.copyrights-footer {
+    grid-area: copyright;
 }
 
 /* modal box */
@@ -652,6 +677,46 @@ input:hover, textarea:hover, select:hover {
     position: absolute;
     right: 1.2em;
 } */
+
+/* Portal */
+.container-fluid.portal {
+    display: grid;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/logo_transparan.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.form-portal {
+    display: grid;
+    min-width: 360px;
+    max-width: 450px;
+    padding: 2em;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'flash flash'
+    'input input'
+    'submit back';
+}
+
+.form-portal .flash {
+    grid-area: flash;
+}
+.form-portal input {
+    grid-area: input;
+    border: 1px solid var(--sekunder);
+}
+
+.form-portal .btn-submit {
+    grid-area: submit;
+}
+
+.form-portal .btn-back {
+    grid-area: back;
+}
 
 /* default tabel dari philander */
 .phil-container {
@@ -765,6 +830,13 @@ input:hover, textarea:hover, select:hover {
         grid-area: summary;
         height: 85vh;
     }
+
+    .layout-contents.area-footer {
+        padding: 0 2em;
+        grid-template-columns: 2.5fr 1fr 2.1fr;
+        grid-template-areas: 'tentang link kontak'
+        'copyright copyright copyright';
+    }
 }
 
 /* Mobile Phone Landscape */
@@ -789,6 +861,14 @@ input:hover, textarea:hover, select:hover {
 
     .waktu-hero h3 {
         text-align: center;
+    }
+
+    .layout-contents.area-footer {
+        padding: 0 2em;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: 'tentang link'
+            'kontak link'
+        'copyright copyright';
     }
 }
 /* Mobile phone */
@@ -837,6 +917,14 @@ input:hover, textarea:hover, select:hover {
     .phil-container {
         margin: 0;
         padding: 0;
+    }
+    .layout-contents.area-footer {
+        padding: 0 2em;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'tentang'
+            'link'
+            'kontak'
+            'copyright';
     }
 }
 
