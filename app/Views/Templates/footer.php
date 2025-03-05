@@ -20,7 +20,7 @@
         </div>
         <div class="kontak-footer">
             <h5>Kontak Kami</h5>
-            <p>Email : philander.totalis@gmail.com <br>No. HP : 0856 5928 2506</p>
+            <p>Email : philander.totalis@gmail.com <br>No. HP : 0856 5928 2506 (Herry)</p>
         </div>
         <div class="copyrights-footer">
             <hr class="bg-light">
