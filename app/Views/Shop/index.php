@@ -24,7 +24,7 @@
                                     <h6 class="fw-bold" x-text="rupiah(produk.harga)"></h6>
                                 </div>
                                 <div class="button-beli">
-                                    <a href="#" class="btn btn-dark" @click.prevent="$store.cart.add(produk)">Add to <i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="btn btn-dark" @click.prevent="await $store.cart.add(produk);tombol_checkout()">Add to <i class="fa-solid fa-cart-shopping"></i></a>
                                 </div>
                             </div>
                         </div>

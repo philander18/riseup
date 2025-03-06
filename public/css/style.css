@@ -545,7 +545,7 @@ input:hover, textarea:hover, select:hover {
     margin: 1.2em 0;
 }
 
-.form-registrasi button:disabled {
+.form-registrasi button:disabled, .form-pelanggan button:disabled {
     background-color: #98c0da;
     color: #666;
     cursor: not-allowed;

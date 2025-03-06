@@ -14,7 +14,7 @@
             <?php } else { ?>
                 <span><?= strtoupper($akses); ?></span><a href="<?= base_url(); ?>home/keluar" id="log-out"><i class="fa-solid fa-right-from-bracket"></i></a>
             <?php } ?>
-            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart" x-data="{halaman: 'Usaha Dana'}" x-show="halaman == <?= $judul; ?>"><i class="fa-solid fa-cart-shopping"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
+            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart" x-data="{halaman: 'Usaha Dana'}" x-show="halaman === '<?= $judul; ?>'"><i class="fa-solid fa-cart-shopping"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
             <a href="#" @click="isActive = !isActive" @click.outside="isActive = false" @click.prevent id="hamburger-menu"><i class="fa-solid fa-bars"></i></a>
         </div>
         <!-- shopping cart -->
@@ -26,9 +26,9 @@
                         <h3 x-text="item.nama"></h3>
                         <div class="item-price">
                             <span x-text="rupiah(item.harga)"></span> &times;
-                            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                            <button id="remove" @click="await $store.cart.remove(item.id);tombol_checkout()">&minus;</button>
                             <span x-text="item.quantity"></span>
-                            <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                            <button id="add" @click="await $store.cart.add(item);tombol_checkout()">&plus;</button> &equals;
                             <span x-text="rupiah(item.total)"></span>
                         </div>
                     </div>
@@ -37,6 +37,8 @@
             <h4 x-show="!$store.cart.items.length">keranjang masih kosong</h4>
             <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
             <div class="form-pelanggan" x-data="{pengiriman: ''}">
+                <input type="hidden" id="jumlah-item" :value="$store.cart.items.length">
+                <input type="hidden" id="data-item" :value="JSON.stringify($store.cart.items)">
                 <h4 class="text-center text-dark my-3 fw-bold">Data Pembeli</h4>
                 <div class="form-group">
                     <label for="nama-pelanggan">Nama</label>
@@ -44,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pengiriman-pelanggan">Pengiriman</label>
-                    <select id="gender" @change="pengiriman = $event.target.value">
+                    <select id="pengiriman-pelanggan" @change="pengiriman = $event.target.value;tombol_checkout();">
                         <option value="">Pilih Pengiriman</option>
                         <option value="pribadi">Ke alamat pribadi</option>
                         <option value="gereja">Ke gereja</option>
@@ -57,11 +59,11 @@
                 <div x-show="pengiriman === 'pribadi'" class="form-group with-textarea" x-data="{ text: '', maxChars: 200 }">
                     <label for="alamat-pelanggan">Alamat</label>
                     <textarea x-model="text" maxlength="200" id="alamat-pelanggan" rows="3" placeholder="Alamat Lengkap" @change="tombol_checkout()"></textarea>
-                    <span x-text="maxChars - text.length"></span>
+                    <span id="textarea-alamat-pelanggan" x-text="maxChars - text.length"></span>
                 </div>
                 <div x-show="pengiriman === 'gereja'" class="form-group">
                     <label for="gereja-pelanggan">Gereja</label>
-                    <select id="gereja-pelanggan" x-model="pilihan" @change="tombol_checkout()">
+                    <select id="gereja-pelanggan" @change="tombol_checkout()">
                         <option value="">Pilih Gereja</option>
                         <?php foreach ($list_gereja as $gereja) : ?>
                             <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
@@ -70,7 +72,13 @@
                 </div>
                 <div class="button-pelanggan">
                     <button type="button" class="checkout" id="checkout" disabled>Checkout</button>
+                    <!-- <button type="button" @click="kosong_form_pelanggan();pengiriman= ''" class="test" id="test">Checkout</button> -->
                 </div>
+                <!-- <form action="<?= base_url(); ?>shop/test" method="POST" x-data>
+                    <input type="hidden" name="data" :value="JSON.stringify($store.cart.items)">
+                    <button type="submit">Kirim Data</button>
+                </form> -->
+
             </div>
         </div>
     </nav>

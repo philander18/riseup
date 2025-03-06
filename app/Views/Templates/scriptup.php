@@ -52,6 +52,9 @@
                     this.total -= Number(cartItem.harga);
                 }
             },
+            reset() {
+                this.items = [];
+            }
         })
     });
     const rupiah = (number) => {

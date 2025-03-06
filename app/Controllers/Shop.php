@@ -26,4 +26,30 @@ class Shop extends BaseController
         ];
         return view('Shop/index', $data);
     }
+
+    public function input_orderan()
+    {
+        $items = json_decode($_POST['items'], true);
+        foreach ($items as $item) {
+            $data = [
+                'kode' => $_POST['kode'],
+                'nama' => $_POST['nama'],
+                'pengiriman' => $_POST['pengiriman'],
+                'hp' => $_POST['hp'],
+                'alamat' => $_POST['alamat'],
+                'gereja' => $_POST['gereja'],
+                'produk' => $item['kode'],
+                'jumlah' => $item['quantity'],
+                'lunas' => 0
+            ];
+            $this->RiseupModel->input_orderan($data);
+        }
+    }
+    public function test()
+    {
+        if (isset($_POST['data'])) {
+            $items = json_decode($_POST['data'], true);
+            print_r($items);
+        }
+    }
 }

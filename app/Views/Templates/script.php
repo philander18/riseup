@@ -4,6 +4,35 @@
         return base_url;
     }
 
+    function tombol_checkout() {
+        if ($('#nama-pelanggan').val() != '' && $('#pengiriman-pelanggan').val() != '' && $('#jumlah-item').val() != 0) {
+            if ($('#pengiriman-pelanggan').val() == 'pribadi') {
+                if ($('#hp-pelanggan').val() != '' && $('#alamat-pelanggan').val() != '') {
+                    $('#checkout').prop('disabled', false);
+                } else {
+                    $('#checkout').prop('disabled', true);
+                }
+            } else {
+                if ($('#gereja-pelanggan').val() != '') {
+                    $('#checkout').prop('disabled', false);
+                } else {
+                    $('#checkout').prop('disabled', true);
+                }
+            }
+        } else {
+            $('#checkout').prop('disabled', true);
+        }
+    }
+
+    function kosong_form_pelanggan() {
+        $('#nama-pelanggan').val('');
+        $('#pengiriman-pelanggan').val('');
+        $('#hp-pelanggan').val('');
+        $('#alamat-pelanggan').val('');
+        $('#textarea-alamat-pelanggan').html(200);
+        $('#gereja-pelanggan').val('');
+    }
+
     function updateCountdown() {
         var targetDate = new Date("April 26, 2025 16:00:00").getTime();
         var now = new Date().getTime();

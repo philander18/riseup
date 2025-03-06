@@ -16,7 +16,7 @@ class RiseupModel extends Model
 
     public function list_produk()
     {
-        return $this->db->table('produk')->select('id, nama, gambar, harga')->get()->getResultArray();
+        return $this->db->table('produk')->select('id, kode, nama, gambar, harga')->orderBy('urutan asc')->get()->getResultArray();
     }
 
     public function list_gereja()
@@ -30,6 +30,10 @@ class RiseupModel extends Model
     function input_peserta($data)
     {
         return $this->db->table('peserta')->insert($data);
+    }
+    function input_orderan($data)
+    {
+        return $this->db->table('orderan')->insert($data);
     }
 
     public function search_peserta($keyword, $jumlahlist, $index, $order, $gereja, $verified)
