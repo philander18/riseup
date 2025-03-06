@@ -14,10 +14,7 @@
             <?php } else { ?>
                 <span><?= strtoupper($akses); ?></span><a href="<?= base_url(); ?>home/keluar" id="log-out"><i class="fa-solid fa-right-from-bracket"></i></a>
             <?php } ?>
-            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
-            </a>
+            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart" x-data="{halaman: 'Usaha Dana'}" x-show="halaman == <?= $judul; ?>"><i class="fa-solid fa-cart-shopping"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
             <a href="#" @click="isActive = !isActive" @click.outside="isActive = false" @click.prevent id="hamburger-menu"><i class="fa-solid fa-bars"></i></a>
         </div>
         <!-- shopping cart -->
@@ -39,6 +36,42 @@
             </template>
             <h4 x-show="!$store.cart.items.length">keranjang masih kosong</h4>
             <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+            <div class="form-pelanggan" x-data="{pengiriman: ''}">
+                <h4 class="text-center text-dark my-3 fw-bold">Data Pembeli</h4>
+                <div class="form-group">
+                    <label for="nama-pelanggan">Nama</label>
+                    <input type="text" id="nama-pelanggan" maxlength="100" placeholder="Nama Lengkap" @change="tombol_checkout()" required>
+                </div>
+                <div class="form-group">
+                    <label for="pengiriman-pelanggan">Pengiriman</label>
+                    <select id="gender" @change="pengiriman = $event.target.value">
+                        <option value="">Pilih Pengiriman</option>
+                        <option value="pribadi">Ke alamat pribadi</option>
+                        <option value="gereja">Ke gereja</option>
+                    </select>
+                </div>
+                <div x-show="pengiriman === 'pribadi'" class="form-group">
+                    <label for="hp-pelanggan">No. HP</label>
+                    <input type="text" id="hp-pelanggan" maxlength="100" placeholder="No. HP" @change="tombol_checkout()" required>
+                </div>
+                <div x-show="pengiriman === 'pribadi'" class="form-group with-textarea" x-data="{ text: '', maxChars: 200 }">
+                    <label for="alamat-pelanggan">Alamat</label>
+                    <textarea x-model="text" maxlength="200" id="alamat-pelanggan" rows="3" placeholder="Alamat Lengkap" @change="tombol_checkout()"></textarea>
+                    <span x-text="maxChars - text.length"></span>
+                </div>
+                <div x-show="pengiriman === 'gereja'" class="form-group">
+                    <label for="gereja-pelanggan">Gereja</label>
+                    <select id="gereja-pelanggan" x-model="pilihan" @change="tombol_checkout()">
+                        <option value="">Pilih Gereja</option>
+                        <?php foreach ($list_gereja as $gereja) : ?>
+                            <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div class="button-pelanggan">
+                    <button type="button" class="checkout" id="checkout" disabled>Checkout</button>
+                </div>
+            </div>
         </div>
     </nav>
     <div class="countdown-nav-phil">

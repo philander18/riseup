@@ -13,7 +13,6 @@
                     <div class="produk">
                         <div class="wadah-produk">
                             <div class="icon">
-                                <a href="#" @click.prevent="$store.cart.add(produk)"><i class="fa-solid fa-cart-shopping"></i></a>
                                 <a href="#"><i class="fa-regular fa-eye"></i></a>
                             </div>
                             <div class="gambar">
@@ -25,7 +24,7 @@
                                     <h6 class="fw-bold" x-text="rupiah(produk.harga)"></h6>
                                 </div>
                                 <div class="button-beli">
-                                    <a href="#" class="btn btn-dark">Beli Sekarang</a>
+                                    <a href="#" class="btn btn-dark" @click.prevent="$store.cart.add(produk)">Add to <i class="fa-solid fa-cart-shopping"></i></a>
                                 </div>
                             </div>
                         </div>

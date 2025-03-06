@@ -17,7 +17,8 @@ class Home extends BaseController
         $session = session();
         $data = [
             'judul' => 'Beranda',
-            'akses' => $session->akses
+            'akses' => $session->akses,
+            'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja']
         ];
         return view('Home/index', $data);
     }

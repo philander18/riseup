@@ -121,6 +121,7 @@ body {
     color: var(--bg);
     background-color: var(--primary);
     transition: 0.4s linear;
+    overflow: auto;
 }
 
 .shopping-cart.active {
@@ -166,6 +167,52 @@ body {
     margin-top: 0.7em;
     text-align: center;
 }
+
+.form-pelanggan {
+    min-height: 430px;
+    border-top: 1px dashed var(--sekunder);
+}
+.form-pelanggan .form-group {
+    display: flex;
+    padding: 4px;
+}
+
+.form-pelanggan .form-group label {
+    flex: 1;
+    font-size: 1em;
+    padding: 5px;
+    font-weight: bold;
+}
+.form-pelanggan .form-group input,
+.form-pelanggan .form-group textarea,
+.form-pelanggan .form-group select {
+    flex: 2;
+    font-size: 0.8em;
+}
+
+.form-pelanggan .button-pelanggan {
+    justify-content: center;
+}
+
+.button-pelanggan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-pelanggan button {
+    background-color: black;
+    margin-left: 8px;
+    color: white;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+    border: 2px solid var(--bg);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin: 1.2em 0;
+}
+
 
 .countdown-nav-phil {
     display: flex;

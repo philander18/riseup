@@ -22,7 +22,8 @@ class Laporan extends BaseController
         }
         $data = [
             'judul' => 'Laporan',
-            'akses' => $session->akses
+            'akses' => $session->akses,
+            'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja']
         ];
         return view('Laporan/index', $data);
     }
