@@ -645,6 +645,15 @@ input:hover, textarea:hover, select:hover {
 .modal-content {
     background-image: url(../images/background.png);
     background-repeat: repeat;
+    font-size: 1em;
+}
+
+.modal-header h1{
+    font-size: 1.2em;
+}
+
+.modal-footer button{
+    font-size: 0.8em;
 }
 .modal-body li {
     text-align: justify;
@@ -864,8 +873,32 @@ input:hover, textarea:hover, select:hover {
     box-sizing: border-box;
 }
 
-.modal-tabel-detail {
-    font-size: 0.8em;
+.isi-detail-order {
+    font-size: 0.6em;
+}
+
+.isi-detail-order h5 {
+    font-size: 1.5em;
+}
+
+.isi-detail-order input, .isi-detail-order button {
+    font-size: 1.2em;
+}
+
+.container-pelunasan select {
+    font-size: 1.2em;
+    margin-right: 1em;
+    background-color: #212529; /* Warna gelap */
+    color: white;
+    padding: 0.5em 1em;
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+}
+.container-pelunasan select:focus {
+    background-color: #212529;
+    color: white;
+    border-color: #ffc107; /* Warna kuning Bootstrap */
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
 }
 
 /* Media Queries */

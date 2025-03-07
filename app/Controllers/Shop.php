@@ -59,10 +59,12 @@ class Shop extends BaseController
 
     public function get_detail_order()
     {
+        $session = session();
         if ($this->RiseupModel->get_orderan_bykode($_POST['kode'])) {
             $data = [
                 'detail_produk' => $this->RiseupModel->get_orderan_bykode($_POST['kode']),
                 'pembeli' => $this->RiseupModel->get_orderan_bykode($_POST['kode'])[0],
+                'akses' => $session->akses
             ];
             return view('Shop/Ajax/detail', $data);
         }

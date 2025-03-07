@@ -92,6 +92,6 @@ class RiseupModel extends Model
 
     public function get_orderan_bykode($kode)
     {
-        return $this->db->table('orderan')->join('produk', 'orderan.produk = produk.kode', 'left')->select("orderan.kode as kode, orderan.nama as pembeli, produk.nama as nama, produk.harga as harga, orderan.jumlah as jumlah, (produk.harga * orderan.jumlah) as total")->where('orderan.kode', $kode)->get()->getResultArray();
+        return $this->db->table('orderan')->join('produk', 'orderan.produk = produk.kode', 'left')->select("orderan.kode as kode, orderan.nama as pembeli, orderan.lunas as lunas, produk.nama as nama, produk.harga as harga, orderan.jumlah as jumlah, (produk.harga * orderan.jumlah) as total")->where('orderan.kode', $kode)->get()->getResultArray();
     }
 }

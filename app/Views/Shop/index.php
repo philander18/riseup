@@ -7,13 +7,13 @@
             <div class="petunjuk-preorder">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#petunjuk-shop">Panduan Pre-Order</button>
             </div>
-            <?php if (session()->getFlashdata('success')) : ?>
+            <!-- <?php if (session()->getFlashdata('success')) : ?>
                 <p style="color: green;"><?php echo session()->getFlashdata('success'); ?></p>
             <?php endif; ?>
 
             <?php if (session()->getFlashdata('error')) : ?>
                 <p style="color: red;"><?php echo session()->getFlashdata('error'); ?></p>
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
         <div class="layout-contents shop-tabel-verifikasi">
             <div class="phil-container">
@@ -177,7 +177,7 @@
                 </ol>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -186,14 +186,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Detail Pre-Order</h1>
+                <h1 class="modal-title fw-bold" id="exampleModalLabel">Detail Pre-Order</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body isi-detail-order" x-data>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
