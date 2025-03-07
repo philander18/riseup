@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- My Style -->
-    <link href="<?= base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url(); ?>public/css/style.css?v=<?= time(); ?>" rel="stylesheet" type="text/css">
 
     <!-- Logo Icon -->
     <link rel="shortcut icon" href="<?= base_url(); ?>public/images/logo1.png">

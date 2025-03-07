@@ -36,50 +36,53 @@
             </template>
             <h4 x-show="!$store.cart.items.length">keranjang masih kosong</h4>
             <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-            <div class="form-pelanggan" x-data="{pengiriman: ''}">
-                <input type="hidden" id="jumlah-item" :value="$store.cart.items.length">
-                <input type="hidden" id="data-item" :value="JSON.stringify($store.cart.items)">
-                <h4 class="text-center text-dark my-3 fw-bold">Data Pembeli</h4>
-                <div class="form-group">
-                    <label for="nama-pelanggan">Nama</label>
-                    <input type="text" id="nama-pelanggan" maxlength="100" placeholder="Nama Lengkap" @change="tombol_checkout()" required>
-                </div>
-                <div class="form-group">
-                    <label for="pengiriman-pelanggan">Pengiriman</label>
-                    <select id="pengiriman-pelanggan" @change="pengiriman = $event.target.value;tombol_checkout();">
-                        <option value="">Pilih Pengiriman</option>
-                        <option value="pribadi">Ke alamat pribadi</option>
-                        <option value="gereja">Ke gereja</option>
-                    </select>
-                </div>
-                <div x-show="pengiriman === 'pribadi'" class="form-group">
-                    <label for="hp-pelanggan">No. HP</label>
-                    <input type="text" id="hp-pelanggan" maxlength="100" placeholder="No. HP" @change="tombol_checkout()" required>
-                </div>
-                <div x-show="pengiriman === 'pribadi'" class="form-group with-textarea" x-data="{ text: '', maxChars: 200 }">
-                    <label for="alamat-pelanggan">Alamat</label>
-                    <textarea x-model="text" maxlength="200" id="alamat-pelanggan" rows="3" placeholder="Alamat Lengkap" @change="tombol_checkout()"></textarea>
-                    <span id="textarea-alamat-pelanggan" x-text="maxChars - text.length"></span>
-                </div>
-                <div x-show="pengiriman === 'gereja'" class="form-group">
-                    <label for="gereja-pelanggan">Gereja</label>
-                    <select id="gereja-pelanggan" @change="tombol_checkout()">
-                        <option value="">Pilih Gereja</option>
-                        <?php foreach ($list_gereja as $gereja) : ?>
-                            <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
-                        <?php endforeach ?>
-                    </select>
-                </div>
-                <div class="button-pelanggan">
-                    <button type="button" class="checkout" id="checkout" disabled>Checkout</button>
-                    <!-- <button type="button" @click="kosong_form_pelanggan();pengiriman= ''" class="test" id="test">Checkout</button> -->
-                </div>
-                <!-- <form action="<?= base_url(); ?>shop/test" method="POST" x-data>
+            <form action="<?= base_url(); ?>shop/input_orderan" method="post">
+                <div class="form-pelanggan" x-data="{pengiriman: ''}">
+                    <input type="hidden" id="jumlah-item" :value="$store.cart.items.length">
+                    <input type="hidden" id="data-item" name="data-item" :value="JSON.stringify($store.cart.items)">
+                    <h4 class="text-center text-dark my-3 fw-bold">Data Pembeli</h4>
+                    <div class="form-group">
+                        <label for="nama-pelanggan">Nama</label>
+                        <input type="text" id="nama-pelanggan" name="nama-pelanggan" maxlength="100" placeholder="Nama Lengkap" @change="tombol_checkout()" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pengiriman-pelanggan">Pengiriman</label>
+                        <select id="pengiriman-pelanggan" name="pengiriman-pelanggan" @change="pengiriman = $event.target.value;tombol_checkout();">
+                            <option value="">Pilih Pengiriman</option>
+                            <option value="pribadi">Ke alamat pribadi</option>
+                            <option value="gereja">Ke gereja</option>
+                        </select>
+                    </div>
+                    <div x-show="pengiriman === 'pribadi'" class="form-group">
+                        <label for="hp-pelanggan">No. HP</label>
+                        <input type="text" id="hp-pelanggan" name="hp-pelanggan" maxlength="100" placeholder="No. HP" @change="tombol_checkout()">
+                    </div>
+                    <div x-show="pengiriman === 'pribadi'" class="form-group with-textarea" x-data="{ text: '', maxChars: 200 }">
+                        <label for="alamat-pelanggan">Alamat</label>
+                        <textarea x-model="text" maxlength="200" id="alamat-pelanggan" name="alamat-pelanggan" rows="3" placeholder="Alamat Lengkap" @change="tombol_checkout()"></textarea>
+                        <span id="textarea-alamat-pelanggan" x-text="maxChars - text.length"></span>
+                    </div>
+                    <div x-show="pengiriman === 'gereja'" class="form-group">
+                        <label for="gereja-pelanggan">Gereja</label>
+                        <select id="gereja-pelanggan" name="gereja-pelanggan" @change="tombol_checkout()">
+                            <option value="">Pilih Gereja</option>
+                            <?php foreach ($list_gereja as $gereja) : ?>
+                                <option value="<?= $gereja['nama']; ?>"><?= $gereja['nama']; ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="button-pelanggan">
+                        <button type="submit" class="checkout" id="checkout" disabled>Checkout</button>
+                        <!-- <button type="button" @click="kosong_form_pelanggan();pengiriman= ''" class="test" id="test">Checkout</button> -->
+                    </div>
+                    <!-- <input type="file" name="gambar" id="gambar" required> -->
+                    <!-- <form action="<?= base_url(); ?>shop/test" method="POST" x-data>
                     <input type="hidden" name="data" :value="JSON.stringify($store.cart.items)">
                     <button type="submit">Kirim Data</button>
                 </form> -->
 
-            </div>
+                </div>
+            </form>
         </div>
     </nav>
     <div class="countdown-nav-phil">

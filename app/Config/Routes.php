@@ -24,4 +24,7 @@ $routes->post('Registrasi/refresh_tabel_peserta_verifikasi', 'Registrasi::refres
 $routes->post('Registrasi/refresh_tabel_peserta_unverifikasi', 'Registrasi::refresh_tabel_peserta_unverifikasi');
 $routes->post('Registrasi/refresh_tabel_peserta_summary', 'Registrasi::refresh_tabel_peserta_summary');
 $routes->post('home/portal', 'Home::portal');
-$routes->post('Shop/input_orderan', 'Shop::input_orderan');
+$routes->post('shop/input_orderan', 'Shop::input_orderan');
+$routes->post('shop/get_detail_order', 'Shop::get_detail_order');
+$routes->post('shop', 'Shop::index');
+$routes->post('shop/process', 'Shop::process');
