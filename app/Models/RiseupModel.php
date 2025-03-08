@@ -82,7 +82,7 @@ class RiseupModel extends Model
     // Akses database terkait shop
     public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
     {
-        $select = "kode, nama, UNIX_TIMESTAMP(updated_at) as tanggal";
+        $select = "kode, nama, UNIX_TIMESTAMP(kode) as tanggal";
         $where = "nama like '%" . $keyword . "%' and lunas = " . $lunas;
         $all = $this->db->table('orderan')->distinct()->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
