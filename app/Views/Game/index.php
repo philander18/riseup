@@ -15,11 +15,13 @@
                 <div class="tampilan-waktu">
                     <?= date("Y-m-d H:i:s", $game_time); ?>
                 </div>
-                <form action="<?= base_url(); ?>game/start" method="post">
-                    <div class="petunjuk-preorder">
-                        <button type="submit" class="mulai-game">Mulai</button>
-                    </div>
-                </form>
+                <?php if ($akses == 'ketua') { ?>
+                    <form action="<?= base_url(); ?>game/start" method="post">
+                        <div class="petunjuk-preorder">
+                            <button type="submit" class="mulai-game">Mulai</button>
+                        </div>
+                    </form>
+                <?php } ?>
             </div>
         </div>
         <div class="layout-contents shop-tabel-verifikasi">
