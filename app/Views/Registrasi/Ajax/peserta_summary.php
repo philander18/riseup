@@ -4,18 +4,18 @@
             <th class="text-center sort-order-summary" data-kolom="gereja" data-sort="<?= $sort_peserta_summary; ?>">Gereja
                 <?php if ($kolom_peserta_summary == 'gereja') : ?>
                     <?php if ($sort_peserta_summary == 'ASC') : ?>
-                        <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                     <?php else : ?>
-                        <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                     <?php endif ?>
                 <?php endif ?>
             </th>
             <th class="text-center sort-order-summary" data-kolom="jumlah" data-sort="<?= $sort_peserta_summary; ?>">Jumlah
                 <?php if ($kolom_peserta_summary == 'jumlah') : ?>
                     <?php if ($sort_peserta_summary == 'ASC') : ?>
-                        <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                     <?php else : ?>
-                        <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                     <?php endif ?>
                 <?php endif ?>
             </th>

@@ -4,18 +4,18 @@
             <th class="text-center sort-order-verifikasi" data-kolom="nama" data-sort="<?= $sort_peserta_verifikasi; ?>">Nama
                 <?php if ($kolom_peserta_verifikasi == 'nama') : ?>
                     <?php if ($sort_peserta_verifikasi == 'ASC') : ?>
-                        <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                     <?php else : ?>
-                        <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                     <?php endif ?>
                 <?php endif ?>
             </th>
             <th class="text-center sort-order-verifikasi" data-kolom="gereja" data-sort="<?= $sort_peserta_verifikasi; ?>">Gereja
                 <?php if ($kolom_peserta_verifikasi == 'gereja') : ?>
                     <?php if ($sort_peserta_verifikasi == 'ASC') : ?>
-                        <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                     <?php else : ?>
-                        <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                        <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                     <?php endif ?>
                 <?php endif ?>
             </th>

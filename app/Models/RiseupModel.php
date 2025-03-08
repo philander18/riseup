@@ -35,6 +35,11 @@ class RiseupModel extends Model
     {
         return $this->db->table('orderan')->insert($data);
     }
+
+    function update_lunas($kode, $data)
+    {
+        return $this->db->table('orderan')->where('kode', $kode)->update($data);
+    }
     function input_bukti($data)
     {
         return $this->db->table('pembayaran')->insert($data);
@@ -77,9 +82,25 @@ class RiseupModel extends Model
     // Akses database terkait shop
     public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
     {
-        $select = "kode, nama, updated_at as tanggal";
+        $select = "kode, nama, UNIX_TIMESTAMP(updated_at) as tanggal";
         $where = "nama like '%" . $keyword . "%' and lunas = " . $lunas;
         $all = $this->db->table('orderan')->distinct()->select($select)->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+
+    public function search_game($keyword, $jumlahlist, $index, $order)
+    {
+        $waktu = (int) $this->get_game_bytanda('mulai')[0]['waktu'];
+        $select = "pembayaran.kode as kode, orderan.nama as nama, UNIX_TIMESTAMP(pembayaran.updated_at) as tanggal";
+        $where = "orderan.nama like '%" . $keyword . "%' and UNIX_TIMESTAMP(pembayaran.updated_at) >= " . $waktu;
+        $all = $this->db->table('pembayaran')->join('orderan', 'pembayaran.kode = orderan.kode', 'left')->distinct()->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
         $tabel = array_splice($all, $index);
@@ -93,5 +114,23 @@ class RiseupModel extends Model
     public function get_orderan_bykode($kode)
     {
         return $this->db->table('orderan')->join('produk', 'orderan.produk = produk.kode', 'left')->select("orderan.kode as kode, orderan.nama as pembeli, orderan.lunas as lunas, produk.nama as nama, produk.harga as harga, orderan.jumlah as jumlah, (produk.harga * orderan.jumlah) as total")->where('orderan.kode', $kode)->get()->getResultArray();
+    }
+    public function get_produk_bykode($kode)
+    {
+        return $this->db->table('produk')->select("*")->where('kode', $kode)->get()->getResultArray();
+    }
+    public function get_game_bytanda($tanda)
+    {
+        return $this->db->table('game')->select("*")->where('tanda', $tanda)->get()->getResultArray();
+    }
+
+    public function get_gambar_bykode($kode)
+    {
+        return $this->db->table('pembayaran')->select("*")->where('kode', $kode)->get()->getResultArray();
+    }
+
+    function update_start_game($tanda, $data)
+    {
+        return $this->db->table('game')->where('tanda', $tanda)->update($data);
     }
 }

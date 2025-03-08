@@ -4,16 +4,18 @@
 <div class="page-phil page-shop">
     <section class="tiga-page shop-tabel">
         <div class="layout-contents shop-tabel-verifikasi">
-            <div class="petunjuk-preorder">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#petunjuk-shop">Panduan Pre-Order</button>
+            <div class="phil-container">
+                <div class="flash">
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                        <div class="alert m-0">
+                            <?= session()->getFlashdata('pesan'); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="petunjuk-preorder">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#petunjuk-shop">Panduan Pre-Order</button>
+                </div>
             </div>
-            <!-- <?php if (session()->getFlashdata('success')) : ?>
-                <p style="color: green;"><?php echo session()->getFlashdata('success'); ?></p>
-            <?php endif; ?>
-
-            <?php if (session()->getFlashdata('error')) : ?>
-                <p style="color: red;"><?php echo session()->getFlashdata('error'); ?></p>
-            <?php endif; ?> -->
         </div>
         <div class="layout-contents shop-tabel-verifikasi">
             <div class="phil-container">
@@ -27,30 +29,30 @@
                         <table class="table table-striped" style="width:100%">
                             <thead>
                                 <tr class="table-dark header-order_belum_lunas" style="vertical-align:middle">
-                                    <th class="text-center sort-order-unverifikasi" data-kolom="kode" data-sort="<?= $sort_order_belum_lunas; ?>">Kode
+                                    <th class="text-center sort-order_belum_lunas" data-kolom="kode" data-sort="<?= $sort_order_belum_lunas; ?>">Kode
                                         <?php if ($kolom_order_belum_lunas == 'kode') : ?>
                                             <?php if ($sort_order_belum_lunas == 'ASC') : ?>
-                                                <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                                             <?php else : ?>
-                                                <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                                             <?php endif ?>
                                         <?php endif ?>
                                     </th>
-                                    <th class="text-center sort-order-unverifikasi" data-kolom="nama" data-sort="<?= $sort_order_belum_lunas; ?>">Nama
+                                    <th class="text-center sort-order_belum_lunas" data-kolom="nama" data-sort="<?= $sort_order_belum_lunas; ?>">Nama
                                         <?php if ($kolom_order_belum_lunas == 'nama') : ?>
                                             <?php if ($sort_order_belum_lunas == 'ASC') : ?>
-                                                <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                                             <?php else : ?>
-                                                <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                                             <?php endif ?>
                                         <?php endif ?>
                                     </th>
-                                    <th class="text-center sort-order-unverifikasi" data-kolom="tanggal" data-sort="<?= $sort_order_belum_lunas; ?>">Waktu
+                                    <th class="text-center sort-order_belum_lunas" data-kolom="tanggal" data-sort="<?= $sort_order_belum_lunas; ?>">Waktu
                                         <?php if ($kolom_order_belum_lunas == 'tanggal') : ?>
                                             <?php if ($sort_order_belum_lunas == 'ASC') : ?>
-                                                <span class="ms-2"><i data-feather="arrow-down"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                                             <?php else : ?>
-                                                <span class="ms-2"><i data-feather="arrow-up"></i></span>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
                                             <?php endif ?>
                                         <?php endif ?>
                                     </th>
@@ -69,7 +71,7 @@
                                             <?= $row["nama"]; ?>
                                         </td>
                                         <td class="text-center align-middle m-1 p-1">
-                                            <?= $row["tanggal"]; ?>
+                                            <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -122,7 +124,113 @@
                 </div>
             </div>
         </div>
-        <div class="layout-contents shop-tabel-verifikasi"></div>
+        <div class="layout-contents shop-tabel-verifikasi">
+            <div class="phil-container">
+                <h4 class="mt-2 mb-4 fw-bold">Order Lunas</h4>
+                <div class="phil-tabel">
+                    <div class="search">
+                        <label class="text-dark">Search </label>
+                        <input class="form-control form-control-sm" type="search" style="background: rgba(255, 255, 255, 0.5);" id="keyword-order_lunas">
+                    </div>
+                    <div class="tabel tabel-order_lunas">
+                        <table class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr class="table-dark header-order_lunas" style="vertical-align:middle">
+                                    <th class="text-center sort-order_lunas" data-kolom="kode" data-sort="<?= $sort_order_lunas; ?>">Kode
+                                        <?php if ($kolom_order_lunas == 'kode') : ?>
+                                            <?php if ($sort_order_lunas == 'ASC') : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                            <?php else : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    </th>
+                                    <th class="text-center sort-order_lunas" data-kolom="nama" data-sort="<?= $sort_order_lunas; ?>">Nama
+                                        <?php if ($kolom_order_lunas == 'nama') : ?>
+                                            <?php if ($sort_order_lunas == 'ASC') : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                            <?php else : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    </th>
+                                    <th class="text-center sort-order_lunas" data-kolom="tanggal" data-sort="<?= $sort_order_lunas; ?>">Waktu
+                                        <?php if ($kolom_order_lunas == 'tanggal') : ?>
+                                            <?php if ($sort_order_lunas == 'ASC') : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                            <?php else : ?>
+                                                <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                            <?php endif ?>
+                                        <?php endif ?>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($order_lunas as $row) : ?>
+                                    <tr>
+                                        <td class="text-center align-middle m-1 p-1">
+                                            <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
+                                                <?= $row["kode"]; ?>
+                                            </a>
+
+                                        </td>
+                                        <td class="text-center align-middle m-1 p-1">
+                                            <?= $row["nama"]; ?>
+                                        </td>
+                                        <td class="text-center align-middle m-1 p-1">
+                                            <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <?php if ($order_lunas) : ?>
+                            <div aria-label="Page navigation">
+                                <ul class="pagination mb-0">
+                                    <?php if ($pagination_order_lunas['first']) : ?>
+                                        <li class="page-item">
+                                            <button class="page-link text-dark link-order_lunas" aria-label="First" id="first" name="first" data-page="1">
+                                                <span aria-hidden="false">First</span>
+                                            </button>
+                                        </li>
+                                    <?php endif ?>
+                                    <?php if ($pagination_order_lunas['previous']) : ?>
+                                        <li class="page-item">
+                                            <button class="page-link text-dark link-order_lunas" aria-label="Previous" id="previous" name="previous" data-page="<?= $page - 1; ?>">
+                                                <span aria-hidden=" true">Previous</span>
+                                            </button>
+                                        </li>
+                                    <?php endif ?>
+                                    <?php foreach ($pagination_order_lunas['number'] as $number) : ?>
+                                        <li class="page-item <?= $pagination_order_lunas['page'] == $number ? 'active' : '' ?>">
+                                            <button class="page-link text-dark link-order_lunas" id="nomor<?= $number; ?>" name="nomor<?= $number; ?>" data-page="<?= $number; ?>">
+                                                <span aria-hidden="true"><?= $number; ?></span>
+                                            </button>
+                                        </li>
+                                    <?php endforeach ?>
+                                    <?php if ($pagination_order_lunas['next']) : ?>
+                                        <li class="page-item">
+                                            <button class="page-link text-dark link-order_lunas" aria-label="Next" id="next" name="next" data-page="<?= $page + 1; ?>">
+                                                <span aria-hidden=" true">Next</span>
+                                            </button>
+                                        </li>
+                                    <?php endif ?>
+                                    <?php if ($pagination_order_lunas['last']) : ?>
+                                        <li class="page-item">
+                                            <button class="page-link text-dark link-order_lunas" aria-label="<?= $last_order_lunas; ?>" id="last" name="last" data-page="<?= $last_order_lunas; ?>">
+                                                <span aria-hidden="true"><?= $last_order_lunas; ?></span>
+                                            </button>
+                                        </li>
+                                    <?php endif ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                        <input type="hidden" id="kolom-order_lunas" value="<?= $kolom_order_lunas; ?>">
+                        <input type="hidden" id="sort-order_lunas" value="<?= $sort_order_lunas; ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="satu-page">
         <div class="produk-preorder" x-data="products">
@@ -131,8 +239,8 @@
                 <template x-for="produk in produks" x-key="produk.id">
                     <div class="produk">
                         <div class="wadah-produk">
-                            <div class="icon">
-                                <a href="#"><i class="fa-regular fa-eye"></i></a>
+                            <div class="icon" x-data>
+                                <a href="#" class="modal-detail-produk" @click.prevent data-bs-toggle="modal" data-bs-target="#detail-produk" :data-kode="produk.kode"><i class="fa-regular fa-eye"></i></a>
                             </div>
                             <div class="gambar">
                                 <img :src="`<?= base_url(); ?>public/images/shop/${produk.gambar}`" :alt="produk.nama" height="100%" width="100%">
@@ -191,6 +299,21 @@
             </div>
             <div class="modal-body isi-detail-order" x-data>
 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-bold" id="exampleModalLabel">Detail Produk</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body isi-detail-produk" x-data>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>

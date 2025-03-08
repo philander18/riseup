@@ -194,7 +194,7 @@ body {
     justify-content: center;
 }
 
-.button-pelanggan, .petunjuk-preorder {
+.button-pelanggan {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -624,11 +624,20 @@ input:hover, textarea:hover, select:hover {
     align-items: start;
     background-color: transparent;
     grid-template-columns: 1fr;
+    padding-bottom: 1em;
 }
 
+.tampilan-waktu {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1em;
+}
 .petunjuk-preorder {
-    width: 50%;
-    justify-self: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .petunjuk-preorder button {
@@ -636,6 +645,7 @@ input:hover, textarea:hover, select:hover {
     color: white;
     padding: 0.5em;
     font-size: 1em;
+    width: 50%;
     border: 2px solid var(--bg);
     border-radius: 5px;
     cursor: pointer;
@@ -761,6 +771,23 @@ input:hover, textarea:hover, select:hover {
     padding: 0.5em;
 }
 
+.container-produk {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 1em;
+}
+
+.container-produk img {
+    width: 310px;
+}
+
+.container-produk p {
+    text-align: justify;
+    white-space: pre-line;
+}
+
 /* area footer */
 .layout-contents.area-footer {
     margin: 2em 0 0;
@@ -840,6 +867,9 @@ input:hover, textarea:hover, select:hover {
     font-weight: 600;
     margin-top: 1em;
 }
+.phil-container .flash {
+    font-size: 1.2em;
+}
 
 .phil-tabel {
     display: grid;
@@ -873,16 +903,23 @@ input:hover, textarea:hover, select:hover {
     box-sizing: border-box;
 }
 
-.isi-detail-order {
+.isi-detail-order, .isi-detail-game {
     font-size: 0.6em;
 }
 
-.isi-detail-order h5 {
+.isi-detail-order h5, .isi-detail-game h5 {
     font-size: 1.5em;
 }
 
-.isi-detail-order input, .isi-detail-order button {
+.isi-detail-order input, .isi-detail-order button, .isi-detail-game input, .isi-detail-game button {
     font-size: 1.2em;
+}
+
+.modal-image {
+    width: 100%;
+}
+.modal-image img {
+    width: 310px;
 }
 
 .container-pelunasan select {

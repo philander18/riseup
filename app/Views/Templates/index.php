@@ -39,6 +39,7 @@
     <?= $this->include('Templates/script'); ?>
     <?= $this->include('Registrasi/script'); ?>
     <?= $this->include('Shop/script'); ?>
+    <?= $this->include('Game/script'); ?>
 </body>
 
 </html>
