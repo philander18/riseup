@@ -12,13 +12,12 @@ class Laporan extends BaseController
     {
         $this->RiseupModel = new RiseupModel();
     }
-    public function index(): string
+    public function index()
     {
         header('Clear-Site-Data: "cache"');
         $session = session();
         if (!$session->has('akses')) {
-            header("location: home/portal");
-            exit;
+            return redirect()->to('home/portal')->with('notifikasi', 'Perlu masukkan kode dulu.');
         }
         $data = [
             'judul' => 'Laporan',

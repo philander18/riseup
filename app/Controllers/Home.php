@@ -27,33 +27,36 @@ class Home extends BaseController
         return view('Templates/flash');
     }
 
-    public function portal(): string
+    public function portal()
     {
         header('Clear-Site-Data: "cache"');
         $session = session();
+        if ($session->has('akses')) {
+            return redirect()->to('home');
+        }
         if (!is_null($this->request->getVar('kode'))) {
             if (!empty($this->RiseupModel->akses($this->request->getVar('kode')))) {
                 $session->set('akses', $this->RiseupModel->akses($this->request->getVar('kode'))[0]['akses']);
             } else {
-                session()->setFlashdata('pesan', 'Kode tidak terdaftar.');
+                session()->setFlashdata('notifikasi', 'Kode tidak terdaftar.');
             }
-        }
-        if ($session->has('akses')) {
-            header("location: index");
-            exit;
         }
         $data = [
             'judul' => 'Portal',
             'akses' => $session->akses
         ];
-        return view('Portal/index', $data);
+        if ($session->has('akses')) {
+            return redirect()->to('home');
+        } else {
+            return view('Portal/index', $data);
+        }
     }
 
-    public function keluar(): string
+    public function keluar()
     {
         $session = session();
         $session->remove('akses');
-        header("location: index");
+        return redirect()->to('home');
         exit;
     }
 }
