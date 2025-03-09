@@ -14,7 +14,6 @@ class Laporan extends BaseController
     }
     public function index()
     {
-        header('Clear-Site-Data: "cache"');
         $session = session();
         if (!$session->has('akses')) {
             return redirect()->to('home/portal')->with('notifikasi', 'Perlu masukkan kode dulu.');
