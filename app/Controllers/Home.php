@@ -29,7 +29,6 @@ class Home extends BaseController
 
     public function portal()
     {
-        header('Clear-Site-Data: "cache"');
         $session = session();
         if ($session->has('akses')) {
             return redirect()->to('home');
