@@ -75,11 +75,10 @@
                         <button type="submit" class="checkout" id="checkout" disabled>Checkout</button>
                         <!-- <button type="button" @click="kosong_form_pelanggan();pengiriman= ''" class="test" id="test">Checkout</button> -->
                     </div>
-                    <!-- <input type="file" name="gambar" id="gambar" required> -->
-                    <!-- <form action="<?= base_url(); ?>shop/test" method="POST" x-data>
-                    <input type="hidden" name="data" :value="JSON.stringify($store.cart.items)">
-                    <button type="submit">Kirim Data</button>
-                </form> -->
+                    <div class="rekening text-dark">
+                        <p>Pembayaran bisa dilakukan dengan transfer ke rekening <span class="fw-bold">BCA 1393906484 a.n Rony Gunawan</span></p>
+                        <p>Melayani juga pemesanan secara chat/ketemu dengan pembayaran langsung ke nomor 081313498165 (Stefan)</p>
+                    </div>
 
                 </div>
             </form>
