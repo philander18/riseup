@@ -22,6 +22,9 @@ class Shop extends BaseController
         $kolom_order_lunas = 'kode';
         $sort_order_lunas = 'DESC';
         $order_order_lunas = $kolom_order_lunas . ' ' . $sort_order_lunas;
+        $kolom_rekap_orderan = 'jumlah';
+        $sort_rekap_orderan = 'DESC';
+        $order_rekap_orderan = $kolom_rekap_orderan . ' ' . $sort_rekap_orderan;
         $data = [
             'judul' => 'Usaha Dana',
             'akses' => $session->akses,
@@ -41,10 +44,44 @@ class Shop extends BaseController
             'page' => $page,
             'kolom_order_lunas' => $kolom_order_lunas,
             'sort_order_lunas' => $sort_order_lunas,
+            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['tabel'],
+            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['lastpage']),
+            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['lastpage'],
+            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['jumlah'],
+            'page' => $page,
+            'kolom_rekap_orderan' => $kolom_rekap_orderan,
+            'sort_rekap_orderan' => $sort_rekap_orderan,
         ];
         return view('Shop/index', $data);
     }
 
+    public function refresh_rekap_orderan()
+    {
+        if (isset($_POST['keyword'])) {
+            $keyword = $_POST['keyword'];
+        } else {
+            $keyword = '';
+        }
+        $page = $_POST['page'];
+        if ($page == 1) {
+            $index = 0;
+        } else {
+            $index = ($page - 1) * $this->jumlahlist;
+        }
+        $kolom_rekap_orderan = $_POST['kolom'];
+        $sort_rekap_orderan = $_POST['sort'];
+        $order_rekap_orderan = $kolom_rekap_orderan . ' ' . $sort_rekap_orderan;
+        $data = [
+            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['tabel'],
+            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['lastpage']),
+            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['lastpage'],
+            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['jumlah'],
+            'page' => $page,
+            'kolom_rekap_orderan' => $kolom_rekap_orderan,
+            'sort_rekap_orderan' => $sort_rekap_orderan
+        ];
+        return view('Shop/Ajax/rekap_orderan', $data);
+    }
     public function refresh_order_belum_lunas()
     {
         if (isset($_POST['keyword'])) {
@@ -104,20 +141,27 @@ class Shop extends BaseController
     {
         if ($this->request->getPost('data-item')) {
             $items = json_decode($this->request->getPost('data-item'), true);
-            $kode = time();
+            $kode = time() . mt_rand(0, 9);
+            while ($this->RiseupModel->get_orderan_bykode($kode)) {
+                $kode = time() . mt_rand(0, 9);
+            }
+            $data = [
+                'kode' => $kode,
+                'nama' => $this->request->getPost('nama-pelanggan'),
+                'pengiriman' => $this->request->getPost('pengiriman-pelanggan'),
+                'hp' => $this->request->getPost('hp-pelanggan'),
+                'alamat' => $this->request->getPost('alamat-pelanggan'),
+                'gereja' => $this->request->getPost('gereja-pelanggan'),
+                'lunas' => 0
+            ];
+            $this->RiseupModel->input_orderan($data);
             foreach ($items as $item) {
-                $data = [
+                $data_item = [
                     'kode' => $kode,
-                    'nama' => $this->request->getPost('nama-pelanggan'),
-                    'pengiriman' => $this->request->getPost('pengiriman-pelanggan'),
-                    'hp' => $this->request->getPost('hp-pelanggan'),
-                    'alamat' => $this->request->getPost('alamat-pelanggan'),
-                    'gereja' => $this->request->getPost('gereja-pelanggan'),
                     'produk' => $item['kode'],
                     'jumlah' => $item['quantity'],
-                    'lunas' => 0
                 ];
-                $this->RiseupModel->input_orderan($data);
+                $this->RiseupModel->input_list_items($data_item);
             }
             return redirect()->to('shop')->with('pesan', 'Orderan berhasil dibuat.');
         }
@@ -133,13 +177,23 @@ class Shop extends BaseController
         return redirect()->to('shop')->with('pesan', 'Pemesanan berhasil diupdate.');
     }
 
+    public function update_bukti_valid()
+    {
+        $id = $_POST['id'];
+        $data = [
+            'valid' => $_POST['valid'],
+        ];
+        $this->RiseupModel->update_bukti_valid($id, $data);
+    }
+
     public function get_detail_order()
     {
         $session = session();
-        if ($this->RiseupModel->get_orderan_bykode($_POST['kode'])) {
+        if ($this->RiseupModel->get_detail_orderan_bykode($_POST['kode'])) {
             $data = [
-                'detail_produk' => $this->RiseupModel->get_orderan_bykode($_POST['kode']),
-                'pembeli' => $this->RiseupModel->get_orderan_bykode($_POST['kode'])[0],
+                'detail_produk' => $this->RiseupModel->get_detail_orderan_bykode($_POST['kode']),
+                'pembeli' => $this->RiseupModel->get_detail_orderan_bykode($_POST['kode'])[0],
+                'gambar' => $this->RiseupModel->get_gambar_bykode($_POST['kode']),
                 'akses' => $session->akses
             ];
             return view('Shop/Ajax/detail', $data);

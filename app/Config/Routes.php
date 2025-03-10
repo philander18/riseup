@@ -32,6 +32,8 @@ $routes->post('shop/get_detail_produk', 'Shop::get_detail_produk');
 $routes->post('shop', 'Shop::index');
 $routes->post('shop/process', 'Shop::process');
 $routes->post('shop/update_pembayaran', 'Shop::update_pembayaran');
+$routes->post('shop/update_bukti_valid', 'Shop::update_bukti_valid');
+$routes->post('Shop/refresh_rekap_orderan', 'Shop::refresh_rekap_orderan');
 $routes->post('Shop/refresh_order_belum_lunas', 'Shop::refresh_order_belum_lunas');
 $routes->post('Shop/refresh_order_lunas', 'Shop::refresh_order_lunas');
 $routes->post('Game/refresh_game', 'Game::refresh_game');

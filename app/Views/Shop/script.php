@@ -1,4 +1,21 @@
 <script>
+    function refresh_rekap_orderan(keyword, page, kolom, sort) {
+        $.ajax({
+            url: method_url('Shop', 'refresh_rekap_orderan'),
+            data: {
+                keyword: keyword,
+                page: page,
+                kolom: kolom,
+                sort: sort,
+            },
+            method: 'post',
+            dataType: 'html',
+            success: function(data) {
+                $('.tabel-rekap_orderan').html(data);
+            }
+        });
+    }
+
     function refresh_order_belum_lunas(keyword, page, kolom, sort) {
         $.ajax({
             url: method_url('Shop', 'refresh_order_belum_lunas'),
@@ -32,6 +49,21 @@
             }
         });
     }
+    var swiper = new Swiper('.swiper', {
+        loop: document.querySelectorAll('.swiper-slide').length > 1,
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
     $(document).ready(function() {
         $('.modal-detail-produk').on('click', function() {
             const kode = $(this).data('kode');
@@ -98,6 +130,25 @@
                 sort = "ASC";
             }
             refresh_order_lunas($('#keyword-order_lunas').val(), 1, $(this).data('kolom'), sort);
+        });
+        $('#keyword-rekap_orderan').on('keyup', function() {
+            refresh_rekap_orderan($(this).val(), 1, $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val());
+        });
+        $(".link-rekap_orderan").on('click', function() {
+            refresh_rekap_orderan($('#keyword-rekap_orderan').val(), $(this).data('page'), $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val());
+        });
+        $(".sort-rekap_orderan").on('click', function() {
+            var sort = "ASC";
+            if ($(this).data('kolom') == $('#kolom-rekap_orderan').val()) {
+                if ($(this).data('sort') == 'ASC') {
+                    sort = "DESC";
+                } else {
+                    sort = "ASC";
+                }
+            } else {
+                sort = "ASC";
+            }
+            refresh_rekap_orderan($('#keyword-rekap_orderan').val(), 1, $(this).data('kolom'), sort);
         });
     });
 </script>

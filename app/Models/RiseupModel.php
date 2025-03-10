@@ -35,10 +35,18 @@ class RiseupModel extends Model
     {
         return $this->db->table('orderan')->insert($data);
     }
+    function input_list_items($data)
+    {
+        return $this->db->table('list_items')->insert($data);
+    }
 
     function update_lunas($kode, $data)
     {
         return $this->db->table('orderan')->where('kode', $kode)->update($data);
+    }
+    function update_bukti_valid($id, $data)
+    {
+        return $this->db->table('pembayaran')->where('id', $id)->update($data);
     }
     function input_bukti($data)
     {
@@ -82,9 +90,23 @@ class RiseupModel extends Model
     // Akses database terkait shop
     public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
     {
-        $select = "kode, nama, UNIX_TIMESTAMP(kode) as tanggal";
+        $select = "kode, nama, UNIX_TIMESTAMP(updated_at) as tanggal";
         $where = "nama like '%" . $keyword . "%' and lunas = " . $lunas;
         $all = $this->db->table('orderan')->distinct()->select($select)->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+    public function search_rekap_orderan($keyword, $jumlahlist, $index, $order)
+    {
+        $select = "produk.nama as produk, sum(list_items.jumlah) as jumlah";
+        $where = "produk.nama like '%" . $keyword . "%' and orderan.lunas = 1";
+        $all = $this->db->table('list_items')->join('orderan', 'list_items.kode = orderan.kode', 'left')->join('produk', 'list_items.produk = produk.kode', 'left')->select($select)->where($where)->orderBy($order)->groupBy('produk.nama')->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
         $tabel = array_splice($all, $index);
@@ -111,9 +133,14 @@ class RiseupModel extends Model
         return $data;
     }
 
+    public function get_detail_orderan_bykode($kode)
+    {
+        return $this->db->table('list_items')->join('orderan', 'orderan.kode = list_items.kode', 'left')->join('produk', 'list_items.produk = produk.kode', 'left')->select("orderan.kode as kode, orderan.nama as nama, orderan.pengiriman as pengiriman, orderan.hp as hp, orderan.alamat as alamat, orderan.gereja as gereja, orderan.lunas as lunas, list_items.produk as produk, list_items.jumlah as jumlah, produk.nama as nama_produk, produk.harga as harga, (produk.harga * list_items.jumlah) as total")->where('orderan.kode', $kode)->get()->getResultArray();
+    }
+
     public function get_orderan_bykode($kode)
     {
-        return $this->db->table('orderan')->join('produk', 'orderan.produk = produk.kode', 'left')->select("orderan.kode as kode, orderan.nama as pembeli, orderan.lunas as lunas, produk.nama as nama, produk.harga as harga, orderan.jumlah as jumlah, (produk.harga * orderan.jumlah) as total")->where('orderan.kode', $kode)->get()->getResultArray();
+        return $this->db->table('orderan')->select('kode')->where('kode', $kode)->get()->getResultArray();
     }
     public function get_produk_bykode($kode)
     {
