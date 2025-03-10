@@ -49,22 +49,8 @@
             }
         });
     }
-    var swiper = new Swiper('.swiper', {
-        loop: document.querySelectorAll('.swiper-slide').length > 1,
-        autoplay: {
-            delay: 10000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
     $(document).ready(function() {
+        $("#modal-shop").modal('show');
         $('.modal-detail-produk').on('click', function() {
             const kode = $(this).data('kode');
             $.ajax({
@@ -150,5 +136,20 @@
             }
             refresh_rekap_orderan($('#keyword-rekap_orderan').val(), 1, $(this).data('kolom'), sort);
         });
+    });
+    var swiper = new Swiper('.swiper', {
+        loop: document.querySelectorAll('.swiper-slide').length > 1,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
     });
 </script>

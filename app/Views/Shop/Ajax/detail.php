@@ -94,7 +94,7 @@ $total = 0;
     swiper = new Swiper('.swiper', {
         loop: document.querySelectorAll('.swiper-slide').length > 1,
         autoplay: {
-            delay: 100000,
+            delay: 3000,
             disableOnInteraction: false,
         },
         pagination: {

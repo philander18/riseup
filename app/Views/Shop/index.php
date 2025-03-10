@@ -409,5 +409,31 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modal-shop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="btn-close close-home" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/1.png" alt="Poster">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/2.png" alt="Poster">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/3.png" alt="Poster">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/4.png" alt="Poster">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>
