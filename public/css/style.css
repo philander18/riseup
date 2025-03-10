@@ -656,7 +656,17 @@ input:hover, textarea:hover, select:hover {
     background-image: url(../images/background.png);
     background-repeat: repeat;
     font-size: 1em;
+    position: relative;min-height: 400px;
 }
+
+.modal-content .close-home {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+
 
 .modal-header h1{
     font-size: 1.2em;
