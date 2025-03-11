@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
-<div class="page-phil">
+<div class="page-sponsor">
     <section class="satu-page sponsor-page d-none">
         <h3 class="fw-bold text-center my-2">Sponsor Diamond</h3>
         <div class="diamond-konten">
@@ -33,12 +33,12 @@
             <div class="silver-item">
                 <img src="<?= base_url(); ?>public/images/sponsor/silver1.jpg" alt="Silver 1">
             </div>
-            <div class="silver-item">
+            <div class="silver-item d-none">
 
             </div>
-            <div class="silver-item">
+            <div class="silver-item d-none">
             </div>
-            <div class="silver-item">
+            <div class="silver-item d-none">
             </div>
         </div>
     </section>

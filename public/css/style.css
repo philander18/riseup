@@ -797,9 +797,16 @@ input:hover, textarea:hover, select:hover {
     text-align: justify;
     white-space: pre-line;
 }
+.page-sponsor {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fill, minmax(30vh, auto));
+    justify-content: center;
+}
 
-.sponsor-page {
+.page-sponsor .sponsor-page {
     grid-template-rows: 2.6em auto;
+    min-height: 30vh;
 }
 
 .sponsor-page h3 {
@@ -1037,14 +1044,14 @@ input:hover, textarea:hover, select:hover {
 
 /* Laptop */
 @media (max-width: 1399.98px) {
-    .header-nav-phil, .page-phil, .footer-page{
+    .header-nav-phil, .page-phil, .footer-page, .page-sponsor{
         font-size: 95%;
     }
 }
 
 /* Tablet */
 @media (max-width: 991.98px) {
-    .header-nav-phil, .page-phil, .footer-page{
+    .header-nav-phil, .page-phil, .footer-page, .page-sponsor{
         font-size: 85%;
     }
 
@@ -1114,7 +1121,7 @@ input:hover, textarea:hover, select:hover {
 
 /* Mobile Phone Landscape */
 @media (max-width: 767.98px) {
-    .header-nav-phil, .page-phil, .footer-page{
+    .header-nav-phil, .page-phil, .footer-page, .page-sponsor{
         font-size: 80%;
     }
 
@@ -1145,7 +1152,7 @@ input:hover, textarea:hover, select:hover {
     }
     .silver-konten {
         grid-template-columns: repeat(1, minmax(360px, 1fr));
-        grid-template-rows: 300px 300px 300px 300px;
+        grid-template-rows: 300px;
         margin: 0 0;
     }
 }
