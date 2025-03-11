@@ -1109,6 +1109,7 @@ input:hover, textarea:hover, select:hover {
         grid-template-areas: 'tentang link kontak'
         'copyright copyright copyright';
     }
+
 }
 
 /* Mobile Phone Landscape */
@@ -1141,6 +1142,11 @@ input:hover, textarea:hover, select:hover {
         grid-template-areas: 'tentang link'
             'kontak link'
         'copyright copyright';
+    }
+    .silver-konten {
+        grid-template-columns: repeat(1, minmax(360px, 1fr));
+        grid-template-rows: 300px 300px 300px 300px;
+        margin: 0 0;
     }
 }
 /* Mobile phone */

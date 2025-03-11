@@ -31,7 +31,7 @@
         <h3 class="fw-bold text-center my-2">Sponsor Silver</h3>
         <div class="silver-konten">
             <div class="silver-item">
-                <img src="<?= base_url(); ?>public/images/sponsor/silver01.jpg" alt="Silver 1">
+                <img src="<?= base_url(); ?>public/images/sponsor/silver1.jpg" alt="Silver 1">
             </div>
             <div class="silver-item">
 
@@ -51,7 +51,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <h4 class="text-center fw-bold my-2">Sponsor Silver</h4>
-                        <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/silver01.jpg" alt="Poster">
+                        <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/silver1.jpg" alt="Poster">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
