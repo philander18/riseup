@@ -2,49 +2,64 @@
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
 <div class="page-phil">
-    <section class="satu-page">
-        <div class="layout-contents">
-            <h5>Area Sponsor Platinum 1</h5>
+    <section class="satu-page sponsor-page d-none">
+        <h3 class="fw-bold text-center my-2">Sponsor Diamond</h3>
+        <div class="diamond-konten">
         </div>
     </section>
-    <section class="satu-page">
-        <div class="layout-contents">
-            <h5>Area Sponsor Platinum 2</h5>
+    <section class="satu-page sponsor-page d-none">
+        <h3 class="fw-bold text-center my-2">Sponsor Platinum</h3>
+        <div class="platinum-konten">
+            <div class="platinum-item">
+            </div>
+            <div class="platinum-item">
+            </div>
         </div>
     </section>
-    <section class="dua-page">
-        <div class="layout-contents">
-            <h5>Area Sponsor Gold 1</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Gold 2</h5>
-        </div>
-    </section>
-    <section class="tiga-page">
-        <div class="layout-contents">
-            <h5>Area Sponsor Silver 1</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Silver 2</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Silver 3</h5>
+    <section class="satu-page sponsor-page d-none">
+        <h3 class="fw-bold text-center my-2">Sponsor Gold</h3>
+        <div class="gold-konten">
+            <div class="gold-item">
+            </div>
+            <div class="gold-item">
+            </div>
+            <div class="gold-item">
+            </div>
         </div>
     </section>
-    <section class="empat-page">
-        <div class="layout-contents">
-            <h5>Area Sponsor Perunggu 1</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Perunggu 2</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Perunggu 3</h5>
-        </div>
-        <div class="layout-contents">
-            <h5>Area Sponsor Perunggu 4</h5>
+    <section class="satu-page sponsor-page">
+        <h3 class="fw-bold text-center my-2">Sponsor Silver</h3>
+        <div class="silver-konten">
+            <div class="silver-item">
+                <img src="<?= base_url(); ?>public/images/sponsor/silver01.jpg" alt="Silver 1">
+            </div>
+            <div class="silver-item">
+
+            </div>
+            <div class="silver-item">
+            </div>
+            <div class="silver-item">
+            </div>
         </div>
     </section>
+</div>
+<div class="modal fade" id="modal-sponsor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="btn-close close-home" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h4 class="text-center fw-bold my-2">Sponsor Silver</h4>
+                        <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/silver01.jpg" alt="Poster">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

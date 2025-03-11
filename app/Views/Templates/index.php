@@ -44,6 +44,7 @@
     <?= $this->include('Home/script'); ?>
     <?= $this->include('Registrasi/script'); ?>
     <?= $this->include('Shop/script'); ?>
+    <?= $this->include('Sponsor/script'); ?>
     <?= $this->include('Game/script'); ?>
 </body>
 

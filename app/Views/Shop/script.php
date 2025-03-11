@@ -136,20 +136,22 @@
             }
             refresh_rekap_orderan($('#keyword-rekap_orderan').val(), 1, $(this).data('kolom'), sort);
         });
-    });
-    var swiper = new Swiper('.swiper', {
-        loop: document.querySelectorAll('.swiper-slide').length > 1,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
+        setTimeout(function() {
+            var swiper = new Swiper('.swiper', {
+                loop: document.querySelectorAll('.swiper-slide').length > 1,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        }, 1000);
     });
 </script>

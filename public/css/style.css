@@ -798,6 +798,61 @@ input:hover, textarea:hover, select:hover {
     white-space: pre-line;
 }
 
+.sponsor-page {
+    grid-template-rows: 2.6em auto;
+}
+
+.sponsor-page h3 {
+    font-size: 1.8em;
+    font-family: "Rowdies", sans-serif;
+}
+
+.diamond-konten {
+    background-color: var(--light);
+    margin: 0 0.5em;
+}
+
+.platinum-konten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 0 0.5em;
+}
+.gold-konten {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    margin: 0 0.5em;
+}
+.silver-konten {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(360px, 1fr));
+    grid-template-rows: 300px 300px;
+    gap: 1em;
+    margin: 0 0.5em;
+}
+
+.platinum-konten .platinum-item {
+    background-color: var(--light);
+}
+
+.gold-konten .gold-item {
+    background-color: var(--light);
+}
+.silver-konten .silver-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.silver-item img {
+    height: 300px;
+    object-fit: contain;
+    border: 5px solid var(--primary);
+    border-radius: 10px;
+}
+
+
 /* area footer */
 .layout-contents.area-footer {
     margin: 2em 0 0;
