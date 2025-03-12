@@ -58,4 +58,11 @@ class Home extends BaseController
         return redirect()->to('home');
         exit;
     }
+    public function test()
+    {
+        $data = [
+            'judul' => 'Test',
+        ];
+        return view('Home/test', $data);
+    }
 }

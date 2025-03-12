@@ -10,6 +10,7 @@ $routes->get('home', 'Home::index');
 $routes->get('home/index', 'Home::index');
 $routes->get('home/portal', 'Home::portal');
 $routes->get('home/keluar', 'Home::keluar');
+$routes->get('home/test', 'Home::test');
 $routes->get('registrasi', 'Registrasi::index');
 $routes->get('shop', 'Shop::index');
 $routes->get('game', 'Game::index');
