@@ -18,7 +18,8 @@ class Sponsor extends BaseController
         $data = [
             'judul' => 'Sponsorship',
             'akses' => $session->akses,
-            'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja']
+            'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja'],
+            'produk' => $this->RiseupModel->list_produk(),
         ];
         return view('Sponsor/index', $data);
     }

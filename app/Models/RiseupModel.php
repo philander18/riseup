@@ -87,6 +87,21 @@ class RiseupModel extends Model
         return $data;
     }
 
+    // Akses database terkait laporan
+    public function search_dana_masuk($keyword, $jumlahlist, $index, $order, $kategori)
+    {
+        $where = "deskripsi like '%" . $keyword . "%' and jenis = 'masuk' and kategori = '" . $kategori . "'";
+        $all = $this->db->table('dana')->select('*')->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+
     // Akses database terkait shop
     public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
     {

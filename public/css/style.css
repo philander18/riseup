@@ -1040,6 +1040,21 @@ input:hover, textarea:hover, select:hover {
     box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
 }
 
+/* Laporan */
+.background-dana-masuk {
+    background-image: url('../images/background_dana_masuk.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.6em;
+    border: 1px solid var(--primary);
+}
+.konten-dana {
+    background-image: url('../images/shop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.3em;
+    border: 1px solid var(--primary);
+}
 /* Media Queries */
 
 /* Laptop */

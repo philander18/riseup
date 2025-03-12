@@ -32,6 +32,8 @@
 
     <!-- Swiper.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <?= $this->include('Templates/scriptup'); ?>
 </head>
 
 <body>
@@ -46,6 +48,7 @@
     <?= $this->include('Registrasi/script'); ?>
     <?= $this->include('Shop/script'); ?>
     <?= $this->include('Sponsor/script'); ?>
+    <?= $this->include('Laporan/script'); ?>
     <?= $this->include('Game/script'); ?>
 </body>
 

@@ -26,7 +26,7 @@ class Shop extends BaseController
         $sort_rekap_orderan = 'DESC';
         $order_rekap_orderan = $kolom_rekap_orderan . ' ' . $sort_rekap_orderan;
         $data = [
-            'judul' => 'Usaha Dana',
+            'judul' => 'Toko',
             'akses' => $session->akses,
             'produk' => $this->RiseupModel->list_produk(),
             'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja'],
