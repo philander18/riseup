@@ -53,6 +53,11 @@ class RiseupModel extends Model
         return $this->db->table('pembayaran')->insert($data);
     }
 
+    function input_dana($data)
+    {
+        return $this->db->table('dana')->insert($data);
+    }
+
     public function search_peserta($keyword, $jumlahlist, $index, $order, $gereja, $verified)
     {
         if ($gereja == 'All') {
@@ -169,6 +174,11 @@ class RiseupModel extends Model
     public function get_gambar_bykode($kode)
     {
         return $this->db->table('pembayaran')->select("*")->where('kode', $kode)->get()->getResultArray();
+    }
+
+    public function get_dana_byid($id)
+    {
+        return $this->db->table('dana')->select("*")->where('id', $id)->get()->getResultArray();
     }
 
     function update_start_game($tanda, $data)

@@ -41,3 +41,5 @@ $routes->post('Game/refresh_game', 'Game::refresh_game');
 $routes->post('Game/get_detail_game', 'Game::get_detail_game');
 $routes->post('game/start', 'Game::start');
 $routes->post('game', 'Game::index');
+$routes->post('laporan/input_dana_masuk', 'Laporan::input_dana_masuk');
+$routes->post('laporan/get_detail_dana', 'Laporan::get_detail_dana');

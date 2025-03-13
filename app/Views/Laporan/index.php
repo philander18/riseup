@@ -7,42 +7,44 @@
         <div class="konten-phil konten-dana" x-data>
             <div class="judul-2">Input Dana Masuk</div>
             <div class="flash-dana-masuk"></div>
-            <div class="form-phil">
-                <div class="label-phil" for="nama-dana-masuk">Nama/Instansi</div>
-                <div class="input-phil">
-                    <input type="text" id="nama-dana-masuk" name="nama-dana-masuk" maxlength="100" placeholder="Nama/Instansi" required @change="tombol_dana_masuk()">
+            <form action="<?= base_url(); ?>laporan/input_dana_masuk" method="post" enctype="multipart/form-data">
+                <div class="form-phil">
+                    <div class="label-phil" for="nama-dana-masuk">Nama/Instansi</div>
+                    <div class="input-phil">
+                        <input type="text" id="nama-dana-masuk" name="nama-dana-masuk" maxlength="100" placeholder="Nama/Instansi" required @change="tombol_dana_masuk()">
+                    </div>
+                    <div class="label-phil">Kategori</div>
+                    <div class="input-phil">
+                        <select id="kategori-dana-masuk" name="kategori-dana-masuk" @change="tombol_dana_masuk()">
+                            <option value="">Pilih Kategori</option>
+                            <option value="taburan iman">Taburan Iman</option>
+                            <option value="kartu kawan">Kartu Kawan</option>
+                            <option value="sponsorship">Sponsorship</option>
+                            <option value="merchandise">Merchandise</option>
+                        </select>
+                    </div>
+                    <div class="label-phil" for="jumlah-dana-masuk">Jumlah</div>
+                    <div class="input-phil">
+                        <input type="text" id="jumlah-dana-masuk" name="jumlah-dana-masuk" placeholder="Jumlah" required @change="tombol_dana_masuk()">
+                    </div>
+                    <div class="label-phil" for="catatan-dana-masuk">Catatan</div>
+                    <div class="input-phil">
+                        <textarea maxlength="200" rows="3" id="catatan-dana-masuk" name="catatan-dana-masuk" placeholder="Catatan" @change="tombol_dana_masuk()"></textarea>
+                        <span>200</span>
+                    </div>
+                    <div class="label-phil" for="tanggal-dana-masuk">Tanggal</div>
+                    <div class="input-phil">
+                        <input type="date" id="tanggal-dana-masuk" name="tanggal-dana-masuk" placeholder="tanggal" value="<?= date('Y-m-d'); ?>">
+                    </div>
+                    <div class="label-phil" for="bukti-dana-masuk">Upload Bukti</div>
+                    <div class="input-phil">
+                        <input type="file" id="bukti-dana-masuk" name="bukti-dana-masuk" aria-label="Upload" style="accent-color: white;">
+                    </div>
                 </div>
-                <div class="label-phil">Kategori</div>
-                <div class="input-phil">
-                    <select id="kategori-dana-masuk" name="kategori-dana-masuk" @change="tombol_dana_masuk()">
-                        <option value="">Pilih Kategori</option>
-                        <option value="taburan iman">Taburan Iman</option>
-                        <option value="kartu kawan">Kartu Kawan</option>
-                        <option value="sponsorship">Sponsorship</option>
-                        <option value="merchandise">Merchandise</option>
-                    </select>
+                <div class="button-konten-phil">
+                    <button type="submit" class="submit-dana-masuk" disabled>Submit</button>
                 </div>
-                <div class="label-phil" for="jumlah-dana-masuk">Jumlah</div>
-                <div class="input-phil">
-                    <input type="text" id="jumlah-dana-masuk" name="jumlah-dana-masuk" placeholder="Jumlah" required @change="tombol_dana_masuk()">
-                </div>
-                <div class="label-phil" for="catatan-dana-masuk">Catatan</div>
-                <div class="input-phil">
-                    <textarea maxlength="200" rows="3" id="catatan-dana-masuk" name="catatan-dana-masuk" placeholder="Catatan" @change="tombol_dana_masuk()"></textarea>
-                    <span>200</span>
-                </div>
-                <div class="label-phil" for="tanggal-dana-masuk">Tanggal</div>
-                <div class="input-phil">
-                    <input type="date" id="tanggal-dana-masuk" name="tanggal-dana-masuk" placeholder="tanggal" value="<?= date('Y-m-d'); ?>">
-                </div>
-                <div class="label-phil" for="bukti-dana-masuk">Upload Bukti</div>
-                <div class="input-phil">
-                    <input type="file" id="bukti-dana-masuk" aria-label="Upload" style="accent-color: white;">
-                </div>
-            </div>
-            <div class="button-konten-phil">
-                <button type="submit" class="submit-dana-masuk" disabled>Submit</button>
-            </div>
+            </form>
         </div>
     </section>
     <section class="section-2">
@@ -95,7 +97,7 @@
                                         </a>
                                     </td>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <?= $row["jumlah"]; ?>
+                                        <?= number_format($row["jumlah"], 0, ',', '.'); ?>
                                     </td>
                                     <td class="text-center align-middle m-1 p-1">
                                         <?= $row["tanggal"]; ?>
@@ -203,6 +205,21 @@
             </div>
         </div>
     </section>
+</div>
+<div class="modal fade" id="detail-dana" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-bold" id="exampleModalLabel">Detail Dana</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body isi-detail-dana">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

@@ -38,6 +38,36 @@ class Laporan extends BaseController
         return view('Laporan/index', $data);
     }
 
+    public function input_dana_masuk()
+    {
+        $session = session();
+        $file = $this->request->getFile('bukti-dana-masuk');
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move('images/bukti_dana', $newName); // Simpan di folder images/bukti_dana
+        }
+        $data = [
+            'tanggal' => $this->request->getPost('tanggal-dana-masuk'),
+            'deskripsi' => $this->request->getPost('nama-dana-masuk'),
+            'jenis' => 'masuk',
+            'kategori' => $this->request->getPost('kategori-dana-masuk'),
+            'jumlah' => $this->request->getPost('jumlah-dana-masuk'),
+            'pic' => $session->akses,
+            'catatan' => $this->request->getPost('catatan-dana-masuk'),
+            'bukti' => $newName,
+        ];
+        $this->RiseupModel->input_dana($data);
+        return redirect()->to('laporan')->with('pesan', 'Input dana berhasil.');
+    }
+
+    public function get_detail_dana()
+    {
+        $data = [
+            'dana' => $this->RiseupModel->get_dana_byid($_POST['id'])[0],
+        ];
+        return view('Laporan/Ajax/dana', $data);
+    }
+
     public function pagination($page, $lastpage)
     {
         $pagination = [

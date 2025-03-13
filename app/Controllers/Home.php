@@ -43,7 +43,8 @@ class Home extends BaseController
         }
         $data = [
             'judul' => 'Portal',
-            'akses' => $session->akses
+            'akses' => $session->akses,
+            'produk' => $this->RiseupModel->list_produk(),
         ];
         if ($session->has('akses')) {
             return redirect()->to('home');

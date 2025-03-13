@@ -1055,6 +1055,11 @@ input:hover, textarea:hover, select:hover {
     border-radius: 0.3em;
     border: 1px solid var(--primary);
 }
+
+.isi-detail-dana {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 /* Media Queries */
 
 /* Laptop */

@@ -130,6 +130,50 @@
     padding: 0.5em;
 }
 
+.container-gambar-dana {
+    width: 100%;
+    justify-self: center;
+    position: relative;
+}
+.container-gambar-dana img {
+    width: 100%;
+}
+.nama-dana {
+    position: absolute;
+    left: 37%;
+    top: 27%;
+    font-family: 'rowdies', serif;
+    font-weight: 600;
+    font-size: 12px;
+    width: 43%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 6px auto;
+    text-align: center;
+    color: black;
+    text-decoration: underline;
+}
+.ucapan-dana {
+    position: absolute;
+    display: flex;
+    left: 10%;
+    top: 40%;
+    font-family: 'rowdies', serif;
+    font-weight: 300;
+    font-size: 10px;
+    width: 80%;
+    min-height: 22%;
+    background-color: white;
+    border: 1px solid #e2b21d;
+    border-radius: 10px;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    color: #e2b21d;
+    text-align: center;
+}
+
 
 /* Media Queries */
 
@@ -160,12 +204,24 @@
     .container-phil {
         font-size: 80%;
     }
+    .ucapan-dana {
+        font-size: 9px;
+    }
+    .nama-dana {
+        font-size: 11px;
+    }
 }
 
 /* Mobile phone */
 @media (max-width: 575.98px) {
     .container-phil {
         font-size: 70%;
+    }
+    .nama-dana {
+        font-size: 10px;
+    }
+    .ucapan-dana {
+        font-size: 8px;
     }
 }
 
