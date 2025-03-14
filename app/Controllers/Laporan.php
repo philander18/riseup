@@ -182,6 +182,8 @@ class Laporan extends BaseController
         if ($file->isValid() && !$file->hasMoved()) {
             $newName = $file->getRandomName();
             $file->move('images/bukti_dana', $newName); // Simpan di folder images/bukti_dana
+        } else {
+            $newName = null;
         }
         $data = [
             'tanggal' => $this->request->getPost('tanggal-dana-masuk'),
@@ -197,6 +199,10 @@ class Laporan extends BaseController
         return redirect()->to('laporan')->with('pesan', 'Input dana berhasil.');
     }
 
+    public function hapus_dana()
+    {
+        $this->RiseupModel->hapus_dana($_POST['id']);
+    }
     public function get_detail_dana()
     {
         $data = [

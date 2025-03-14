@@ -47,3 +47,4 @@ $routes->post('Laporan/refresh_dana_masuk', 'Laporan::refresh_dana_masuk');
 $routes->post('Laporan/refresh_summary_dana_masuk', 'Laporan::refresh_summary_dana_masuk');
 $routes->post('Laporan/refresh_dana_keluar', 'Laporan::refresh_dana_keluar');
 $routes->post('Laporan/refresh_summary_dana_keluar', 'Laporan::refresh_summary_dana_keluar');
+$routes->post('Laporan/hapus_dana', 'Laporan::hapus_dana');

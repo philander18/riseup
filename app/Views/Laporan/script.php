@@ -77,6 +77,29 @@
         });
     }
 
+    function hapus_dana(id) {
+        let result = confirm("Apakah Anda yakin ingin menghapus data ini?");
+        if (result) {
+            $.ajax({
+                url: method_url('Laporan', 'hapus_dana'),
+                data: {
+                    id: id,
+                },
+                method: 'post',
+                dataType: 'html',
+                success: function(data) {
+                    refresh_dana_masuk('', 1, $('#list_kategori_dana_masuk').val(), $('#kolom-dana_masuk').val(), $('#sort-dana_masuk').val());
+                    refresh_dana_keluar('', 1, $('#list_kategori_dana_keluar').val(), $('#kolom-dana_keluar').val(), $('#sort-dana_keluar').val());
+                    refresh_summary_dana_masuk('', 1, $('#kolom-summary_dana_masuk').val(), $('#sort-summary_dana_masuk').val());
+                    refresh_summary_dana_keluar('', 1, $('#kolom-summary_dana_keluar').val(), $('#sort-summary_dana_keluar').val());
+                    alert("Data berhasil dihapus.");
+                }
+            });
+        } else {
+            alert("Penghapusan dibatalkan.");
+        }
+    }
+
     $(document).ready(function() {
         $('.modal-detail-dana').on('click', function() {
             const id = $(this).data('id');

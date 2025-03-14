@@ -34,9 +34,8 @@
         <?php foreach ($dana_keluar as $row) : ?>
             <tr>
                 <td class="text-center align-middle m-1 p-1">
-                    <a href="" class="link-primary modal-detail-dana" data-bs-toggle="modal" data-bs-target="#detail-dana" data-id="<?= $row["id"]; ?>">
-                        <?= $row["deskripsi"]; ?>
-                    </a>
+                    <?= $row["deskripsi"]; ?>
+                    <a href="" x-show="['bendahara', 'ketua'].includes(akses)" class="px-2" @click.prevent="hapus_dana(<?= $row["id"]; ?>);"><i class="fa-solid fa-trash-can"></i></a>
                 </td>
                 <td class="text-center align-middle m-1 p-1">
                     <?= number_format($row["jumlah"], 0, ',', '.'); ?>

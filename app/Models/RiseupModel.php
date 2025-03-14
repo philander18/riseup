@@ -157,6 +157,11 @@ class RiseupModel extends Model
         return $data;
     }
 
+    public function hapus_dana($id)
+    {
+        $this->db->table('dana')->where('id', $id)->delete();
+    }
+
     // Akses database terkait shop
     public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
     {
