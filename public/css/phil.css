@@ -102,7 +102,6 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(360px,1fr));
     justify-content: center;
-    align-items: start;
     padding: 0.5em;
     gap: 0.5em;
     width: 100%;
@@ -174,7 +173,38 @@
     text-align: center;
 }
 
-
+/* template tabel */
+.phil-tabel {
+    display: grid;
+    grid-template-columns: minmax(360px, 992px);
+    place-content: center;
+    row-gap: 0.5em;
+    grid-template-areas: 'search'
+        'tabel'
+}
+.phil-tabel .search {
+    display: grid;
+    grid-area: search;
+    max-width: 400px;
+    grid-template-columns: 60px 139px;
+    column-gap: 0.3em;
+    place-items: center start;
+    margin: 0px 0.5em;
+    box-sizing: border-box;
+}
+#keyword-order_belum_lunas {
+    font-size: 0.8em;
+}
+.phil-tabel .filter-select {
+    grid-template-columns: 60px 139px 1fr;
+}
+.phil-tabel .tabel {
+    display: grid;
+    grid-area: tabel;
+    grid-template-columns: 1fr;
+    margin: 0px 0.5em;
+    box-sizing: border-box;
+}
 /* Media Queries */
 
 /* Laptop */

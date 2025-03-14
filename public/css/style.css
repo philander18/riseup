@@ -943,7 +943,7 @@ input:hover, textarea:hover, select:hover {
     font-size: 1.2em;
 }
 
-.phil-tabel {
+/* .phil-tabel {
     display: grid;
     grid-template-columns: minmax(360px, 992px);
     place-content: center;
@@ -973,7 +973,7 @@ input:hover, textarea:hover, select:hover {
     grid-template-columns: 1fr;
     margin: 0px 0.5em;
     box-sizing: border-box;
-}
+} */
 
 /* Swipper */
 .modal-image {

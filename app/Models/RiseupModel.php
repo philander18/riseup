@@ -95,8 +95,58 @@ class RiseupModel extends Model
     // Akses database terkait laporan
     public function search_dana_masuk($keyword, $jumlahlist, $index, $order, $kategori)
     {
-        $where = "deskripsi like '%" . $keyword . "%' and jenis = 'masuk' and kategori = '" . $kategori . "'";
+        if ($kategori == 'All') {
+            $where = "deskripsi like '%" . $keyword . "%' and jenis = 'masuk'";
+        } else {
+            $where = "deskripsi like '%" . $keyword . "%' and jenis = 'masuk' and kategori = '" . $kategori . "'";
+        }
         $all = $this->db->table('dana')->select('*')->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+    public function search_dana_keluar($keyword, $jumlahlist, $index, $order, $kategori)
+    {
+        if ($kategori == 'All') {
+            $where = "deskripsi like '%" . $keyword . "%' and jenis = 'keluar'";
+        } else {
+            $where = "deskripsi like '%" . $keyword . "%' and jenis = 'keluar' and kategori = '" . $kategori . "'";
+        }
+        $all = $this->db->table('dana')->select('*')->where($where)->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+
+    public function search_summary_dana_masuk($keyword, $jumlahlist, $index, $order)
+    {
+
+        $where = "kategori like '%" . $keyword . "%' and jenis = 'masuk'";
+        $all = $this->db->table('dana')->select('kategori, sum(jumlah) as jumlah')->where($where)->groupBy('kategori')->orderBy($order)->get()->getResultArray();
+        $jumlahdata = count($all);
+        $lastpage = ceil($jumlahdata / $jumlahlist);
+        $tabel = array_splice($all, $index);
+        array_splice($tabel, $jumlahlist);
+        $data['lastpage'] = $lastpage;
+        $data['tabel'] = $tabel;
+        $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+    public function search_summary_dana_keluar($keyword, $jumlahlist, $index, $order)
+    {
+
+        $where = "kategori like '%" . $keyword . "%' and jenis = 'keluar'";
+        $all = $this->db->table('dana')->select('kategori, sum(jumlah) as jumlah')->where($where)->groupBy('kategori')->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
         $tabel = array_splice($all, $index);
