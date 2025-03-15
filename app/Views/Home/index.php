@@ -21,13 +21,13 @@
             <div class="pembicara-hero">
                 <h3>Pembicara</h3>
                 <div><img src="<?= base_url(); ?>public/images/pembicara.png" alt="Pembicara"></div>
-                <h4><Span class="text-decoration-underline">Pdt. Vera Siwi</Span><br>Ketua KP Pelpap GPdI</h4>
+                <h4><Span class="text-decoration-underline">Pdt. Vera Patita Siwi S. E.</Span><br>Ketua KP Pelpap GPdI</h4>
             </div>
             <div class="tema-hero">
                 <h3>Tema</h3>
                 <h4 class="text-decoration-underline">RISE UP, RISING GENERATION</h4>
                 <h4>Isaiah 60:1 (UKJV)</h4>
-                <h4>Arise, shine; for thy light is come, and the glory of the LORD is risen upon thee.</h4>
+                <h4>Arise, shine; for your light has come, and the glory of the LORD has risen upon you.</h4>
             </div>
         </div>
     </section>
