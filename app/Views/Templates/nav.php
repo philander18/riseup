@@ -14,7 +14,7 @@
             <?php } else { ?>
                 <span><?= strtoupper($akses); ?></span><a href="<?= base_url(); ?>home/keluar" id="log-out"><i class="fa-solid fa-right-from-bracket"></i></a>
             <?php } ?>
-            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart" x-data="{halaman: 'Usaha Dana'}" x-show="halaman === '<?= $judul; ?>'"><i class="fa-solid fa-cart-shopping"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
+            <a href="#" @click="shop = !shop" @click.outside="shop = false" @click.prevent id="shopping-cart" x-data="{halaman: 'Toko'}" x-show="halaman === '<?= $judul; ?>'"><i class="fa-solid fa-cart-shopping"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
             <a href="#" @click="isActive = !isActive" @click.outside="isActive = false" @click.prevent id="hamburger-menu"><i class="fa-solid fa-bars"></i></a>
         </div>
         <!-- shopping cart -->

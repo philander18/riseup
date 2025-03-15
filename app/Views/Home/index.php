@@ -31,7 +31,28 @@
             </div>
         </div>
     </section>
+    <section class="section-1">
+        <div class="konten-phil sambutan-panitia">
+            <p style="text-indent: 0;">Shalom, Salam sejahtera bagi kita semua,</p>
+            <p>Puji dan syukur kita panjatkan kepada Tuhan Yesus Kristus yang telah memberikan kesempatan berharga ini, sehingga kami panitia KKR Paskah 2025 Pelprap GPdI Wilayah 1 bisa dibentuk dan dilantik pada tanggal 25 Januari 2025 untuk mempersiapkan acara KKR Paskah 2025 pada tanggal 26 April 2025. Momen ini merupakan sebuah kabar sukacita bagi kita semua, khususnya bagi pemuda dan remaja di seluruh GPdI Wilayah 1 Bandung. Melalui acara ini, kita akan diberi kesempatan untuk beribadah Bersama, mengalami hadirat Tuhan dan terlebih bisa mempererat persekutuan pemuda dan remaja.</p>
+            <p>Panitia mengambil tema "Rise Up Rising Generation", kami sangat berharap melalui acara ini ada kuasa kebangkitan yang nyata dan dialami secara spiritual khususnya bagi pemuda dan remaja di seluruh GPdI Wilayah 1 Bandung. Sehingga dengan kebangkitan yang dialami setiap pribadi, lahirlah generasi kebangkitan yang akan menyebarluaskan Injil Kerajaan Sorga baik secara pribadi maupun organisasi atau komunitas, khususnya di Kota/Kabupaten Bandung dan sekitarnya.</p>
+            <p>Tentu dalam pelaksanaan acara ini, kami juga menyadari bahwa berbagai dukungan sangat dibutuhkan, terutama dalam hal dana. Oleh karena itu, kami dengan rendah hati mengajak seluruh pihak untuk berkontribusi dalam mendukung acara ini sehingga acara berjalan dengan baik dan hanya nama Tuhan saja yang dimuliakan.</p>
+            <p style="text-indent: 0;">Panitia membuka kontribusi dukungan dana sebagai berikut :
+                <br>1. Taburan iman
+                <br>2. Kartu Kawan
+                <br>3. Sponsorship
+                <br>4. Penjualan Merchandise
+                <br>Setiap bentuk dukungan yang diberikan akan menjadi bagian dari pelayanan ini dan kami percaya bahwa Tuhan akan membalas setiap kebaikan dengan berkat yang melimpah.
+            </p>
+            <p>Akhir kata, kami mengajak setiap pemuda dan remaja di seluruh GPdI Wilayah 1 Bandung untuk berpartisipasi aktif dalam acara ini. Bisa melakukan pendaftaran melalui website ini pada menu registrasi atau kolektif dari leader pelprap gereja masing-masing. Mari bersama-sama kita merayakan kebangkitan Kristus dengan sukacita, serta mengalami lawatan Tuhan yang mengubahkan hidup kita. Kiranya kasih dan damai sejahtera Tuhan menyertai kita semua.</p>
+            <p style="text-indent: 0;">Tuhan Yesus memberkati!
+                <br>Panitia KKR Paskah 2025 Pelprap GPdI Wilayah 1 Bandung
+            </p>
+            <img src="<?= base_url(); ?>public/images/ketua.png" alt="Ketua">
+        </div>
+    </section>
 </div>
+
 <div class="modal fade" id="modal-home" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

@@ -173,6 +173,23 @@
     text-align: center;
 }
 
+.konten-phil.sambutan-panitia {
+    max-width: 1000px;
+    background-image: url('../images/shop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1em;
+    padding: 1.2em;
+}
+
+.konten-phil.sambutan-panitia p {
+    text-indent: 3.5em;
+    text-align: justify;
+}
+.konten-phil.sambutan-panitia img {
+    width: 20%;
+}
+
 /* template tabel */
 .phil-tabel {
     display: grid;
