@@ -56,6 +56,7 @@ class Registrasi extends BaseController
 
     public function refresh_tabel_peserta_verifikasi()
     {
+        $session = session();
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
         } else {
@@ -78,12 +79,14 @@ class Registrasi extends BaseController
             'jumlah_peserta_verifikasi' => $this->RiseupModel->search_peserta($keyword, $this->jumlahlist, $index, $order_peserta_verifikasi, $gereja, 1)['jumlah'],
             'page' => $page,
             'kolom_peserta_verifikasi' => $kolom_peserta_verifikasi,
-            'sort_peserta_verifikasi' => $sort_peserta_verifikasi
+            'sort_peserta_verifikasi' => $sort_peserta_verifikasi,
+            'akses' => $session->akses,
         ];
         return view('Registrasi/Ajax/peserta_verifikasi', $data);
     }
     public function refresh_tabel_peserta_unverifikasi()
     {
+        $session = session();
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
         } else {
@@ -106,7 +109,8 @@ class Registrasi extends BaseController
             'jumlah_peserta_unverifikasi' => $this->RiseupModel->search_peserta($keyword, $this->jumlahlist, $index, $order_peserta_unverifikasi, $gereja, 0)['jumlah'],
             'page' => $page,
             'kolom_peserta_unverifikasi' => $kolom_peserta_unverifikasi,
-            'sort_peserta_unverifikasi' => $sort_peserta_unverifikasi
+            'sort_peserta_unverifikasi' => $sort_peserta_unverifikasi,
+            'akses' => $session->akses,
         ];
         return view('Registrasi/Ajax/peserta_unverifikasi', $data);
     }
@@ -158,6 +162,24 @@ class Registrasi extends BaseController
             session()->setFlashdata('pesan', 'Registrasi gagal.');
         }
         return view('Templates/flash');
+    }
+
+    public function get_detail_peserta()
+    {
+        $data = [
+            'peserta' => $this->RiseupModel->get_peserta_byid($_POST['id'])[0],
+        ];
+        return view('Registrasi/Ajax/detail_peserta', $data);
+    }
+
+    public function update_verifikasi_peserta()
+    {
+        $session = session();
+        $data = [
+            'pic' => $session->akses,
+            'verified' => 1
+        ];
+        $this->RiseupModel->update_verifikasi_peserta($_POST['id'], $data);
     }
 
     public function pagination($page, $lastpage)

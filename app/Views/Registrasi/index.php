@@ -111,7 +111,13 @@
                                 <?php foreach ($peserta_verifikasi as $row) : ?>
                                     <tr>
                                         <td class="text-center align-middle m-1 p-1">
-                                            <?= $row["nama"]; ?>
+                                            <?php if ($akses == $row["gereja"]) : ?>
+                                                <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
+                                                    <?= $row["nama"]; ?>
+                                                </a>
+                                            <?php else :
+                                                echo $row["nama"];
+                                            endif; ?>
                                         </td>
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["gereja"]; ?>
@@ -209,7 +215,13 @@
                                 <?php foreach ($peserta_unverifikasi as $row) : ?>
                                     <tr>
                                         <td class="text-center align-middle m-1 p-1">
-                                            <?= $row["nama"]; ?>
+                                            <?php if ($akses == $row["gereja"]) : ?>
+                                                <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
+                                                    <?= $row["nama"]; ?>
+                                                </a>
+                                            <?php else :
+                                                echo $row["nama"];
+                                            endif; ?>
                                         </td>
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["gereja"]; ?>
@@ -358,31 +370,21 @@
             </div>
         </div>
     </section>
-    <!-- <section class="satu-page">
-        <div class="layout-contents">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="<?= base_url(); ?>public/images/logo.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url(); ?>public/images/logo.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url(); ?>public/images/logo.png" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+</div>
+<div class="modal fade" id="detail-peserta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-bold" id="exampleModalLabel">Detail Peserta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body isi-detail-peserta">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
-    </section> -->
+    </div>
 </div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

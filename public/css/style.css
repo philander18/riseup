@@ -93,6 +93,9 @@ body {
     display: none;
 }
 
+.navbar-phil .navbar-extra-phil span.nama-akses {
+    font-size: 0.7em;
+}
 /* shopping cart */
 #shopping-cart {
     position: relative;
@@ -423,9 +426,7 @@ body {
     font-size: 1.5em;
 }
 
-.sambutan-panitia {
-    max-width: 1000px;
-}
+
 
 /* Registrasi */
 .layout-contents.area-registrasi {
@@ -609,6 +610,16 @@ input:hover, textarea:hover, select:hover {
     margin: 0;
     align-items: start;
     background-color: transparent;
+}
+
+.detail-peserta {
+    justify-content: start;
+    display: grid;
+    grid-template-columns: 1.1fr 0.8em 3fr;
+    row-gap: 0.8em;
+}
+.detail-peserta .label-peserta {
+    font-size: 0.8em;
 }
 
 /* Usaha dana */
@@ -1115,7 +1126,7 @@ input:hover, textarea:hover, select:hover {
 
     .tiga-page {
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: 'verifikasi unverifikasi'
+        grid-template-areas: 'unverifikasi verifikasi'
         'summary summary';
     }
 
@@ -1197,8 +1208,8 @@ input:hover, textarea:hover, select:hover {
     .tiga-page {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-areas: 'verifikasi'
-        'unverifikasi'
+        grid-template-areas: 'unverifikasi'
+        'verifikasi'
         'summary';
     }
     

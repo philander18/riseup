@@ -25,7 +25,13 @@
         <?php foreach ($peserta_verifikasi as $row) : ?>
             <tr>
                 <td class="text-center align-middle m-1 p-1">
-                    <?= $row["nama"]; ?>
+                    <?php if ($akses == $row["gereja"]) : ?>
+                        <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
+                            <?= $row["nama"]; ?>
+                        </a>
+                    <?php else :
+                        echo $row["nama"];
+                    endif; ?>
                 </td>
                 <td class="text-center align-middle m-1 p-1">
                     <?= $row["gereja"]; ?>
@@ -79,6 +85,20 @@
 <input type="hidden" id="sort-peserta_verifikasi" value="<?= $sort_peserta_verifikasi; ?>">
 <script>
     $(document).ready(function() {
+        $('.modal-detail-peserta').on('click', function() {
+            const id = $(this).data('id');
+            $.ajax({
+                url: method_url('Registrasi', 'get_detail_peserta'),
+                data: {
+                    id: id,
+                },
+                method: 'post',
+                dataType: 'html',
+                success: function(data) {
+                    $('.isi-detail-peserta').html(data);
+                }
+            });
+        });
         $(".link-peserta_verifikasi").on('click', function() {
             refresh_peserta_verifikasi($('#keyword-peserta_verifikasi').val(), $(this).data('page'), $('#list_gereja-peserta_verifikasi').val(), $('#kolom-peserta_verifikasi').val(), $('#sort-peserta_verifikasi').val());
         });

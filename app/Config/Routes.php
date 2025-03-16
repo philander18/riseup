@@ -26,6 +26,8 @@ $routes->post('Registrasi/input_peserta', 'Registrasi::input_peserta');
 $routes->post('Registrasi/refresh_tabel_peserta_verifikasi', 'Registrasi::refresh_tabel_peserta_verifikasi');
 $routes->post('Registrasi/refresh_tabel_peserta_unverifikasi', 'Registrasi::refresh_tabel_peserta_unverifikasi');
 $routes->post('Registrasi/refresh_tabel_peserta_summary', 'Registrasi::refresh_tabel_peserta_summary');
+$routes->post('Registrasi/get_detail_peserta', 'Registrasi::get_detail_peserta');
+$routes->post('Registrasi/update_verifikasi_peserta', 'Registrasi::update_verifikasi_peserta');
 $routes->post('home/portal', 'Home::portal');
 $routes->post('shop/input_orderan', 'Shop::input_orderan');
 $routes->post('shop/get_detail_order', 'Shop::get_detail_order');

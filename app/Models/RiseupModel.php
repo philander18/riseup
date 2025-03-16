@@ -65,7 +65,7 @@ class RiseupModel extends Model
         } else {
             $where = "nama like '%" . $keyword . "%' and gereja = '" . $gereja . "' and verified = " . $verified;
         }
-        $select = "nama, gereja";
+        $select = "id, nama, gereja";
         $all = $this->db->table('peserta')->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
@@ -90,6 +90,11 @@ class RiseupModel extends Model
         $data['tabel'] = $tabel;
         $data['jumlah'] = $jumlahdata;
         return $data;
+    }
+
+    function update_verifikasi_peserta($id, $data)
+    {
+        return $this->db->table('peserta')->where('id', $id)->update($data);
     }
 
     // Akses database terkait laporan
@@ -234,6 +239,10 @@ class RiseupModel extends Model
     public function get_dana_byid($id)
     {
         return $this->db->table('dana')->select("*")->where('id', $id)->get()->getResultArray();
+    }
+    public function get_peserta_byid($id)
+    {
+        return $this->db->table('peserta')->select("*")->where('id', $id)->get()->getResultArray();
     }
 
     function update_start_game($tanda, $data)

@@ -122,6 +122,20 @@
                 }
             });
         });
+        $('.modal-detail-peserta').on('click', function() {
+            const id = $(this).data('id');
+            $.ajax({
+                url: method_url('Registrasi', 'get_detail_peserta'),
+                data: {
+                    id: id,
+                },
+                method: 'post',
+                dataType: 'html',
+                success: function(data) {
+                    $('.isi-detail-peserta').html(data);
+                }
+            });
+        });
         $('#list_gereja-peserta_verifikasi').on('change', function() {
             refresh_peserta_verifikasi($('#keyword-peserta_verifikasi').val(), 1, $(this).val(), $('#kolom-peserta_verifikasi').val(), $('#sort-peserta_verifikasi').val());
         });
