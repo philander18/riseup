@@ -439,6 +439,10 @@ body {
 
 
 /* Registrasi */
+.page-phil.registrasi {
+    grid-template-rows: repeat(auto-fill, minmax(15vh, auto));
+}
+
 .layout-contents.area-registrasi {
     background-image: url('../images/registrasi.jpg');
     background-repeat: no-repeat;
@@ -1142,17 +1146,17 @@ input:hover, textarea:hover, select:hover {
 
     .layout-contents.area-tabel-verifikasi {
         grid-area: verifikasi;
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .layout-contents.area-tabel-unverifikasi {
         grid-area: unverifikasi;
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .layout-contents.area-tabel-summary {
         grid-area: summary;
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .layout-contents.area-footer {
@@ -1233,20 +1237,20 @@ input:hover, textarea:hover, select:hover {
     }
 
     .layout-contents.area-tabel-verifikasi {
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .layout-contents.area-tabel-unverifikasi {
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .layout-contents.area-tabel-summary {
-        height: 85vh;
+        min-height: 20vh;
     }
 
     .phil-container {
         margin: 0;
-        padding: 0;
+        padding-bottom: 1em;
     }
     .layout-contents.area-footer {
         padding: 0 2em;

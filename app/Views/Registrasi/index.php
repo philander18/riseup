@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
-<div class="page-phil">
+<div class="page-phil registrasi">
     <section class="satu-page">
         <div class="layout-contents area-registrasi">
             <div class="form-registrasi" x-data="{ pilihan: '', lainnya: '' }">
@@ -370,6 +370,7 @@
             </div>
         </div>
     </section>
+    <section class="satu-page"></section>
 </div>
 <div class="modal fade" id="detail-peserta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

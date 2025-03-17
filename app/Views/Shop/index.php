@@ -368,7 +368,7 @@
                     <li class="text-justify">Jika informasi pemesanan sudah sesuai, bisa upload bukti bayar dengan klik browse dan arahkan ke file gambar bukti bayarnya, kemudian klik tombol upload.</li>
                     <li>Panitia akan cek pemesanan secepatnya maksimal 24 jam setelah bukti bayar diupload.</li>
                     <li>Cek di tabel order lunas untuk melihat apakah pemesanan sudah terkonfirmasi dibayar.</li>
-                    <li>Jika belum tekonfirmasi setelah lebih dari 24 jam bisa menginformasikan ke wa 081310961630.</li>
+                    <li>Jika belum tekonfirmasi setelah lebih dari 24 jam bisa menginformasikan ke wa 085861294855.</li>
                     <li>Barang yang diorder akan didistribusikan sesuai jadwal yang diinformasikan.</li>
                 </ol>
             </div>
@@ -386,7 +386,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body isi-detail-order" x-data>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>

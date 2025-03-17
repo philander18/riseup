@@ -10,7 +10,7 @@
         </div>
         <div class="navbar-extra-phil">
             <?php if (is_null($akses)) { ?>
-                <a href="<?= base_url(); ?>home/portal" id="log-in"><i class="fa-solid fa-right-to-bracket"></i></a>
+                <a href="<?= base_url(); ?>home/portal" id="log-in" class="text-decoration-none">Login <i class="fa-solid fa-right-to-bracket"></i></a>
             <?php } else { ?>
                 <span class="nama-akses"><?= strtoupper($akses); ?></span><a href="<?= base_url(); ?>home/keluar" id="log-out"><i class="fa-solid fa-right-from-bracket"></i></a>
             <?php } ?>
@@ -76,10 +76,9 @@
                         <!-- <button type="button" @click="kosong_form_pelanggan();pengiriman= ''" class="test" id="test">Checkout</button> -->
                     </div>
                     <div class="rekening text-dark">
-                        <p>Pembayaran bisa dilakukan dengan transfer ke rekening <span class="fw-bold">BCA 1393906484 a.n Rony Gunawan</span></p>
+                        <p>Pembayaran bisa dilakukan dengan transfer ke rekening <span class="fw-bold">BCA 3791692197 a.n Reymond Crist Gunadi</span></p>
                         <p>Melayani juga pemesanan secara chat/ketemu dengan pembayaran langsung ke nomor 081313498165 (Stefan)</p>
                     </div>
-
                 </div>
             </form>
         </div>
