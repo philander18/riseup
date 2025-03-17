@@ -48,6 +48,7 @@ class Registrasi extends BaseController
             'jumlah_peserta_summary' => $this->RiseupModel->search_summary("", $this->jumlahlist, 0, $order_peserta_summary)['jumlah'],
             'kolom_peserta_summary' => $kolom_peserta_summary,
             'sort_peserta_summary' => $sort_peserta_summary,
+            'harapan' => $this->RiseupModel->peserta_random(),
             'akses' => $session->akses,
             'produk' => $this->RiseupModel->list_produk(),
         ];

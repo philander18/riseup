@@ -370,7 +370,26 @@
             </div>
         </div>
     </section>
-    <section class="satu-page"></section>
+    <section class="section-1">
+        <div class="konten-phil registrasi-harapan">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($harapan as $row) : ?>
+                        <div class="swiper-slide" style="display: flex; justify-content: center;">
+                            <div class="container-gambar-dana" style="width : 360px;">
+                                <img src="<?= base_url(); ?>public/images/registrasi/harapan.png" alt="Poster">
+                                <div class="nama-peserta"><?= $row['nama']; ?></div>
+                                <div class="harapan-peserta"><?= $row['harapan']; ?></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="swiper-pagination swiper-pagination"></div>
+                <div class="swiper-button-next swiper-button-next"></div>
+                <div class="swiper-button-prev swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
 </div>
 <div class="modal fade" id="detail-peserta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -387,5 +406,36 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 1, // Menampilkan 2 slide dalam satu tampilan
+            spaceBetween: 10,
+            loop: document.querySelectorAll('.swiper-slide').length > 1,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2, // 2 slide pada layar lebih besar dari 768px
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3, // 3 slide pada layar lebih besar dari 1024px
+                    spaceBetween: 30,
+                }
+            }
+        });
+    });
+</script>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

@@ -65,7 +65,7 @@ class RiseupModel extends Model
         } else {
             $where = "nama like '%" . $keyword . "%' and gereja = '" . $gereja . "' and verified = " . $verified;
         }
-        $select = "id, nama, gereja";
+        $select = "id, nama, gereja, harapan";
         $all = $this->db->table('peserta')->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
@@ -74,6 +74,13 @@ class RiseupModel extends Model
         $data['lastpage'] = $lastpage;
         $data['tabel'] = $tabel;
         $data['jumlah'] = $jumlahdata;
+        return $data;
+    }
+    public function peserta_random()
+    {
+        $where = "verified = 1";
+        $select = "id, nama, harapan";
+        $data = $this->db->table('peserta')->select($select)->where($where)->orderBy('rand()')->limit(50)->get()->getResultArray();
         return $data;
     }
 
