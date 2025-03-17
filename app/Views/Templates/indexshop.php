@@ -16,7 +16,7 @@
 
     <!-- My Style -->
     <link href="<?= base_url(); ?>public/css/style.css?v=<?= time(); ?>" rel="stylesheet" type="text/css">
-
+    <link href="<?= base_url(); ?>public/css/phil.css?v=<?= time(); ?>" rel="stylesheet" type="text/css">
     <!-- Logo Icon -->
     <link rel="shortcut icon" href="<?= base_url(); ?>public/images/logo1.png">
 

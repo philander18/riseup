@@ -39,6 +39,7 @@ $routes->post('shop/update_bukti_valid', 'Shop::update_bukti_valid');
 $routes->post('Shop/refresh_rekap_orderan', 'Shop::refresh_rekap_orderan');
 $routes->post('Shop/refresh_order_belum_lunas', 'Shop::refresh_order_belum_lunas');
 $routes->post('Shop/refresh_order_lunas', 'Shop::refresh_order_lunas');
+$routes->post('Shop/hapus_order', 'Shop::hapus_order');
 $routes->post('Game/refresh_game', 'Game::refresh_game');
 $routes->post('Game/get_detail_game', 'Game::get_detail_game');
 $routes->post('game/start', 'Game::start');

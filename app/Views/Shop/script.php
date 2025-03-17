@@ -49,6 +49,26 @@
             }
         });
     }
+
+    function hapus_order(kode) {
+        let result = confirm("Apakah Anda yakin ingin menghapus data ini?");
+        if (result) {
+            $.ajax({
+                url: method_url('Shop', 'hapus_order'),
+                data: {
+                    kode: kode,
+                },
+                method: 'post',
+                dataType: 'html',
+                success: function(data) {
+                    refresh_order_belum_lunas('', 1, $('#kolom-order_belum_lunas').val(), $('#sort-order_belum_lunas').val());
+                    alert("Data berhasil dihapus.");
+                }
+            });
+        } else {
+            alert("Penghapusan dibatalkan.");
+        }
+    }
     $(document).ready(function() {
         $("#modal-shop").modal('show');
         $('.modal-detail-produk').on('click', function() {

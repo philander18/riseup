@@ -206,6 +206,10 @@ class Shop extends BaseController
         ];
         return view('Shop/Ajax/produk', $data);
     }
+    public function hapus_order()
+    {
+        $this->RiseupModel->hapus_order($_POST['kode']);
+    }
 
     public function process()
     {

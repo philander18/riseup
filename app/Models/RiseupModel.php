@@ -204,6 +204,11 @@ class RiseupModel extends Model
         return $data;
     }
 
+    public function hapus_order($kode)
+    {
+        $this->db->table('orderan')->where('kode', $kode)->delete();
+    }
+
     public function search_game($keyword, $jumlahlist, $index, $order)
     {
         $waktu = (int) $this->get_game_bytanda('mulai')[0]['waktu'];

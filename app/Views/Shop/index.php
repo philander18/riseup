@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/indexshop'); ?>
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
-<div class="page-phil page-shop">
+<div class="page-phil page-shop" x-data="{akses: '<?= $akses; ?>'}">
     <section class="tiga-page shop-tabel">
         <div class="layout-contents shop-tabel-verifikasi">
             <div class="phil-container">
@@ -153,7 +153,7 @@
                                             <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
                                                 <?= $row["kode"]; ?>
                                             </a>
-
+                                            <a href="" x-show="['danus', 'ketua'].includes(akses)" class="px-2" @click.prevent="hapus_order('<?= $row["kode"]; ?>');"><i class="fa-solid fa-trash-can"></i></a>
                                         </td>
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["nama"]; ?>
