@@ -415,16 +415,16 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/1.png" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/1.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/2.png" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/2.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/3.png" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/3.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/4.png" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/4.jpeg" alt="Poster">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
