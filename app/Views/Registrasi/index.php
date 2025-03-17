@@ -413,7 +413,7 @@
             spaceBetween: 10,
             loop: document.querySelectorAll('.swiper-slide').length > 1,
             autoplay: {
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             pagination: {
