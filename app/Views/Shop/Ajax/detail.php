@@ -42,7 +42,7 @@ $total = 0;
 </table>
 <h5 class="mb-4">Total Pembayaran : <span class="text-success"><?= rupiah($total); ?></span></h5>
 <?php if ($gambar) :
-    if (in_array($akses, ['bendahara', 'ketua'])) : ?>
+    if (in_array($akses, ['danus', 'ketua'])) : ?>
         <div class="modal-image">
             <div class="swiper">
                 <div class="swiper-wrapper">
@@ -78,7 +78,7 @@ $total = 0;
         </div>
     </form>
 <?php endif; ?>
-<?php if (in_array($akses, ['bendahara', 'ketua'])) { ?>
+<?php if (in_array($akses, ['danus', 'ketua'])) { ?>
     <form action="<?= base_url(); ?>shop/update_pembayaran" method="post">
         <div class="container-pelunasan mt-4">
             <input type="hidden" name="kode-lunas" value="<?= $detail_produk[0]['kode'] ?>">
