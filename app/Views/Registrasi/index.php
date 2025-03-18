@@ -176,6 +176,10 @@
         <div class="layout-contents area-tabel-unverifikasi">
             <div class="phil-container">
                 <h4>Peserta Belum Terverifikasi</h4>
+                <div class="px-2">
+                    <p style="text-align: justify">Setelah mengisi form registrasi, silahkan menghubungi ketua pelprap sesuai gerejanya masing-masing untuk proses verifikasi.
+                    </p>
+                </div>
                 <div class="phil-tabel">
                     <div class="search filter-select">
                         <label class="text-dark">Search </label>
@@ -310,17 +314,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($peserta_summary as $row) : ?>
+                                <?php $total_peserta = 0;
+                                foreach ($peserta_summary as $row) : ?>
                                     <tr>
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["gereja"]; ?>
                                         </td>
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["jumlah"]; ?>
+                                            <?php $total_peserta += $row["jumlah"]; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="text-center align-middle m-1 p-1 fw-bold bg-success">
+                                        <strong>Total Peserta</strong>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1 fw-bold bg-success">
+                                        <strong><?= $total_peserta; ?></strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                         <?php if ($peserta_summary) : ?>
                             <div aria-label="Page navigation">
