@@ -33,7 +33,7 @@
     <tbody>
         <?php foreach ($order_belum_lunas as $row) : ?>
             <tr>
-                <td class="text-center align-middle m-1 p-1">
+                <td class="text-center align-middle m-1 p-1" style="width: 6.9em;">
                     <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
                         <?= $row["kode"]; ?>
                     </a>
@@ -42,7 +42,7 @@
                 <td class="text-center align-middle m-1 p-1">
                     <?= $row["nama"]; ?>
                 </td>
-                <td class="text-center align-middle m-1 p-1">
+                <td class="text-center align-middle m-1 p-1" style="width: 10.9em;">
                     <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
                 </td>
             </tr>

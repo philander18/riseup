@@ -972,38 +972,6 @@ input:hover, textarea:hover, select:hover {
     font-size: 1.2em;
 }
 
-/* .phil-tabel {
-    display: grid;
-    grid-template-columns: minmax(360px, 992px);
-    place-content: center;
-    row-gap: 0.5em;
-    grid-template-areas: 'search'
-        'tabel'
-}
-.phil-tabel .search {
-    display: grid;
-    grid-area: search;
-    grid-template-columns: 60px 139px;
-    column-gap: 0.3em;
-    place-items: center start;
-    margin: 0px 0.5em;
-    box-sizing: border-box;
-}
-
-#keyword-order_belum_lunas {
-    font-size: 0.8em;
-}
-.phil-tabel .filter-select {
-    grid-template-columns: 60px 139px 139px;
-}
-.phil-tabel .tabel {
-    display: grid;
-    grid-area: tabel;
-    grid-template-columns: 1fr;
-    margin: 0px 0.5em;
-    box-sizing: border-box;
-} */
-
 /* Swipper */
 .modal-image {
     display: flex;
@@ -1077,7 +1045,7 @@ input:hover, textarea:hover, select:hover {
     border-radius: 0.6em;
     border: 1px solid var(--primary);
 }
-.konten-dana {
+.konten-dana, .konten-shop {
     background-image: url('../images/shop/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;

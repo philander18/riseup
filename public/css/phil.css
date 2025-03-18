@@ -247,9 +247,7 @@
     margin: 0px 0.5em;
     box-sizing: border-box;
 }
-#keyword-order_belum_lunas {
-    font-size: 0.8em;
-}
+
 .phil-tabel .filter-select {
     grid-template-columns: 60px 139px 1fr;
 }

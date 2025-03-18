@@ -124,7 +124,7 @@
                                     <td class="text-center align-middle m-1 p-1">
                                         <?= number_format($row["jumlah"], 0, ',', '.'); ?>
                                     </td>
-                                    <td class="text-center align-middle m-1 p-1">
+                                    <td class="text-center align-middle m-1 p-1" style="width: 7em;">
                                         <?= $row["tanggal"]; ?>
                                     </td>
                                 </tr>
@@ -343,7 +343,7 @@
                                     <td class="text-center align-middle m-1 p-1">
                                         <?= number_format($row["jumlah"], 0, ',', '.'); ?>
                                     </td>
-                                    <td class="text-center align-middle m-1 p-1">
+                                    <td class="text-center align-middle m-1 p-1" style="width: 7em;">
                                         <?= $row["tanggal"]; ?>
                                     </td>
                                 </tr>

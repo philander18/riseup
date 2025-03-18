@@ -154,7 +154,7 @@
                             <tbody>
                                 <?php foreach ($order_belum_lunas as $row) : ?>
                                     <tr>
-                                        <td class="text-center align-middle m-1 p-1">
+                                        <td class="text-center align-middle m-1 p-1" style="width: 6.9em;">
                                             <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
                                                 <?= $row["kode"]; ?>
                                             </a>
@@ -163,7 +163,7 @@
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["nama"]; ?>
                                         </td>
-                                        <td class="text-center align-middle m-1 p-1">
+                                        <td class="text-center align-middle m-1 p-1" style="width: 10.9em;">
                                             <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
                                         </td>
                                     </tr>
@@ -261,7 +261,7 @@
                             <tbody>
                                 <?php foreach ($order_lunas as $row) : ?>
                                     <tr>
-                                        <td class="text-center align-middle m-1 p-1">
+                                        <td class="text-center align-middle m-1 p-1" style="width: 6.9em;">
                                             <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
                                                 <?= $row["kode"]; ?>
                                             </a>
@@ -270,7 +270,7 @@
                                         <td class="text-center align-middle m-1 p-1">
                                             <?= $row["nama"]; ?>
                                         </td>
-                                        <td class="text-center align-middle m-1 p-1">
+                                        <td class="text-center align-middle m-1 p-1" style="width: 10.9em;">
                                             <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
                                         </td>
                                     </tr>
@@ -354,6 +354,415 @@
         </div>
     </section>
 </div>
+<!-- <div class="container-phil" x-data="{akses: '<?= $akses; ?>'}">
+    <section class="section-2">
+        <div class="konten-phil konten-shop py-2">
+            <div class="flash">
+                <?php if (session()->getFlashdata('pesan')) : ?>
+                    <div class="alert m-0">
+                        <?= session()->getFlashdata('pesan'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="petunjuk-preorder">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#petunjuk-shop">Panduan Pre-Order</button>
+            </div>
+            <h4 class="mt-2 fw-bold text-center">Order Belum Lunas</h4>
+            <div class="px-2">
+                <p style="text-align: justify">Silahkan upload bukti bayar dengan klik Kode sesuai pada baris nama yang memesan.
+                    <br> Setelah upload bukti bayar bisa menghubungi Reymond (085861294855) untuk segera diverifikasi.
+                </p>
+            </div>
+            <div class="phil-tabel">
+                <div class="search">
+                    <label class="text-dark">Search </label>
+                    <input class="form-control form-control-sm" type="search" style="background: rgba(255, 255, 255, 0.5);" id="keyword-order_belum_lunas">
+                </div>
+                <div class="tabel tabel-order_belum_lunas">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr class="table-dark header-order_belum_lunas" style="vertical-align:middle">
+                                <th class="text-center sort-order_belum_lunas" data-kolom="kode" data-sort="<?= $sort_order_belum_lunas; ?>">Kode
+                                    <?php if ($kolom_order_belum_lunas == 'kode') : ?>
+                                        <?php if ($sort_order_belum_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-order_belum_lunas" data-kolom="nama" data-sort="<?= $sort_order_belum_lunas; ?>">Nama
+                                    <?php if ($kolom_order_belum_lunas == 'nama') : ?>
+                                        <?php if ($sort_order_belum_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-order_belum_lunas" data-kolom="tanggal" data-sort="<?= $sort_order_belum_lunas; ?>">Waktu
+                                    <?php if ($kolom_order_belum_lunas == 'tanggal') : ?>
+                                        <?php if ($sort_order_belum_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($order_belum_lunas as $row) : ?>
+                                <tr>
+                                    <td class="text-center align-middle m-1 p-1" style="width: 6.9em;">
+                                        <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
+                                            <?= $row["kode"]; ?>
+                                        </a>
+                                        <a href="" x-show="['danus', 'ketua'].includes(akses)" class="px-2" @click.prevent="hapus_order('<?= $row["kode"]; ?>');"><i class="fa-solid fa-trash-can"></i></a>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["nama"]; ?>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1" style="width: 10.9em;">
+                                        <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php if ($order_belum_lunas) : ?>
+                        <div aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <?php if ($pagination_order_belum_lunas['first']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_belum_lunas" aria-label="First" id="first" name="first" data-page="1">
+                                            <span aria-hidden="false">First</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_order_belum_lunas['previous']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_belum_lunas" aria-label="Previous" id="previous" name="previous" data-page="<?= $page - 1; ?>">
+                                            <span aria-hidden=" true">Previous</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php foreach ($pagination_order_belum_lunas['number'] as $number) : ?>
+                                    <li class="page-item <?= $pagination_order_belum_lunas['page'] == $number ? 'active' : '' ?>">
+                                        <button class="page-link text-dark link-order_belum_lunas" id="nomor<?= $number; ?>" name="nomor<?= $number; ?>" data-page="<?= $number; ?>">
+                                            <span aria-hidden="true"><?= $number; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endforeach ?>
+                                <?php if ($pagination_order_belum_lunas['next']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_belum_lunas" aria-label="Next" id="next" name="next" data-page="<?= $page + 1; ?>">
+                                            <span aria-hidden=" true">Next</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_order_belum_lunas['last']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_belum_lunas" aria-label="<?= $last_order_belum_lunas; ?>" id="last" name="last" data-page="<?= $last_order_belum_lunas; ?>">
+                                            <span aria-hidden="true"><?= $last_order_belum_lunas; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    <input type="hidden" id="kolom-order_belum_lunas" value="<?= $kolom_order_belum_lunas; ?>">
+                    <input type="hidden" id="sort-order_belum_lunas" value="<?= $sort_order_belum_lunas; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="konten-phil konten-shop py-2">
+            <h4 class="mt-2 mb-4 fw-bold text-center">Order Lunas</h4>
+            <div class="phil-tabel">
+                <div class="search">
+                    <label class="text-dark">Search </label>
+                    <input class="form-control form-control-sm" type="search" style="background: rgba(255, 255, 255, 0.5);" id="keyword-order_lunas">
+                </div>
+                <div class="tabel tabel-order_lunas">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr class="table-dark header-order_lunas" style="vertical-align:middle">
+                                <th class="text-center sort-order_lunas" data-kolom="kode" data-sort="<?= $sort_order_lunas; ?>">Kode
+                                    <?php if ($kolom_order_lunas == 'kode') : ?>
+                                        <?php if ($sort_order_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-order_lunas" data-kolom="nama" data-sort="<?= $sort_order_lunas; ?>">Nama
+                                    <?php if ($kolom_order_lunas == 'nama') : ?>
+                                        <?php if ($sort_order_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-order_lunas" data-kolom="tanggal" data-sort="<?= $sort_order_lunas; ?>">Waktu
+                                    <?php if ($kolom_order_lunas == 'tanggal') : ?>
+                                        <?php if ($sort_order_lunas == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($order_lunas as $row) : ?>
+                                <tr>
+                                    <td class="text-center align-middle m-1 p-1" style="width: 6.9em;">
+                                        <a href="" class="link-primary modal-detail-order" data-bs-toggle="modal" data-bs-target="#detail-order" data-kode="<?= $row["kode"]; ?>">
+                                            <?= $row["kode"]; ?>
+                                        </a>
+
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["nama"]; ?>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1" style="width: 10.9em;">
+                                        <?= date("Y-m-d H:i:s", $row["tanggal"]); ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php if ($order_lunas) : ?>
+                        <div aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <?php if ($pagination_order_lunas['first']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_lunas" aria-label="First" id="first" name="first" data-page="1">
+                                            <span aria-hidden="false">First</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_order_lunas['previous']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_lunas" aria-label="Previous" id="previous" name="previous" data-page="<?= $page - 1; ?>">
+                                            <span aria-hidden=" true">Previous</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php foreach ($pagination_order_lunas['number'] as $number) : ?>
+                                    <li class="page-item <?= $pagination_order_lunas['page'] == $number ? 'active' : '' ?>">
+                                        <button class="page-link text-dark link-order_lunas" id="nomor<?= $number; ?>" name="nomor<?= $number; ?>" data-page="<?= $number; ?>">
+                                            <span aria-hidden="true"><?= $number; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endforeach ?>
+                                <?php if ($pagination_order_lunas['next']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_lunas" aria-label="Next" id="next" name="next" data-page="<?= $page + 1; ?>">
+                                            <span aria-hidden=" true">Next</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_order_lunas['last']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-order_lunas" aria-label="<?= $last_order_lunas; ?>" id="last" name="last" data-page="<?= $last_order_lunas; ?>">
+                                            <span aria-hidden="true"><?= $last_order_lunas; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    <input type="hidden" id="kolom-order_lunas" value="<?= $kolom_order_lunas; ?>">
+                    <input type="hidden" id="sort-order_lunas" value="<?= $sort_order_lunas; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="konten-phil konten-shop py-2">
+            <h4 class="mt-2 mb-4 fw-bold">Rekap Pre-Order Batch 1</h4>
+            <div class="phil-tabel">
+                <div class="search">
+                    <label class="text-dark">Search </label>
+                    <input class="form-control form-control-sm" type="search" style="background: rgba(255, 255, 255, 0.5);" id="keyword-rekap_orderan">
+                </div>
+                <div class="tabel tabel-rekap_orderan">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr class="table-dark header-rekap_orderan" style="vertical-align:middle">
+                                <th class="text-center sort-rekap_orderan" data-kolom="produk" data-sort="<?= $sort_rekap_orderan; ?>">Produk
+                                    <?php if ($kolom_rekap_orderan == 'produk') : ?>
+                                        <?php if ($sort_rekap_orderan == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-rekap_orderan" data-kolom="jumlah" data-sort="<?= $sort_rekap_orderan; ?>">Jumlah
+                                    <?php if ($kolom_rekap_orderan == 'jumlah') : ?>
+                                        <?php if ($sort_rekap_orderan == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($rekap_orderan as $row) : ?>
+                                <tr>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["produk"]; ?>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["jumlah"]; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php if ($rekap_orderan) : ?>
+                        <div aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <?php if ($pagination_rekap_orderan['first']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="First" id="first" name="first" data-page="1">
+                                            <span aria-hidden="false">First</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_rekap_orderan['previous']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="Previous" id="previous" name="previous" data-page="<?= $page - 1; ?>">
+                                            <span aria-hidden=" true">Previous</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php foreach ($pagination_rekap_orderan['number'] as $number) : ?>
+                                    <li class="page-item <?= $pagination_rekap_orderan['page'] == $number ? 'active' : '' ?>">
+                                        <button class="page-link text-dark link-rekap_orderan" id="nomor<?= $number; ?>" name="nomor<?= $number; ?>" data-page="<?= $number; ?>">
+                                            <span aria-hidden="true"><?= $number; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endforeach ?>
+                                <?php if ($pagination_rekap_orderan['next']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="Next" id="next" name="next" data-page="<?= $page + 1; ?>">
+                                            <span aria-hidden=" true">Next</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_rekap_orderan['last']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="<?= $last_rekap_orderan; ?>" id="last" name="last" data-page="<?= $last_rekap_orderan; ?>">
+                                            <span aria-hidden="true"><?= $last_rekap_orderan; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    <input type="hidden" id="kolom-rekap_orderan" value="<?= $kolom_rekap_orderan; ?>">
+                    <input type="hidden" id="sort-rekap_orderan" value="<?= $sort_rekap_orderan; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="konten-phil konten-shop py-2">
+            <h4 class="mt-2 mb-4 fw-bold">Rekap Pre-Order Batch 0</h4>
+            <div class="phil-tabel">
+                <div class="search">
+                    <label class="text-dark">Search </label>
+                    <input class="form-control form-control-sm" type="search" style="background: rgba(255, 255, 255, 0.5);" id="keyword-rekap_orderan">
+                </div>
+                <div class="tabel tabel-rekap_orderan">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr class="table-dark header-rekap_orderan" style="vertical-align:middle">
+                                <th class="text-center sort-rekap_orderan" data-kolom="produk" data-sort="<?= $sort_rekap_orderan; ?>">Produk
+                                    <?php if ($kolom_rekap_orderan == 'produk') : ?>
+                                        <?php if ($sort_rekap_orderan == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                                <th class="text-center sort-rekap_orderan" data-kolom="jumlah" data-sort="<?= $sort_rekap_orderan; ?>">Jumlah
+                                    <?php if ($kolom_rekap_orderan == 'jumlah') : ?>
+                                        <?php if ($sort_rekap_orderan == 'ASC') : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                                        <?php else : ?>
+                                            <span class="ms-2"><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($rekap_orderan as $row) : ?>
+                                <tr>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["produk"]; ?>
+                                    </td>
+                                    <td class="text-center align-middle m-1 p-1">
+                                        <?= $row["jumlah"]; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php if ($rekap_orderan) : ?>
+                        <div aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <?php if ($pagination_rekap_orderan['first']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="First" id="first" name="first" data-page="1">
+                                            <span aria-hidden="false">First</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_rekap_orderan['previous']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="Previous" id="previous" name="previous" data-page="<?= $page - 1; ?>">
+                                            <span aria-hidden=" true">Previous</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php foreach ($pagination_rekap_orderan['number'] as $number) : ?>
+                                    <li class="page-item <?= $pagination_rekap_orderan['page'] == $number ? 'active' : '' ?>">
+                                        <button class="page-link text-dark link-rekap_orderan" id="nomor<?= $number; ?>" name="nomor<?= $number; ?>" data-page="<?= $number; ?>">
+                                            <span aria-hidden="true"><?= $number; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endforeach ?>
+                                <?php if ($pagination_rekap_orderan['next']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="Next" id="next" name="next" data-page="<?= $page + 1; ?>">
+                                            <span aria-hidden=" true">Next</span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($pagination_rekap_orderan['last']) : ?>
+                                    <li class="page-item">
+                                        <button class="page-link text-dark link-rekap_orderan" aria-label="<?= $last_rekap_orderan; ?>" id="last" name="last" data-page="<?= $last_rekap_orderan; ?>">
+                                            <span aria-hidden="true"><?= $last_rekap_orderan; ?></span>
+                                        </button>
+                                    </li>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    <input type="hidden" id="kolom-rekap_orderan" value="<?= $kolom_rekap_orderan; ?>">
+                    <input type="hidden" id="sort-rekap_orderan" value="<?= $sort_rekap_orderan; ?>">
+                </div>
+            </div>
+        </div>
+    </section>
+</div> -->
 <!-- Modal -->
 <div class="modal fade" id="petunjuk-shop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
