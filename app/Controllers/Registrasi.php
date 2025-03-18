@@ -158,7 +158,7 @@ class Registrasi extends BaseController
             'verified' => 0
         ];
         if ($this->RiseupModel->input_peserta($data)) {
-            session()->setFlashdata('pesan', 'Registrasi ' . $_POST['nama'] . ' dari gereja ' . $_POST['gereja'] . ' berhasil dan akan segera diverifikasi, jika dalam 3 hari belum diverifikasi bisa menghubungi panitia');
+            session()->setFlashdata('pesan', 'Registrasi ' . $_POST['nama'] . ' dari gereja ' . $_POST['gereja'] . ' berhasil, silahkan menginformasikan ke ketua pelprap gereja masing-masing supaya diverifikasi, jika dalam 3 hari belum diverifikasi bisa menghubungi panitia');
         } else {
             session()->setFlashdata('pesan', 'Registrasi gagal.');
         }
