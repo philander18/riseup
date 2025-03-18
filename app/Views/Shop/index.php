@@ -108,6 +108,11 @@
         <div class="layout-contents shop-tabel-verifikasi">
             <div class="phil-container">
                 <h4 class="mt-2 mb-4 fw-bold">Order Belum Lunas</h4>
+                <div class="px-2">
+                    <p style="text-align: justify">Silahkan upload bukti bayar dengan klik Kode sesuai pada baris nama yang memesan
+                        <br> Setelah upload bukti bayar bisa menghubungi Reymond (085861294855) untuk segera diverifikasi
+                    </p>
+                </div>
                 <div class="phil-tabel">
                     <div class="search">
                         <label class="text-dark">Search </label>
