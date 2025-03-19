@@ -1050,7 +1050,7 @@ input:hover, textarea:hover, select:hover {
     border-radius: 0.6em;
     border: 1px solid var(--primary);
 }
-.konten-dana, .konten-shop {
+.konten-dana, .konten-shop, .konten-registrasi {
     background-image: url('../images/shop/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;

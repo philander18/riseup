@@ -24,12 +24,13 @@
     display: grid;
     grid-auto-rows: max-content;
     align-items: start;
-    margin: 0.3em;
+    /* margin: 0.3em; */
     padding: 0.3em;
     /* border: 1px solid black; */
     justify-self: center;
     max-width: 600px;
     width: 100%;
+    grid-template-columns: minmax(100%,1fr);
 }
 
 .konten-phil.registrasi-harapan {
