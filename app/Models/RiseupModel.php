@@ -175,10 +175,10 @@ class RiseupModel extends Model
     }
 
     // Akses database terkait shop
-    public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas)
+    public function search_orderan($keyword, $jumlahlist, $index, $order, $lunas, $tanggal_awal, $tanggal_akhir)
     {
         $select = "kode, nama, UNIX_TIMESTAMP(updated_at) as tanggal";
-        $where = "nama like '%" . $keyword . "%' and lunas = " . $lunas;
+        $where = "nama like '%" . $keyword . "%' and lunas = " . $lunas . " and UNIX_TIMESTAMP(updated_at) >= " . $tanggal_awal . " and UNIX_TIMESTAMP(updated_at) < " . $tanggal_akhir;
         $all = $this->db->table('orderan')->distinct()->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);
@@ -189,10 +189,10 @@ class RiseupModel extends Model
         $data['jumlah'] = $jumlahdata;
         return $data;
     }
-    public function search_rekap_orderan($keyword, $jumlahlist, $index, $order)
+    public function search_rekap_orderan($keyword, $jumlahlist, $index, $order, $tanggal_awal, $tanggal_akhir)
     {
         $select = "produk.nama as produk, sum(list_items.jumlah) as jumlah";
-        $where = "produk.nama like '%" . $keyword . "%' and orderan.lunas = 1";
+        $where = "produk.nama like '%" . $keyword . "%' and orderan.lunas = 1 and UNIX_TIMESTAMP(orderan.updated_at) >= " . $tanggal_awal . " and UNIX_TIMESTAMP(orderan.updated_at) < " . $tanggal_akhir;
         $all = $this->db->table('list_items')->join('orderan', 'list_items.kode = orderan.kode', 'left')->join('produk', 'list_items.produk = produk.kode', 'left')->select($select)->where($where)->orderBy($order)->groupBy('produk.nama')->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);

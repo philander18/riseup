@@ -818,8 +818,13 @@ input:hover, textarea:hover, select:hover {
     gap: 1em;
 }
 
+.container-produk-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .container-produk img {
-    width: 310px;
+    width: 100%;
 }
 
 .container-produk p {

@@ -2,7 +2,7 @@
     text-align: center;
     font-weight: bold;
     font-family: 'rowdies', serif;
-    margin-bottom: 0.3em;
+    margin: 0.3em 0;
 }
 
 .judul-1 {
@@ -21,6 +21,9 @@
 
 /* halaman konten */
 .konten-phil {
+    display: grid;
+    grid-auto-rows: max-content;
+    align-items: start;
     margin: 0.3em;
     padding: 0.3em;
     /* border: 1px solid black; */
@@ -96,7 +99,6 @@
     display: grid;
     grid-template-columns: minmax(360px,1fr);
     justify-content: center;
-    align-items: start;
     padding: 0.5em;
     width: 100%;
 }
@@ -116,7 +118,6 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(360px,1fr));
     justify-content: center;
-    align-items: start;
     padding: 0.5em;
     gap: 0.5em;
     width: 100%;

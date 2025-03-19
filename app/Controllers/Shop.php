@@ -14,6 +14,10 @@ class Shop extends BaseController
     }
     public function index(): string
     {
+        $tanggal_awal_batch0 = strtotime("2025-03-03 00:00:00");
+        $tanggal_akhir_batch0 = strtotime("2025-03-19 00:00:00");
+        $tanggal_awal_batch1 = strtotime("2025-03-19 00:00:00");
+        $tanggal_akhir_batch1 = strtotime("2025-04-11 00:00:00");
         $session = session();
         $page = 1;
         $kolom_order_belum_lunas = 'kode';
@@ -25,38 +29,55 @@ class Shop extends BaseController
         $kolom_rekap_orderan = 'jumlah';
         $sort_rekap_orderan = 'DESC';
         $order_rekap_orderan = $kolom_rekap_orderan . ' ' . $sort_rekap_orderan;
+        $kolom_batch0 = 'kode';
+        $sort_batch0 = 'DESC';
+        $order_batch0 = $kolom_batch0 . ' ' . $sort_batch0;
+        $kolom_rekap_batch0 = 'jumlah';
+        $sort_rekap_batch0 = 'DESC';
+        $order_rekap_batch0 = $kolom_rekap_batch0 . ' ' . $sort_rekap_batch0;
         $data = [
             'judul' => 'Toko',
             'akses' => $session->akses,
             'produk' => $this->RiseupModel->list_produk(),
             'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja'],
-            'order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0)['tabel'],
-            'pagination_order_belum_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0)['lastpage']),
-            'last_order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0)['lastpage'],
-            'jumlah_order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0)['jumlah'],
-            'page' => $page,
+            'order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0, $tanggal_awal_batch1, $tanggal_akhir_batch1)['tabel'],
+            'pagination_order_belum_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0, $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage']),
+            'last_order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0, $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage'],
+            'jumlah_order_belum_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_belum_lunas, 0, $tanggal_awal_batch1, $tanggal_akhir_batch1)['jumlah'],
             'kolom_order_belum_lunas' => $kolom_order_belum_lunas,
             'sort_order_belum_lunas' => $sort_order_belum_lunas,
-            'order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1)['tabel'],
-            'pagination_order_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1)['lastpage']),
-            'last_order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1)['lastpage'],
-            'jumlah_order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1)['jumlah'],
-            'page' => $page,
+            'order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1,  $tanggal_awal_batch1, $tanggal_akhir_batch1)['tabel'],
+            'pagination_order_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1,  $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage']),
+            'last_order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1,  $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage'],
+            'jumlah_order_lunas' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_order_lunas, 1,  $tanggal_awal_batch1, $tanggal_akhir_batch1)['jumlah'],
             'kolom_order_lunas' => $kolom_order_lunas,
             'sort_order_lunas' => $sort_order_lunas,
-            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['tabel'],
-            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['lastpage']),
-            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['lastpage'],
-            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan)['jumlah'],
-            'page' => $page,
+            'batch0' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_batch0, 1,  $tanggal_awal_batch0, $tanggal_akhir_batch0)['tabel'],
+            'pagination_batch0' => $this->pagination($page, $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_batch0, 1,  $tanggal_awal_batch0, $tanggal_akhir_batch0)['lastpage']),
+            'last_batch0' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_batch0, 1,  $tanggal_awal_batch0, $tanggal_akhir_batch0)['lastpage'],
+            'jumlah_batch0' => $this->RiseupModel->search_orderan("", $this->jumlahlist, 0, $order_batch0, 1,  $tanggal_awal_batch0, $tanggal_akhir_batch0)['jumlah'],
+            'kolom_batch0' => $kolom_batch0,
+            'sort_batch0' => $sort_batch0,
+            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch1, $tanggal_akhir_batch1)['tabel'],
+            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage']),
+            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch1, $tanggal_akhir_batch1)['lastpage'],
+            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch1, $tanggal_akhir_batch1)['jumlah'],
             'kolom_rekap_orderan' => $kolom_rekap_orderan,
             'sort_rekap_orderan' => $sort_rekap_orderan,
+            'rekap_batch0' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch0, $tanggal_akhir_batch0)['tabel'],
+            'pagination_rekap_batch0' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch0, $tanggal_akhir_batch0)['lastpage']),
+            'last_rekap_batch0' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch0, $tanggal_akhir_batch0)['lastpage'],
+            'jumlah_rekap_batch0' => $this->RiseupModel->search_rekap_orderan("", $this->jumlahlist, 0, $order_rekap_orderan, $tanggal_awal_batch0, $tanggal_akhir_batch0)['jumlah'],
+            'kolom_rekap_batch0' => $kolom_rekap_batch0,
+            'sort_rekap_batch0' => $sort_rekap_batch0,
+            'page' => $page,
         ];
         return view('Shop/index', $data);
     }
 
     public function refresh_rekap_orderan()
     {
+        $tanggal_awal_batch1 = strtotime("2025-03-19 00:00:00");
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
         } else {
@@ -71,16 +92,29 @@ class Shop extends BaseController
         $kolom_rekap_orderan = $_POST['kolom'];
         $sort_rekap_orderan = $_POST['sort'];
         $order_rekap_orderan = $kolom_rekap_orderan . ' ' . $sort_rekap_orderan;
+        $kolom_rekap_batch0 = $_POST['kolom'];
+        $sort_rekap_batch0 = $_POST['sort'];
+        $order_rekap_batch0 = $kolom_rekap_batch0 . ' ' . $sort_rekap_batch0;
         $data = [
-            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['tabel'],
-            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['lastpage']),
-            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['lastpage'],
-            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan)['jumlah'],
+            'rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan, $_POST['awal'], $_POST['akhir'])['tabel'],
+            'pagination_rekap_orderan' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan, $_POST['awal'], $_POST['akhir'])['lastpage']),
+            'last_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan, $_POST['awal'], $_POST['akhir'])['lastpage'],
+            'jumlah_rekap_orderan' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_orderan, $_POST['awal'], $_POST['akhir'])['jumlah'],
+            'rekap_batch0' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_batch0, $_POST['awal'], $_POST['akhir'])['tabel'],
+            'pagination_rekap_batch0' => $this->pagination($page, $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_batch0, $_POST['awal'], $_POST['akhir'])['lastpage']),
+            'last_rekap_batch0' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_batch0, $_POST['awal'], $_POST['akhir'])['lastpage'],
+            'jumlah_rekap_batch0' => $this->RiseupModel->search_rekap_orderan($keyword, $this->jumlahlist, $index, $order_rekap_batch0, $_POST['awal'], $_POST['akhir'])['jumlah'],
             'page' => $page,
             'kolom_rekap_orderan' => $kolom_rekap_orderan,
-            'sort_rekap_orderan' => $sort_rekap_orderan
+            'sort_rekap_orderan' => $sort_rekap_orderan,
+            'kolom_rekap_batch0' => $kolom_rekap_batch0,
+            'sort_rekap_batch0' => $sort_rekap_batch0,
         ];
-        return view('Shop/Ajax/rekap_orderan', $data);
+        if ($tanggal_awal_batch1 == $_POST['awal']) {
+            return view('Shop/Ajax/rekap_orderan', $data);
+        } else {
+            return view('Shop/Ajax/rekap_batch0', $data);
+        }
     }
     public function refresh_order_belum_lunas()
     {
@@ -99,10 +133,10 @@ class Shop extends BaseController
         $sort_order_belum_lunas = $_POST['sort'];
         $order_order_belum_lunas = $kolom_order_belum_lunas . ' ' . $sort_order_belum_lunas;
         $data = [
-            'order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0)['tabel'],
-            'pagination_order_belum_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0)['lastpage']),
-            'last_order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0)['lastpage'],
-            'jumlah_order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0)['jumlah'],
+            'order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0, $_POST['awal'], $_POST['akhir'])['tabel'],
+            'pagination_order_belum_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0, $_POST['awal'], $_POST['akhir'])['lastpage']),
+            'last_order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0, $_POST['awal'], $_POST['akhir'])['lastpage'],
+            'jumlah_order_belum_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_belum_lunas, 0, $_POST['awal'], $_POST['akhir'])['jumlah'],
             'page' => $page,
             'kolom_order_belum_lunas' => $kolom_order_belum_lunas,
             'sort_order_belum_lunas' => $sort_order_belum_lunas
@@ -111,6 +145,7 @@ class Shop extends BaseController
     }
     public function refresh_order_lunas()
     {
+        $tanggal_awal_batch1 = strtotime("2025-03-19 00:00:00");
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
         } else {
@@ -125,16 +160,29 @@ class Shop extends BaseController
         $kolom_order_lunas = $_POST['kolom'];
         $sort_order_lunas = $_POST['sort'];
         $order_order_lunas = $kolom_order_lunas . ' ' . $sort_order_lunas;
+        $kolom_batch0 = $_POST['kolom'];
+        $sort_batch0 = $_POST['sort'];
+        $order_batch0 = $kolom_batch0 . ' ' . $sort_batch0;
         $data = [
-            'order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1)['tabel'],
-            'pagination_order_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1)['lastpage']),
-            'last_order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1)['lastpage'],
-            'jumlah_order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1)['jumlah'],
+            'order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1, $_POST['awal'], $_POST['akhir'])['tabel'],
+            'pagination_order_lunas' => $this->pagination($page, $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1, $_POST['awal'], $_POST['akhir'])['lastpage']),
+            'last_order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1, $_POST['awal'], $_POST['akhir'])['lastpage'],
+            'jumlah_order_lunas' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_order_lunas, 1, $_POST['awal'], $_POST['akhir'])['jumlah'],
+            'batch0' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_batch0, 1, $_POST['awal'], $_POST['akhir'])['tabel'],
+            'pagination_batch0' => $this->pagination($page, $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_batch0, 1, $_POST['awal'], $_POST['akhir'])['lastpage']),
+            'last_batch0' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_batch0, 1, $_POST['awal'], $_POST['akhir'])['lastpage'],
+            'jumlah_batch0' => $this->RiseupModel->search_orderan($keyword, $this->jumlahlist, $index, $order_batch0, 1, $_POST['awal'], $_POST['akhir'])['jumlah'],
             'page' => $page,
             'kolom_order_lunas' => $kolom_order_lunas,
-            'sort_order_lunas' => $sort_order_lunas
+            'sort_order_lunas' => $sort_order_lunas,
+            'kolom_batch0' => $kolom_batch0,
+            'sort_batch0' => $sort_batch0,
         ];
-        return view('Shop/Ajax/order_lunas', $data);
+        if ($tanggal_awal_batch1 == $_POST['awal']) {
+            return view('Shop/Ajax/order_lunas', $data);
+        } else {
+            return view('Shop/Ajax/order_batch0', $data);
+        }
     }
 
     public function input_orderan()

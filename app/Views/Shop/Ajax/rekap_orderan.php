@@ -79,9 +79,17 @@
 <input type="hidden" id="sort-rekap_orderan" value="<?= $sort_rekap_orderan; ?>">
 <script>
     $(".link-rekap_orderan").on('click', function() {
-        refresh_rekap_orderan($('#keyword-rekap_orderan').val(), $(this).data('page'), $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val());
+        const date1 = new Date("2025-03-19T00:00:00");
+        const awal = Math.floor(date1.getTime() / 1000);
+        const date2 = new Date("2025-04-11T00:00:00");
+        const akhir = Math.floor(date2.getTime() / 1000);
+        refresh_rekap_orderan($('#keyword-rekap_orderan').val(), $(this).data('page'), $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val(), awal, akhir);
     });
     $(".sort-rekap_orderan").on('click', function() {
+        const date1 = new Date("2025-03-19T00:00:00");
+        const awal = Math.floor(date1.getTime() / 1000);
+        const date2 = new Date("2025-04-11T00:00:00");
+        const akhir = Math.floor(date2.getTime() / 1000);
         var sort = "ASC";
         if ($(this).data('kolom') == $('#kolom-rekap_orderan').val()) {
             if ($(this).data('sort') == 'ASC') {
@@ -92,6 +100,6 @@
         } else {
             sort = "ASC";
         }
-        refresh_rekap_orderan($('#keyword-rekap_orderan').val(), 1, $(this).data('kolom'), sort);
+        refresh_rekap_orderan($('#keyword-rekap_orderan').val(), 1, $(this).data('kolom'), sort, awal, akhir);
     });
 </script>
