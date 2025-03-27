@@ -1,4 +1,4 @@
-.judul-1, .judul-2 {
+.judul-1, .judul-2, .judul-3 {
     text-align: center;
     font-weight: bold;
     font-family: 'rowdies', serif;
@@ -10,6 +10,9 @@
 }
 .judul-2 {
     font-size: 1.8em;
+}
+.judul-3 {
+    font-size: 1.4em;
 }
 
 /* container body */
@@ -220,6 +223,14 @@
     background-size: cover;
     border-radius: 1em;
     padding: 1.2em;
+}
+
+.konten-phil.video-teaser {
+    max-width: 1000px;
+}
+
+.konten-phil.video-teaser .konten-video {
+    border: 3px solid #2980B9;
 }
 
 .konten-phil.sambutan-panitia p {

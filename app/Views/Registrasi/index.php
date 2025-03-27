@@ -640,16 +640,6 @@
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td class="text-center align-middle m-1 p-1 fw-bold bg-success">
-                                    <strong>Total Peserta</strong>
-                                </td>
-                                <td class="text-center align-middle m-1 p-1 fw-bold bg-success">
-                                    <strong><?= $total_peserta; ?></strong>
-                                </td>
-                            </tr>
-                        </tfoot>
                     </table>
                     <?php if ($peserta_summary) : ?>
                         <div aria-label="Page navigation">
@@ -694,6 +684,7 @@
                     <?php endif; ?>
                     <input type="hidden" id="kolom-peserta_summary" value="<?= $kolom_peserta_summary; ?>">
                     <input type="hidden" id="sort-peserta_summary" value="<?= $sort_peserta_summary; ?>">
+                    <div class="judul-3 mt-2 text-decoration-underline text-light">Total Peserta : <strong><?= $total_peserta; ?></strong></div>
                 </div>
             </div>
         </div>

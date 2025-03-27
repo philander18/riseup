@@ -32,6 +32,15 @@
         </div>
     </section>
     <section class="section-1">
+        <div class="konten-phil video-teaser">
+            <div class="konten-video">
+                <video autoplay muted loop controls>
+                    <source src="<?= base_url(); ?>public/video/teaser.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+    <section class="section-1">
         <div class="konten-phil sambutan-panitia">
             <p style="text-indent: 0;">Shalom, Salam sejahtera bagi kita semua,</p>
             <p>Puji dan syukur kita panjatkan kepada Tuhan Yesus Kristus yang telah memberikan kesempatan berharga ini, sehingga kami panitia KKR Paskah 2025 Pelprap GPdI Wilayah 1 Bandung bisa dibentuk dan dilantik pada tanggal 25 Januari 2025 untuk mempersiapkan acara KKR Paskah 2025 pada tanggal 26 April 2025. Momen ini merupakan sebuah kabar sukacita bagi kita semua, khususnya bagi pemuda dan remaja di seluruh GPdI Wilayah 1 Bandung. Melalui acara ini, kita akan diberi kesempatan untuk beribadah Bersama, mengalami hadirat Tuhan dan terlebih bisa mempererat persekutuan pemuda dan remaja.</p>
