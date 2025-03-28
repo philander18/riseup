@@ -615,25 +615,25 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/1.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/1.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/2.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/2.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/3.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/3.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/4.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/4.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/5.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/5.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/6.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/6.jpeg" alt="Poster">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?= base_url(); ?>public/images/shop/poster/7.jpeg" alt="Poster">
+                        <img src="<?= base_url(); ?>public/images/shop/poster/batch 2/7.jpeg" alt="Poster">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
