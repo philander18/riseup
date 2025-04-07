@@ -627,15 +627,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $total_peserta = 0;
-                            foreach ($peserta_summary as $row) : ?>
+                            <?php foreach ($peserta_summary as $row) : ?>
                                 <tr>
                                     <td class="text-center align-middle m-1 p-1">
                                         <?= $row["gereja"]; ?>
                                     </td>
                                     <td class="text-center align-middle m-1 p-1">
                                         <?= $row["jumlah"]; ?>
-                                        <?php $total_peserta += $row["jumlah"]; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -684,7 +682,7 @@
                     <?php endif; ?>
                     <input type="hidden" id="kolom-peserta_summary" value="<?= $kolom_peserta_summary; ?>">
                     <input type="hidden" id="sort-peserta_summary" value="<?= $sort_peserta_summary; ?>">
-                    <div class="judul-3 mt-2 text-decoration-underline text-light">Total Peserta : <strong><?= $total_peserta; ?></strong></div>
+                    <div class="judul-3 mt-2 text-decoration-underline text-light">Total Peserta : <strong><?= $total; ?></strong></div>
                 </div>
             </div>
         </div>

@@ -48,6 +48,7 @@ class Registrasi extends BaseController
             'jumlah_peserta_summary' => $this->RiseupModel->search_summary("", $this->jumlahlist, 0, $order_peserta_summary)['jumlah'],
             'kolom_peserta_summary' => $kolom_peserta_summary,
             'sort_peserta_summary' => $sort_peserta_summary,
+            'total' => $this->RiseupModel->search_summary("", $this->jumlahlist, 0, $order_peserta_summary)['total'],
             'harapan' => $this->RiseupModel->peserta_random(),
             'akses' => $session->akses,
             'produk' => $this->RiseupModel->list_produk(),
@@ -137,6 +138,7 @@ class Registrasi extends BaseController
             'pagination_peserta_summary' => $this->pagination($page, $this->RiseupModel->search_summary($keyword, $this->jumlahlist, $index, $order_peserta_summary)['lastpage']),
             'last_peserta_summary' => $this->RiseupModel->search_summary($keyword, $this->jumlahlist, $index, $order_peserta_summary)['lastpage'],
             'jumlah_peserta_summary' => $this->RiseupModel->search_summary($keyword, $this->jumlahlist, $index, $order_peserta_summary)['jumlah'],
+            'total' => $this->RiseupModel->search_summary($keyword, $this->jumlahlist, $index, $order_peserta_summary)['total'],
             'page' => $page,
             'kolom_peserta_summary' => $kolom_peserta_summary,
             'sort_peserta_summary' => $sort_peserta_summary

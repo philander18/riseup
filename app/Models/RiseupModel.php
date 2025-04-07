@@ -93,9 +93,11 @@ class RiseupModel extends Model
         $lastpage = ceil($jumlahdata / $jumlahlist);
         $tabel = array_splice($all, $index);
         array_splice($tabel, $jumlahlist);
+        $total = $this->db->table('peserta')->select('count(verified) as jumlah')->where('verified = 1')->groupBy('verified')->get()->getResultArray();
         $data['lastpage'] = $lastpage;
         $data['tabel'] = $tabel;
         $data['jumlah'] = $jumlahdata;
+        $data['total'] = $total[0]['jumlah'];
         return $data;
     }
 
