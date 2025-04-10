@@ -81,14 +81,14 @@
     $(".link-rekap_orderan").on('click', function() {
         const date1 = new Date("2025-03-19T00:00:00");
         const awal = Math.floor(date1.getTime() / 1000);
-        const date2 = new Date("2025-04-11T00:00:00");
+        const date2 = new Date("2025-04-12T00:00:00");
         const akhir = Math.floor(date2.getTime() / 1000);
         refresh_rekap_orderan($('#keyword-rekap_orderan').val(), $(this).data('page'), $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val(), awal, akhir);
     });
     $(".sort-rekap_orderan").on('click', function() {
         const date1 = new Date("2025-03-19T00:00:00");
         const awal = Math.floor(date1.getTime() / 1000);
-        const date2 = new Date("2025-04-11T00:00:00");
+        const date2 = new Date("2025-04-12T00:00:00");
         const akhir = Math.floor(date2.getTime() / 1000);
         var sort = "ASC";
         if ($(this).data('kolom') == $('#kolom-rekap_orderan').val()) {

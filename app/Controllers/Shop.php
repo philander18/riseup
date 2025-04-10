@@ -17,7 +17,7 @@ class Shop extends BaseController
         $tanggal_awal_batch0 = strtotime("2025-03-03 00:00:00");
         $tanggal_akhir_batch0 = strtotime("2025-03-19 00:00:00");
         $tanggal_awal_batch1 = strtotime("2025-03-19 00:00:00");
-        $tanggal_akhir_batch1 = strtotime("2025-04-11 00:00:00");
+        $tanggal_akhir_batch1 = strtotime("2025-04-12 00:00:00");
         $session = session();
         $page = 1;
         $kolom_order_belum_lunas = 'kode';

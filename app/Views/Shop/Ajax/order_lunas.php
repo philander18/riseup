@@ -110,14 +110,14 @@
     $(".link-order_lunas").on('click', function() {
         const date1 = new Date("2025-03-19T00:00:00");
         const awal = Math.floor(date1.getTime() / 1000);
-        const date2 = new Date("2025-04-11T00:00:00");
+        const date2 = new Date("2025-04-12T00:00:00");
         const akhir = Math.floor(date2.getTime() / 1000);
         refresh_order_lunas($('#keyword-order_lunas').val(), $(this).data('page'), $('#kolom-order_lunas').val(), $('#sort-order_lunas').val(), awal, akhir);
     });
     $(".sort-order_lunas").on('click', function() {
         const date1 = new Date("2025-03-19T00:00:00");
         const awal = Math.floor(date1.getTime() / 1000);
-        const date2 = new Date("2025-04-11T00:00:00");
+        const date2 = new Date("2025-04-12T00:00:00");
         const akhir = Math.floor(date2.getTime() / 1000);
         var sort = "ASC";
         if ($(this).data('kolom') == $('#kolom-order_lunas').val()) {

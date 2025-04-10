@@ -150,21 +150,21 @@
         $('#keyword-order_belum_lunas').on('keyup', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_order_belum_lunas($(this).val(), 1, $('#kolom-order_belum_lunas').val(), $('#sort-order_belum_lunas').val(), awal, akhir);
         });
         $(".link-order_belum_lunas").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_order_belum_lunas($('#keyword-order_belum_lunas').val(), $(this).data('page'), $('#kolom-order_belum_lunas').val(), $('#sort-order_belum_lunas').val(), awal, akhir);
         });
         $(".sort-order_belum_lunas").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             var sort = "ASC";
             if ($(this).data('kolom') == $('#kolom-order_belum_lunas').val()) {
@@ -181,21 +181,21 @@
         $('#keyword-order_lunas').on('keyup', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_order_lunas($(this).val(), 1, $('#kolom-order_lunas').val(), $('#sort-order_lunas').val(), awal, akhir);
         });
         $(".link-order_lunas").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_order_lunas($('#keyword-order_lunas').val(), $(this).data('page'), $('#kolom-order_lunas').val(), $('#sort-order_lunas').val(), awal, akhir);
         });
         $(".sort-order_lunas").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             var sort = "ASC";
             if ($(this).data('kolom') == $('#kolom-order_lunas').val()) {
@@ -243,21 +243,21 @@
         $('#keyword-rekap_orderan').on('keyup', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_rekap_orderan($(this).val(), 1, $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val(), awal, akhir);
         });
         $(".link-rekap_orderan").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             refresh_rekap_orderan($('#keyword-rekap_orderan').val(), $(this).data('page'), $('#kolom-rekap_orderan').val(), $('#sort-rekap_orderan').val(), awal, akhir);
         });
         $(".sort-rekap_orderan").on('click', function() {
             const date1 = new Date("2025-03-19T00:00:00");
             const awal = Math.floor(date1.getTime() / 1000);
-            const date2 = new Date("2025-04-11T00:00:00");
+            const date2 = new Date("2025-04-12T00:00:00");
             const akhir = Math.floor(date2.getTime() / 1000);
             var sort = "ASC";
             if ($(this).data('kolom') == $('#kolom-rekap_orderan').val()) {
