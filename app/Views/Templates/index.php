@@ -50,6 +50,7 @@
     <?= $this->include('Sponsor/script'); ?>
     <?= $this->include('Laporan/script'); ?>
     <?= $this->include('Game/script'); ?>
+    <?= $this->include('Kehadiran/script'); ?>
 </body>
 
 </html>

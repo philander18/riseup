@@ -6,6 +6,7 @@
             <a href="<?= base_url(); ?>shop">Toko</a>
             <a href="<?= base_url(); ?>sponsor">Sponsorship</a>
             <a href="<?= base_url(); ?>registrasi">Registrasi</a>
+            <a href="<?= base_url(); ?>kehadiran" class="<?= is_null($akses) ? 'text-decoration-line-through' : ''; ?>">Kehadiran</a>
             <a href="<?= base_url(); ?>laporan" class="<?= is_null($akses) ? 'text-decoration-line-through' : ''; ?>">Laporan</a>
         </div>
         <div class="navbar-extra-phil">

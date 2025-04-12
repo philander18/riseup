@@ -58,6 +58,11 @@ class RiseupModel extends Model
         return $this->db->table('dana')->insert($data);
     }
 
+    function update_kehadiran($id, $data)
+    {
+        return $this->db->table('peserta')->where('id', $id)->update($data);
+    }
+
     public function search_peserta($keyword, $jumlahlist, $index, $order, $gereja, $verified)
     {
         if ($gereja == 'All') {
@@ -65,7 +70,7 @@ class RiseupModel extends Model
         } else {
             $where = "nama like '%" . $keyword . "%' and gereja = '" . $gereja . "' and verified = " . $verified;
         }
-        $select = "id, nama, gereja, harapan";
+        $select = "id, nama, gereja, harapan, hadir";
         $all = $this->db->table('peserta')->select($select)->where($where)->orderBy($order)->get()->getResultArray();
         $jumlahdata = count($all);
         $lastpage = ceil($jumlahdata / $jumlahlist);

@@ -18,6 +18,7 @@ $routes->post('shop/test', 'Shop::test');
 $routes->get('sponsor', 'Sponsor::index');
 $routes->get('kontak', 'Kontak::index');
 $routes->get('laporan', 'Laporan::index');
+$routes->get('kehadiran', 'Kehadiran::index');
 $routes->get('/cetak-pdf', 'PdfController::generatePdf');
 
 
@@ -51,3 +52,5 @@ $routes->post('Laporan/refresh_summary_dana_masuk', 'Laporan::refresh_summary_da
 $routes->post('Laporan/refresh_dana_keluar', 'Laporan::refresh_dana_keluar');
 $routes->post('Laporan/refresh_summary_dana_keluar', 'Laporan::refresh_summary_dana_keluar');
 $routes->post('Laporan/hapus_dana', 'Laporan::hapus_dana');
+$routes->post('Kehadiran/refresh_tabel_peserta_hadir', 'Kehadiran::refresh_tabel_peserta_hadir');
+$routes->post('Kehadiran/update_kehadiran', 'Kehadiran::update_kehadiran');
