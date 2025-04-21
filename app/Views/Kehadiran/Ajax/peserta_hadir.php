@@ -34,7 +34,7 @@
         <?php foreach ($peserta_hadir as $row) : ?>
             <tr>
                 <td class="text-center align-middle m-1 p-1">
-                    <?php if ($akses == $row["gereja"]) : ?>
+                    <?php if ($akses == 'ketua') : ?>
                         <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
                             <?= $row["nama"]; ?>
                         </a>
@@ -46,7 +46,7 @@
                     <?= $row["gereja"]; ?>
                 </td>
                 <td class="text-center align-middle m-1 p-1">
-                    <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?>>
+                    <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?> <?= (in_array($akses, ['ketua', 'absensi'])) ? '' : 'disabled'; ?>>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -25,7 +25,7 @@
         <?php foreach ($peserta_unverifikasi as $row) : ?>
             <tr>
                 <td class="text-center align-middle m-1 p-1">
-                    <?php if ($akses == $row["gereja"]) : ?>
+                    <?php if ($akses == $row["gereja"] or $akses == 'ketua') : ?>
                         <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
                             <?= $row["nama"]; ?>
                         </a>

@@ -878,7 +878,9 @@ input:hover, textarea:hover, select:hover {
 }
 
 .gold-konten .gold-item {
-    background-color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .silver-konten .silver-item {
     display: flex;
@@ -886,8 +888,14 @@ input:hover, textarea:hover, select:hover {
     align-items: center;
 }
 
+.gold-item img {
+    width: 100%;
+    object-fit: contain;
+    border: 5px solid var(--primary);
+    border-radius: 10px;
+}
 .silver-item img {
-    height: 300px;
+    width: 100%;
     object-fit: contain;
     border: 5px solid var(--primary);
     border-radius: 10px;

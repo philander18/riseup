@@ -53,7 +53,7 @@
                             <?php foreach ($peserta_hadir as $row) : ?>
                                 <tr>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <?php if ($akses == $row["gereja"]) : ?>
+                                        <?php if ($akses == 'ketua') : ?>
                                             <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
                                                 <?= $row["nama"]; ?>
                                             </a>
@@ -65,7 +65,7 @@
                                         <?= $row["gereja"]; ?>
                                     </td>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?>>
+                                        <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?> <?= (in_array($akses, ['ketua', 'absensi'])) ? '' : 'disabled'; ?>>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -118,6 +118,21 @@
             </div>
         </div>
     </section>
+</div>
+<div class="modal fade" id="detail-peserta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-bold" id="exampleModalLabel">Detail Peserta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body isi-detail-peserta">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 <?= $this->include('Templates/footer'); ?>
 <?= $this->endSection(); ?>

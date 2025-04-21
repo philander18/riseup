@@ -60,6 +60,7 @@
                 <button type="button" class="submit-registrasi" id="submit-registrasi" disabled>Daftar</button>
                 <div class="note-registrasi">
                     <p>Note :
+                        <br>Teman-teman yang hadir di acara KKR wajib registrasi untuk penyediaan konsumsi dan diikutkan dalam doorprize. registrasi tetap akan dibuka sampai hari H.
                         <br>Informasi data yang masuk dari registrasi hanya akan dipergunakan untuk keperluan kegiatan-kegiatan pelprap GPdI wilayah 1 Jawa Barat.
                         <br>Jika teman-teman bersedia masuk ke grup whatsapp anggota Pelprap GPdI Wilayah 1, Silahkan isi kolom No. Whatsapp diatas dan centang checkboxnya.
                         <br>Jangan lupa juga follow instagram <i class="fa-brands fa-instagram"></i> Pelprap GPdI Wilayah 1 di <span class="ms-1"><a href="https://www.instagram.com/pelprapgpdiwilayah1bandung?igsh=MTV4emJibXd1bDkzOA==" target="_blank">@pelprapgpdiwilayah1bandung</a></span>
@@ -392,6 +393,8 @@
             <div>
                 <p style="text-align: justify">Setelah mengisi form registrasi, silahkan menghubungi ketua pelprap sesuai gerejanya masing-masing untuk proses verifikasi.
                 </p>
+                <p style="text-align: justify">Peserta yang belum terverifikasi dikarenakan tidak ada kontak HP, akan dilakukan verifikasi di hari H pada waktu kedatangan.
+                </p>
             </div>
             <div class="phil-tabel">
                 <div class="search filter-select">
@@ -432,7 +435,7 @@
                             <?php foreach ($peserta_unverifikasi as $row) : ?>
                                 <tr>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <?php if ($akses == $row["gereja"]) : ?>
+                                        <?php if ($akses == $row["gereja"] or $akses == 'ketua') : ?>
                                             <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
                                                 <?= $row["nama"]; ?>
                                             </a>
