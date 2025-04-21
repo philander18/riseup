@@ -21,7 +21,7 @@ class RiseupModel extends Model
 
     public function list_gereja()
     {
-        $list_gereja = $this->db->table('list_gereja')->select('nama')->distinct('nama')->orderBy('nama', 'asc')->get()->getResultArray();
+        $list_gereja = $this->db->table('list_gereja')->select('nama')->distinct('nama')->orderBy("wilayah asc, nama asc")->get()->getResultArray();
         $data['list_gereja'] = $list_gereja;
         $data['select_gereja'] = $list_gereja[0]['nama'];
         return $data;
