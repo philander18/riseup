@@ -111,6 +111,11 @@ class RiseupModel extends Model
         return $this->db->table('peserta')->where('id', $id)->update($data);
     }
 
+    public function get_hadir()
+    {
+        return $this->db->table('peserta')->select('nama, gereja, hadir')->where('hadir', 1)->orderBy('updated_at', 'DESC')->limit(10)->get()->getResultArray();
+    }
+
     // Akses database terkait laporan
     public function search_dana_masuk($keyword, $jumlahlist, $index, $order, $kategori)
     {

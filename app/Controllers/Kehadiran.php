@@ -77,6 +77,25 @@ class Kehadiran extends BaseController
         $this->RiseupModel->update_kehadiran($id, $data);
     }
 
+    public function welcome()
+    {
+        $session = session();
+        // d($this->RiseupModel->get_hadir());
+        $data = [
+            'judul' => 'Welcome',
+            'list_gereja' => $this->RiseupModel->list_gereja()['list_gereja'],
+            'akses' => $session->akses,
+            'produk' => $this->RiseupModel->list_produk(),
+        ];
+        return view('Kehadiran/welcome', $data);
+    }
+
+    public function get_hadir()
+    {
+        $data = $this->RiseupModel->get_hadir();
+        return $this->response->setJSON($data);
+    }
+
     public function pagination($page, $lastpage)
     {
         $pagination = [

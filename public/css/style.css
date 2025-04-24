@@ -901,7 +901,6 @@ input:hover, textarea:hover, select:hover {
     border-radius: 10px;
 }
 
-
 /* area footer */
 .layout-contents.area-footer {
     margin: 2em 0 0;
@@ -965,6 +964,20 @@ input:hover, textarea:hover, select:hover {
 
 .form-portal .btn-back {
     grid-area: back;
+}
+
+/* Selamat datang */
+.container-fluid.selamat_datang {
+    display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+    grid-template-rows: min-content;
+    padding-top: 15vh;
+    justify-content: center;
+    background-image: url(../images/welcome.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
 }
 
 /* default tabel dari philander */
