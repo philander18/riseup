@@ -20,8 +20,8 @@ $routes->get('kontak', 'Kontak::index');
 $routes->get('laporan', 'Laporan::index');
 $routes->get('kehadiran', 'Kehadiran::index');
 $routes->get('/cetak-pdf', 'PdfController::generatePdf');
-$routes->get('Kehadiran/welcome', 'Kehadiran::welcome');
-$routes->get('Kehadiran/get_hadir', 'Kehadiran::get_hadir');
+$routes->get('kehadiran/welcome', 'Kehadiran::welcome');
+$routes->get('kehadiran/get_hadir', 'Kehadiran::get_hadir');
 
 
 $routes->post('Home/flash', 'Home::flash');

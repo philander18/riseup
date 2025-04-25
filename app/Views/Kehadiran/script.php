@@ -1,4 +1,58 @@
 <script>
+    function capitalizeEachWord(str) {
+        return str
+            .toLowerCase()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    function welcomeApp() {
+        return {
+            names: [],
+            gereja: [],
+            index: 0,
+            currentName: '',
+            currentGereja: '',
+
+            async fetchNames() {
+                try {
+                    const res = await fetch('<?= base_url(); ?>kehadiran/get_hadir');
+                    const data = await res.json();
+                    this.names = data.map(item => item.nama);
+                    this.gereja = data.map(item => item.gereja);
+                    this.index = 0;
+                    if (this.names.length > 0) {
+                        this.currentName = this.names[this.index];
+                        this.currentGereja = this.gereja[this.index];
+                    }
+                    // this.index = 0;
+                    // this.currentName = this.names.length > 0 ? this.names[0] : '';
+                    // this.currentGereja = this.gereja.length > 0 ? this.gereja[0] : '';
+                    // this.currentName = this.names[this.index]
+                    // this.currentGereja = this.gereja[this.index]
+                } catch (e) {
+                    console.error("Gagal fetch data:", e);
+                }
+            },
+
+            updateName() {
+                if (this.names.length === 0) return;
+                this.index = (this.index + 1) % this.names.length;
+                this.currentName = this.names[this.index];
+                this.currentGereja = this.gereja[this.index];
+                console.log(this.index);
+            },
+
+            async init() {
+                await this.fetchNames(); // Ambil data & tampilkan nama pertama
+                // this.updateName();
+                setInterval(() => this.updateName(), 5000); // Ganti nama tiap 5 detik
+                setInterval(() => this.fetchNames(), 50000); // Ambil ulang dari DB tiap 1 menit
+            }
+        }
+    }
+
     function refresh_peserta_hadir(keyword, page, gereja, kolom, sort) {
         $.ajax({
             url: method_url('Kehadiran', 'refresh_tabel_peserta_hadir'),
