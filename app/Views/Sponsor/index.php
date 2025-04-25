@@ -2,6 +2,30 @@
 <?= $this->section('page-content'); ?>
 <?= $this->include('Templates/nav'); ?>
 <div class="container-phil" x-data="{akses: '<?= $akses; ?>'}">
+    <div class="judul-1">Sponsor Platinum</div>
+    <section class="section-1">
+        <div class="konten-phil py-2">
+            <div class="platinum-item">
+                <img src="<?= base_url(); ?>public/images/sponsor/platinum1.png" alt="Platinum 1">
+            </div>
+        </div>
+    </section>
+    <section class="section-2">
+        <div class="konten-phil py-2">
+            <div class="konten-video platinum-item">
+                <video autoplay muted loop controls>
+                    <source src="<?= base_url(); ?>public/images/sponsor/platinum1a.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="konten-phil py-2">
+            <div class="konten-video platinum-item">
+                <video autoplay muted loop controls>
+                    <source src="<?= base_url(); ?>public/images/sponsor/platinum1b.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
     <div class="judul-1">Sponsor Gold</div>
     <section class="section-1">
         <div class="konten-phil py-2">
@@ -25,11 +49,16 @@
             <button type="button" class="btn-close close-home" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide p-2">
+                    <div class="swiper-slide p-2 sponsor-image">
+                        <h4 class="text-center fw-bold my-2">Sponsor Platinum</h4>
+                        <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/platinum1.png" alt="Poster">
+
+                    </div>
+                    <div class="swiper-slide p-2 sponsor-image">
                         <h4 class="text-center fw-bold my-2">Sponsor Gold</h4>
                         <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/gold1.png" alt="Poster">
                     </div>
-                    <div class="swiper-slide p-2">
+                    <div class="swiper-slide p-2 sponsor-image">
                         <h4 class="text-center fw-bold my-2">Sponsor Silver</h4>
                         <img style="border: 2px solid #2980B9; border-radius: 10px" src="<?= base_url(); ?>public/images/sponsor/silver1.jpg" alt="Poster">
                     </div>

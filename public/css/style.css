@@ -888,7 +888,7 @@ input:hover, textarea:hover, select:hover {
     align-items: center;
 }
 
-.gold-item img {
+.gold-item img, .platinum-item img, .platinum-item video{
     width: 100%;
     object-fit: contain;
     border: 5px solid var(--primary);
@@ -900,6 +900,8 @@ input:hover, textarea:hover, select:hover {
     border: 5px solid var(--primary);
     border-radius: 10px;
 }
+
+
 
 /* area footer */
 .layout-contents.area-footer {
@@ -1014,6 +1016,11 @@ input:hover, textarea:hover, select:hover {
     align-items: center;
     height: 100%;
     position: relative;
+}
+.swiper-slide.sponsor-image {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 14fr;
 }
 .swiper .swiper-wrapper .swiper-slide img {
     width: 100%;
