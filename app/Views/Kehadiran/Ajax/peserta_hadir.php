@@ -118,6 +118,20 @@
                 }
             });
         });
+        $('.modal-detail-peserta').on('click', function() {
+            const id = $(this).data('id');
+            $.ajax({
+                url: method_url('Registrasi', 'get_detail_peserta'),
+                data: {
+                    id: id,
+                },
+                method: 'post',
+                dataType: 'html',
+                success: function(data) {
+                    $('.isi-detail-peserta').html(data);
+                }
+            });
+        });
         $(".link-peserta_hadir").on('click', function() {
             refresh_peserta_hadir($('#keyword-peserta_hadir').val(), $(this).data('page'), $('#list_gereja-peserta_hadir').val(), $('#kolom-peserta_hadir').val(), $('#sort-peserta_hadir').val());
         });
