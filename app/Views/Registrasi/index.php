@@ -393,7 +393,7 @@
             <div>
                 <p style="text-align: justify">Setelah mengisi form registrasi, silahkan menghubungi ketua pelprap sesuai gerejanya masing-masing untuk proses verifikasi.
                 </p>
-                <p style="text-align: justify">Peserta yang belum terverifikasi dikarenakan tidak ada kontak HP, akan dilakukan verifikasi di hari H pada waktu kedatangan.
+                <p style="text-align: justify">Peserta yang belum terverifikasi dan yang mendaftar hari ini akan diverifikasi pada waktu kedatangan di lokasi.
                 </p>
             </div>
             <div class="phil-tabel">
@@ -435,7 +435,7 @@
                             <?php foreach ($peserta_unverifikasi as $row) : ?>
                                 <tr>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <?php if ($akses == $row["gereja"] or $akses == 'ketua') : ?>
+                                        <?php if ($akses == $row["gereja"] or $akses == 'ketua' or $akses == 'verifikator') : ?>
                                             <a href="" class="link-primary modal-detail-peserta text-decoration-none" data-bs-toggle="modal" data-bs-target="#detail-peserta" data-id="<?= $row["id"]; ?>">
                                                 <?= $row["nama"]; ?>
                                             </a>

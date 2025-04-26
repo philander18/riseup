@@ -11,9 +11,9 @@
     <div class="label-peserta">Tahun Lahir</div>
     <div class="label-peserta">:</div>
     <div class="label-peserta text-success"><?= $peserta['tahun_lahir']; ?></div>
-    <div class="label-peserta">Whatsapp</div>
+    <!-- <div class="label-peserta">Whatsapp</div>
     <div class="label-peserta">:</div>
-    <div class="label-peserta text-success"><?= ($peserta['whatsapp'] == '' ? '-' : $peserta['whatsapp']); ?></div>
+    <div class="label-peserta text-success"><?= ($peserta['whatsapp'] == '' ? '-' : $peserta['whatsapp']); ?></div> -->
     <div class="label-peserta">Instagram</div>
     <div class="label-peserta">:</div>
     <div class="label-peserta text-success"><?= $peserta['instagram']; ?></div>
