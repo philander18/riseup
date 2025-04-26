@@ -63,6 +63,16 @@ class RiseupModel extends Model
         return $this->db->table('peserta')->where('id', $id)->update($data);
     }
 
+    function jumlah_kehadiran()
+    {
+        return $this->db->table('peserta')->select('count(hadir) as jumlah')->where('hadir = 1')->get()->getResultArray();
+    }
+
+    function nama_hadir()
+    {
+        return $this->db->table('peserta')->select('nama, gereja')->where('hadir = 1')->get()->getResultArray();
+    }
+
     public function search_peserta($keyword, $jumlahlist, $index, $order, $gereja, $verified)
     {
         if ($gereja == 'All') {

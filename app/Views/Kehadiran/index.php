@@ -65,7 +65,7 @@
                                         <?= $row["gereja"]; ?>
                                     </td>
                                     <td class="text-center align-middle m-1 p-1">
-                                        <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?> <?= (in_array($akses, ['ketua', 'absensi'])) ? '' : 'disabled'; ?>>
+                                        <input type="checkbox" class="cek_hadir" value="1" data-id="<?= $row['id']; ?>" <?= ($row['hadir'] == 1) ? "checked" : ""; ?> <?= (in_array($akses, ['ketua', 'verifikator'])) ? '' : 'disabled'; ?>>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -114,6 +114,10 @@
                     <?php endif; ?>
                     <input type="hidden" id="kolom-peserta_hadir" value="<?= $kolom_peserta_hadir; ?>">
                     <input type="hidden" id="sort-peserta_hadir" value="<?= $sort_peserta_hadir; ?>">
+                </div>
+                <div class="judul-3 mt-2 text-decoration-underline text-light">Total Peserta Hadir : <strong><span id="jumlah-hadir"><?= $jumlah_hadir; ?></span></strong></div>
+                <div class="export-csv" x-show="['verifikator', 'ketua'].includes(akses)">
+                    <a href="<?= base_url(); ?>kehadiran/export" class="btn fw-bold">Export</a>
                 </div>
             </div>
         </div>

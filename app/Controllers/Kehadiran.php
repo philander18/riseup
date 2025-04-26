@@ -14,6 +14,7 @@ class Kehadiran extends BaseController
     }
     public function index()
     {
+        // dd($this->RiseupModel->jumlah_kehadiran());
         $session = session();
         if (!$session->has('akses')) {
             return redirect()->to('home/portal')->with('notifikasi', 'Perlu masukkan kode dulu.');
@@ -34,6 +35,7 @@ class Kehadiran extends BaseController
             'sort_peserta_hadir' => $sort_peserta_hadir,
             'akses' => $session->akses,
             'produk' => $this->RiseupModel->list_produk(),
+            'jumlah_hadir' => $this->RiseupModel->jumlah_kehadiran()[0]['jumlah'],
         ];
         return view('Kehadiran/index', $data);
     }
@@ -68,6 +70,32 @@ class Kehadiran extends BaseController
         return view('Kehadiran/Ajax/peserta_hadir', $data);
     }
 
+    public function export()
+    {
+        $data = $this->RiseupModel->nama_hadir();
+
+        // Header CSV
+        $filename = 'peserta_' . date('YmdHis') . '.csv';
+        header("Content-Type: text/csv");
+        header("Content-Disposition: attachment; filename=\"$filename\"");
+
+        // Buka output
+        $file = fopen('php://output', 'w');
+
+        // Tulis header kolom jika ada data
+        if (!empty($data)) {
+            fputcsv($file, array_keys((array)$data[0]));
+        }
+
+        // Tulis baris data
+        foreach ($data as $row) {
+            fputcsv($file, (array)$row);
+        }
+
+        fclose($file);
+        exit;
+    }
+
     public function update_kehadiran()
     {
         $id = $_POST['id'];
@@ -75,6 +103,7 @@ class Kehadiran extends BaseController
             'hadir' => $_POST['hadir'],
         ];
         $this->RiseupModel->update_kehadiran($id, $data);
+        return $this->RiseupModel->jumlah_kehadiran()[0]['jumlah'];
     }
 
     public function welcome()

@@ -113,7 +113,9 @@
                 },
                 method: 'post',
                 dataType: 'html',
-                success: function(data) {}
+                success: function(data) {
+                    $('#jumlah-hadir').html(data);
+                }
             });
         });
         $(".link-peserta_hadir").on('click', function() {

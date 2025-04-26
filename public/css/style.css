@@ -662,14 +662,14 @@ input:hover, textarea:hover, select:hover {
     font-weight: bold;
     margin-top: 1em;
 }
-.petunjuk-preorder {
+.petunjuk-preorder, .export-csv {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.petunjuk-preorder button {
+.petunjuk-preorder button, .export-csv a {
     background-color: black;
     color: white;
     padding: 0.5em;
